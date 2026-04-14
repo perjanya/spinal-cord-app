@@ -1,0 +1,51 @@
+[
+  {
+    "layer": "anatomy",
+    "title": "Thalamic Pain Pathway",
+    "scenario": "A patient presents with loss of pain and temperature sensation on the left side of the body below T6, but light touch is preserved.",
+    "options": ["Spinothalamic tract lesion", "Dorsal column lesion", "Corticospinal tract lesion", "Spinocerebellar tract lesion"],
+    "answer": "Spinothalamic tract lesion"
+  },
+  {
+    "layer": "physiology",
+    "title": "Proprioception Inquiry",
+    "scenario": "A patient cannot sense the position of their feet while walking but can still feel pressure. Which pathway is most likely affected?",
+    "options": ["Dorsal column", "Anterolateral system", "Corticospinal tract", "Vestibulospinal tract"],
+    "answer": "Dorsal column"
+  },
+  {
+    "layer": "pathology",
+    "title": "Ataxia and Coordination",
+    "scenario": "Following a spinal cord injury, a patient has poor coordination and a tendency to drift to one side, with intact pain sensation.",
+    "options": ["Spinocerebellar tract lesion", "Spinothalamic tract lesion", "Corticobulbar lesion", "Rubrospinal lesion"],
+    "answer": "Spinocerebellar tract lesion"
+  },
+  {
+    "layer": "neurology",
+    "title": "Head Turn Reflex",
+    "scenario": "Visual stimuli fail to provoke reflex turning of the head toward a moving object while limb strength remains normal.",
+    "options": ["Tectospinal tract lesion", "Corticospinal tract lesion", "Spinothalamic tract lesion", "Dorsal column lesion"],
+    "answer": "Tectospinal tract lesion"
+  },
+  {
+    "layer": "surgery",
+    "title": "Facial Weakness",
+    "scenario": "After surgery near the internal capsule, a patient struggles to smile and has mild dysphagia.",
+    "options": ["Corticobulbar tract injury", "Lateral corticospinal tract injury", "Spinothalamic tract injury", "Vestibulospinal tract injury"],
+    "answer": "Corticobulbar tract injury"
+  },
+  {
+    "layer": "ai",
+    "title": "Pain Modulation Network",
+    "scenario": "An AI model predicts altered arousal and sleep cycle disruption after a spinal cord lesion. Which ascending pathway is likely involved?",
+    "options": ["Spinoreticular tract", "Dorsal column", "Corticospinal tract", "Rubrospinal tract"],
+    "answer": "Spinoreticular tract"
+  },
+  {
+    "layer": "philosophy",
+    "title": "Mindful Movement",
+    "scenario": "A patient is learning to walk slowly and deliberately after injury. Which pathway best supports re-acquiring voluntary movement?",
+    "options": ["Corticospinal tract", "Spinothalamic tract", "Spinocerebellar tract", "Dorsal column"],
+    "answer": "Corticospinal tract"
+  }
+]

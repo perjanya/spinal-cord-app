@@ -1,0 +1,16 @@
+{
+  "spinothalamic": {
+    "type": "ascending",
+    "function": "Pain and temperature",
+    "cortex": "Somatosensory cortex",
+    "brainstem": "Thalamus",
+    "daily_life": "Detects heat and sharp objects instantly."
+  },
+  "corticospinal": {
+    "type": "descending",
+    "function": "Voluntary motor control",
+    "cortex": "Motor cortex",
+    "brainstem": "Pyramids",
+    "daily_life": "Controls fine hand movements and posture."
+  }
+}
