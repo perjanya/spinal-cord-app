@@ -387,35 +387,25 @@ function LandingScreen({ onSelectDivision, progress }) {
       </header>
 
       <main className="mx-auto grid max-w-7xl gap-6 px-4 py-6 sm:px-6 lg:grid-cols-[minmax(320px,520px)_1fr]">
-        <section className="relative min-h-[560px] rounded-lg border border-slate-200 bg-white shadow-sm">
-          <div className="absolute inset-0 grid place-items-center p-8">
-            <div className="relative h-[500px] w-[260px]">
-              <div className="absolute left-1/2 top-0 h-full w-24 -translate-x-1/2 rounded-[48px] border-4 border-slate-800 bg-slate-50 shadow-inner" />
-              <div className="absolute left-1/2 top-8 h-[444px] w-10 -translate-x-1/2 rounded-full bg-slate-200" />
-              <div className="absolute left-1/2 top-16 h-[372px] w-5 -translate-x-1/2 rounded-full bg-sky-100" />
-              {['top-[72px]', 'top-[152px]', 'top-[232px]', 'top-[312px]', 'top-[392px]'].map((offset) => (
-                <div key={offset} className={`absolute left-1/2 ${offset} h-20 w-64 -translate-x-1/2`}>
-                  <div className="absolute left-1/2 top-1/2 h-5 w-full -translate-x-1/2 -translate-y-1/2 rounded-full bg-slate-200" />
-                  <div className="absolute left-[58px] top-1/2 h-9 w-9 -translate-y-1/2 rounded-full border-2 border-slate-700 bg-white" />
-                  <div className="absolute right-[58px] top-1/2 h-9 w-9 -translate-y-1/2 rounded-full border-2 border-slate-700 bg-white" />
-                </div>
-              ))}
-              <button
-                type="button"
-                onClick={() => onSelectDivision('ascending')}
-                className="absolute left-1/2 top-5 z-10 w-44 -translate-x-1/2 rounded-lg border border-emerald-600 bg-emerald-50 px-4 py-3 text-sm font-semibold text-emerald-900 shadow-lg transition hover:-translate-y-0.5 hover:bg-emerald-100"
-              >
-                Ascending Tracts
-              </button>
-              <button
-                type="button"
-                onClick={() => onSelectDivision('descending')}
-                className="absolute bottom-5 left-1/2 z-10 w-44 -translate-x-1/2 rounded-lg border border-rose-600 bg-rose-50 px-4 py-3 text-sm font-semibold text-rose-900 shadow-lg transition hover:-translate-y-0.5 hover:bg-rose-100"
-              >
-                Descending Tracts
-              </button>
-            </div>
-          </div>
+        <section className="relative min-h-[560px] overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm">
+          <spline-viewer
+            url="https://prod.spline.design/GVrlap4FGO1V3lj4/scene.splinecode"
+            className="block h-[560px] w-full"
+          />
+          <button
+            type="button"
+            onClick={() => onSelectDivision('ascending')}
+            className="absolute left-1/2 top-5 z-10 w-44 -translate-x-1/2 rounded-lg border border-emerald-600 bg-emerald-50/95 px-4 py-3 text-sm font-semibold text-emerald-900 shadow-lg transition hover:-translate-y-0.5 hover:bg-emerald-100"
+          >
+            Ascending Tracts
+          </button>
+          <button
+            type="button"
+            onClick={() => onSelectDivision('descending')}
+            className="absolute bottom-5 left-1/2 z-10 w-44 -translate-x-1/2 rounded-lg border border-rose-600 bg-rose-50/95 px-4 py-3 text-sm font-semibold text-rose-900 shadow-lg transition hover:-translate-y-0.5 hover:bg-rose-100"
+          >
+            Descending Tracts
+          </button>
         </section>
 
         <section className="grid content-start gap-4">
