@@ -1,6 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import DCMLPage from './pages/DCMLPage';
 
 const knowMoreBasics = `The Dorsal Column pathway is the body's high-speed data cable for discriminative touch, allowing you to recognize a coin in your pocket without looking or to feel the vibration of a tuning fork. It begins with first-order neurons in the Dorsal Root Ganglion, which send long axons up the back of the spinal cord in two bundles: the Fasciculus Gracilis for the legs and lower body, and the Fasciculus Cuneatus for the arms and upper body. These fibers stay on the same side they entered until they reach the lower medulla of the brainstem.
 
@@ -687,12 +686,14 @@ function DescendingTractsScreen({ onBack }) {
             Motor Pathways
           </h1>
           <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-600">
-            Dorsal Column - Medial Lemniscus pathway animation is available here for review.
+            This destination is reserved for descending tract modules. The landing object can already route learners here.
           </p>
         </div>
       </header>
       <main className="mx-auto max-w-7xl px-4 py-6 sm:px-6">
-        <DCMLPage />
+        <div className="rounded-lg border border-dashed border-rose-300 bg-white p-6 text-slate-700">
+          Add corticospinal, rubrospinal, vestibulospinal, reticulospinal, and tectospinal modules here later.
+        </div>
       </main>
     </div>
   );
@@ -827,8 +828,14 @@ function FlashcardModal({ level, onClose, onComplete, onKnowMore }) {
   );
 }
 
-function DcmlModule({ onBack, progress }) {
+function DcmlModule({ onBack, progress, onAnswer, onKnowMore, onShowCertificate }) {
+  const [activeLevel, setActiveLevel] = useState(null);
   const completedLevelIds = progress.completedLevels;
+  const activeIndex = activeLevel ? pathwayLevels.findIndex((level) => level.id === activeLevel.id) : -1;
+  const nextIndex = Math.min(completedLevelIds.length, pathwayLevels.length - 1);
+  const certificateReady = progress.completedTracts.includes('dcml');
+
+  const completeLevel = (levelId, correct) => onAnswer(levelId, correct);
 
   return (
     <div className="min-h-screen bg-[#f7fafc] text-slate-950">
@@ -844,7 +851,7 @@ function DcmlModule({ onBack, progress }) {
                 Dorsal Column - Medial Lemniscus
               </h1>
               <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-600">
-                Play the audio-guided pathway and jump between the main DCML landmarks.
+                Use the base video as your pathway map. Open each level marker in order, answer the flashcard, and unlock the next step.
               </p>
             </div>
             <div className="rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700">
@@ -855,9 +862,107 @@ function DcmlModule({ onBack, progress }) {
         </div>
       </header>
 
-      <main className="mx-auto max-w-7xl px-4 py-5 sm:px-6">
-        <DCMLPage />
+      <main className="mx-auto grid max-w-7xl gap-5 px-4 py-5 sm:px-6 lg:grid-cols-[minmax(0,1fr)_300px]">
+        <section className="relative overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm">
+          <div className="border-b border-slate-200 bg-slate-50 px-4 py-3">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">Base Video</p>
+            <p className="mt-1 text-sm text-slate-700">Dorsal Column Medial Lemniscus Pathways</p>
+          </div>
+          <div className="relative bg-slate-950">
+            <video
+              src="/assets/video/Dorsal Column Medial Lemniscus Pathways.mp4"
+              className="h-auto w-full"
+              autoPlay
+              muted
+              loop
+              playsInline
+              controls
+            />
+            <div className="absolute inset-0">
+              {pathwayLevels.map((level, index) => {
+                const isCompleted = completedLevelIds.includes(level.id);
+                const isUnlocked = index <= nextIndex || isCompleted;
+
+                return (
+                  <button
+                    key={level.id}
+                    type="button"
+                    onClick={() => isUnlocked && setActiveLevel(level)}
+                    disabled={!isUnlocked}
+                    className={`absolute max-w-[150px] rounded-lg border px-3 py-2 text-left text-xs font-semibold shadow-lg transition sm:max-w-[180px] sm:text-sm ${level.position} ${
+                      isCompleted
+                        ? 'border-emerald-600 bg-emerald-50 text-emerald-900'
+                        : isUnlocked
+                          ? 'border-sky-700 bg-white text-sky-950 hover:-translate-y-0.5 hover:bg-sky-50'
+                          : 'border-slate-300 bg-slate-100 text-slate-400 opacity-70'
+                    }`}
+                  >
+                    <span className="block text-[10px] uppercase tracking-[0.16em]">{level.phase}</span>
+                    {level.shortLabel}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        <aside className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+          <h2 className="text-lg font-semibold text-slate-950">Pathway Levels</h2>
+          <div className="mt-4 grid gap-2">
+            {pathwayLevels.map((level, index) => {
+              const isCompleted = completedLevelIds.includes(level.id);
+              const isUnlocked = index <= nextIndex || isCompleted;
+
+              return (
+                <button
+                  key={level.id}
+                  type="button"
+                  onClick={() => isUnlocked && setActiveLevel(level)}
+                  disabled={!isUnlocked}
+                  className={`rounded-lg border px-3 py-3 text-left text-sm transition ${
+                    activeIndex === index
+                      ? 'border-sky-700 bg-sky-50 text-sky-950'
+                      : isCompleted
+                        ? 'border-emerald-500 bg-emerald-50 text-emerald-900'
+                        : isUnlocked
+                          ? 'border-slate-300 bg-white text-slate-800 hover:border-sky-600'
+                          : 'border-slate-200 bg-slate-50 text-slate-400'
+                  }`}
+                >
+                  <span className="block text-xs font-semibold uppercase tracking-[0.18em]">{level.phase}</span>
+                  {index + 1}. {level.label}
+                </button>
+              );
+            })}
+          </div>
+          <div className="mt-5 border-t border-slate-200 pt-5">
+            <h2 className="text-lg font-semibold text-slate-950">Badges</h2>
+            <div className="mt-3">
+              <BadgeShelf progress={progress} />
+            </div>
+          </div>
+          <button
+            type="button"
+            onClick={onShowCertificate}
+            disabled={!certificateReady}
+            className="mt-5 w-full rounded-lg bg-sky-700 px-4 py-3 text-sm font-semibold text-white transition hover:bg-sky-800 disabled:cursor-not-allowed disabled:bg-slate-300"
+          >
+            {certificateReady ? 'View Certificate' : 'Certificate locked'}
+          </button>
+        </aside>
       </main>
+
+      <AnimatePresence>
+        {activeLevel && (
+          <FlashcardModal
+            key={activeLevel.id}
+            level={activeLevel}
+            onClose={() => setActiveLevel(null)}
+            onComplete={completeLevel}
+            onKnowMore={onKnowMore}
+          />
+        )}
+      </AnimatePresence>
     </div>
   );
 }

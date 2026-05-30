@@ -12,6 +12,17 @@ const steps = [
   { time: 77, label: 'Internal Capsule to Somatosensory Cortex', highlight: 'Cortex' },
 ];
 
+const stepCamera = [
+  { scale: 5, x: -52, y: -480},
+  { scale: 1.12, x: 0, y: -36 },
+  { scale: 1.22, x: 0, y: -96 },
+  { scale: 1.34, x: 0, y: -176 },
+  { scale: 1.48, x: 10, y: -242 },
+  { scale: 1.62, x: 18, y: -314 },
+  { scale: 1.76, x: 28, y: -388 },
+  { scale: 1.92, x: 42, y: -486 },
+];
+
 function resetSvgHighlights(svgDoc) {
   svgDoc.querySelectorAll('g, path, line').forEach((element) => {
     if (!(element instanceof SVGElement)) return;
@@ -29,67 +40,6 @@ function applySvgHighlight(svgDoc, step) {
     element.style.filter = 'drop-shadow(0 0 15px #34d399) brightness(1.4)';
     element.style.transition = 'filter 0.4s ease';
   }
-
-  createSignalDots(svgDoc, steps.indexOf(step));
-}
-
-function getDotPositions(stepIndex) {
-  const positionsMap = {
-    0: [{ x: 80, y: 1230 }, { x: 100, y: 1200 }, { x: 120, y: 1170 }],
-    1: [{ x: 160, y: 1180 }, { x: 180, y: 1150 }, { x: 200, y: 1120 }],
-    2: [{ x: 240, y: 1050 }, { x: 245, y: 980 }, { x: 250, y: 900 }],
-    3: [{ x: 255, y: 850 }, { x: 270, y: 780 }, { x: 280, y: 720 }],
-    4: [{ x: 265, y: 700 }, { x: 275, y: 650 }, { x: 285, y: 600 }],
-    5: [{ x: 290, y: 550 }, { x: 300, y: 480 }, { x: 310, y: 400 }],
-    6: [{ x: 320, y: 350 }, { x: 340, y: 280 }, { x: 355, y: 220 }],
-    7: [{ x: 370, y: 190 }, { x: 400, y: 140 }, { x: 430, y: 100 }],
-  };
-
-  return positionsMap[stepIndex] || [{ x: 250, y: 800 }];
-}
-
-function createSignalDots(svgDoc, stepIndex) {
-  svgDoc.querySelectorAll('.signal-dot').forEach((dot) => dot.remove());
-
-  if (!svgDoc.querySelector('#signal-dot-style')) {
-    const defs = svgDoc.querySelector('defs') || document.createElementNS('http://www.w3.org/2000/svg', 'defs');
-    const style = document.createElementNS('http://www.w3.org/2000/svg', 'style');
-    style.id = 'signal-dot-style';
-    style.textContent = `
-      .signal-dot {
-        fill: #34d399;
-        filter: drop-shadow(0 0 8px #34d399);
-        animation: dcmlSignalPulse 2.5s linear infinite;
-      }
-      @keyframes dcmlSignalPulse {
-        0% { opacity: 0.3; }
-        50% { opacity: 1; }
-        100% { opacity: 0.3; }
-      }
-    `;
-    defs.appendChild(style);
-
-    if (!defs.parentElement) {
-      svgDoc.insertBefore(defs, svgDoc.firstChild);
-    }
-  }
-
-  const positions = getDotPositions(stepIndex);
-  const layer = svgDoc.querySelector('#Layer_1') || svgDoc;
-
-  Array.from({ length: 5 }, (_, index) => {
-    const position = positions[index % positions.length];
-    const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-
-    dot.setAttribute('class', 'signal-dot');
-    dot.setAttribute('r', '4');
-    dot.setAttribute('cx', String(position.x));
-    dot.setAttribute('cy', String(position.y));
-    dot.style.animationDelay = `-${index * 0.4}s`;
-    layer.appendChild(dot);
-
-    return dot;
-  });
 }
 
 export default function DCMLPathway() {
@@ -116,10 +66,14 @@ export default function DCMLPathway() {
   useEffect(() => {
     let active = true;
 
-    fetch('/assets/Dorsal column medial lemniscusAsset 26.svg')
+    fetch('/assets/Dorsal column medial lemniscusAsset 26.html')
       .then((response) => response.text())
       .then((markup) => {
-        if (active) setSvgMarkup(markup);
+        if (!active) return;
+
+        const doc = new DOMParser().parseFromString(markup, 'text/html');
+        const svg = doc.querySelector('svg');
+        setSvgMarkup(svg?.outerHTML ?? '');
       })
       .catch(() => {
         if (active) setSvgMarkup('');
@@ -186,18 +140,24 @@ export default function DCMLPathway() {
           onClick={togglePlayback}
           className="w-fit rounded-lg bg-emerald-700 px-5 py-3 text-sm font-semibold text-white transition hover:bg-emerald-800"
         >
-          {isPlaying ? 'Pause Animation' : 'Play with Audio + Signal'}
+          {isPlaying ? 'Pause Animation' : 'Play with Audio'}
         </button>
       </div>
 
       <div className="relative mx-auto max-h-[82vh] max-w-[520px] overflow-hidden rounded-lg border border-slate-200 bg-slate-950">
-        <div
-          ref={svgHostRef}
-          id="dcml-svg"
-          className="block h-full max-h-[82vh] w-full [&_svg]:h-full [&_svg]:w-full"
-          aria-label="Dorsal column medial lemniscus pathway diagram"
-          dangerouslySetInnerHTML={{ __html: svgMarkup }}
-        />
+        <motion.div
+          animate={stepCamera[currentStep]}
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          className="origin-center will-change-transform"
+        >
+          <div
+            ref={svgHostRef}
+            id="dcml-svg"
+            className="block h-full max-h-[82vh] w-full [&_svg]:h-full [&_svg]:w-full"
+            aria-label="Dorsal column medial lemniscus pathway diagram"
+            dangerouslySetInnerHTML={{ __html: svgMarkup }}
+          />
+        </motion.div>
 
         <AnimatePresence mode="wait">
           <motion.div

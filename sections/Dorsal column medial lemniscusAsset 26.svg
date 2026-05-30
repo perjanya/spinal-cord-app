@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 21.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 529.8 1327.3" style="enable-background:new 0 0 529.8 1327.3;" xml:space="preserve">
 <style type="text/css">
 	.st0{fill:#CCCCCC;}
@@ -20,7 +20,7 @@
 	.st14{fill:#F8F9FF;}
 	.st15{fill:none;stroke:#666666;stroke-linecap:round;stroke-miterlimit:10;}
 </style>
-<g id="Layer_1">
+<g id="Layer_1_1_">
 	<g id="base">
 		<g id="LowerSpinalCord">
 			<title>Dorsal column medial lemniscusAsset 26</title>
@@ -527,27 +527,27 @@
 	</g>
 	<g id="first-order">
 		<g>
-			<path class="st15" d="M124.5,1256.2c0-3,27-91,106-50"/>
+			<path id="Line1" class="st15" d="M124.5,1256.2c0-3,27-91,106-50"/>
 			<line class="st15" x1="162.5" y1="1192.2" x2="166.5" y2="1200.2"/>
 			<ellipse class="st15" cx="161.5" cy="1189.2" rx="4" ry="3"/>
 		</g>
 		<path class="st15" d="M229.5,1212.2c-0.2-1-0.2-2.1,0.1-3.1c0-0.4,0-0.7,0.1-1.1c0.3-0.6,0.8-1.1,1.4-1.3l1.8,2.2
 			c0.4,0.5,0.8,0.9,1.3,1.3"/>
 		<path class="st15" d="M231.5,1210.2c0,0,2,8,7,6s20-9,21-21c0.6-8.7,0.7-17.5,0.3-26.3"/>
-		<path class="st15" d="M120.1,1127c0,0,27.3-100.1,104-56"/>
+		<path id="Line1_1_" class="st15" d="M120.1,1127c0,0,27.3-100.1,104-56"/>
 		<line class="st15" x1="160.1" y1="1055" x2="163.1" y2="1066"/>
 		<ellipse class="st15" cx="158.1" cy="1050.5" rx="5" ry="4.5"/>
 		<path class="st15" d="M224.2,1077.1c0.3-0.1,0.4-0.4,0.3-0.7c-0.1-0.3-0.2-0.5-0.3-0.8c-0.2-0.5-0.2-1-0.2-1.5c0-1,0-2,0.1-2.9
 			c0.4-0.2,0.8,0.1,1.1,0.4c1.5,1.3,2.9,2.7,4.3,4.2"/>
 		<g id="dorsal-columns">
-			<path class="st15" d="M227.1,1077c0,0,1,8,10,7s8.5-51.2,8.5-51.2"/>
-			<line class="st15" x1="251.1" y1="1081" x2="252.9" y2="1032.2"/>
+			<path id="dorsalcolumn_1_" class="st15" d="M227.1,1077c0,0,1,8,10,7s8.5-51.2,8.5-51.2"/>
+			<line id="dorsalcolumn" class="st15" x1="251.1" y1="1081" x2="252.9" y2="1032.2"/>
 		</g>
 		<path class="st15" d="M248.9,884.7c0-6-6-16-6-16s-4-1-3,3"/>
 		<path class="st15" d="M223.9,901.7c-2-3-5-15-5-15s-3-4-4,1"/>
 		<path class="st15" d="M224.7,911.4c-0.1-1.6-0.3-3.2-0.7-4.8s-0.3-3.2,0.3-4.7l2.3,2.2c1.2,1.5,3.1,2.3,5,2.2"/>
 		<path class="st15" d="M246.5,893.9c-0.2-1.4,0-2.8,0.7-4l2.1-4.9c1.8,2.3,3.3,4.8,4.3,7.5"/>
-		<path class="st15" d="M27.3,690.5c0,0,91.5-66.6,112.7-81.6c2.7-1.9,5.9-4.2,9.3-6.6c15.2-10.9,35.4-25.6,47.2-34.2
+		<path id="Line1_2_" class="st15" d="M27.3,690.5c0,0,91.5-66.6,112.7-81.6c2.7-1.9,5.9-4.2,9.3-6.6c15.2-10.9,35.4-25.6,47.2-34.2
 			c3.9-2.9,9.3,0.8,8,5.5c-4.3,15.8-15.3,34.7-15.8,38.4c0,0-16,112.1-12,118.5"/>
 		<line class="st15" x1="135.5" y1="604.8" x2="140.1" y2="608.9"/>
 		<path class="st15" d="M132.8,599.5c-0.6,0.1-1.1,0.5-1.4,1.1c-0.4,0.9-1,1.7-1,2.8c-0.1,1.3,2.1,2,3.2,2c1.3,0,2-1,2.7-2
@@ -557,20 +557,20 @@
 	</g>
 	<g id="second-order">
 		<g id="decussation">
-			<path class="st15" d="M249.5,889.7c0,0-1,41,14,53c15,12,9-25,9-35l-2-54"/>
-			<path class="st15" d="M226.5,906.7c0,0,29,46,43,46c14,0,5-45,7-44l-2-54"/>
+			<path id="second1_1_" class="st15" d="M249.5,889.7c0,0-1,41,14,53s9-25,9-35l-2-54"/>
+			<path id="second1" class="st15" d="M226.5,906.7c0,0,29,46,43,46s5-45,7-44l-2-54"/>
 		</g>
 		<g id="medial-lemniscus">
-			<line class="st15" x1="276.5" y1="742.5" x2="277.5" y2="657.5"/>
-			<line class="st15" x1="280.5" y1="745.5" x2="283.5" y2="657.5"/>
+			<line id="second" class="st15" x1="276.5" y1="742.5" x2="277.5" y2="657.5"/>
+			<line id="second_1_" class="st15" x1="280.5" y1="745.5" x2="283.5" y2="657.5"/>
 		</g>
-		<path class="st15" d="M179.1,735.6c0,0,68.2-13.6,90.2-35.6c13.3-13.3,17.7-25.8,25.6-42.9"/>
-		<line class="st15" x1="313.5" y1="534.6" x2="310.5" y2="452.6"/>
-		<path class="st15" d="M287.5,564.6c0,0,19.5-105.5,21-111"/>
-		<line class="st15" x1="283.5" y1="562.6" x2="302.5" y2="455.6"/>
-		<path class="st15" d="M330.4,339.3c0,0-15-137-13-141"/>
-		<line class="st15" x1="308" y1="206.6" x2="328" y2="381.6"/>
-		<path class="st15" d="M324.4,386.3c0,0-26-168-26-174"/>
+		<path id="second1_2_" class="st15" d="M179.1,735.6c0,0,68.2-13.6,90.2-35.6c13.3-13.3,17.7-25.8,25.6-42.9"/>
+		<line id="second3_2_" class="st15" x1="313.5" y1="534.6" x2="310.5" y2="452.6"/>
+		<path id="second3_1_" class="st15" d="M287.5,564.6c0,0,19.5-105.5,21-111"/>
+		<line id="second3" class="st15" x1="283.5" y1="562.6" x2="302.5" y2="455.6"/>
+		<path id="second4_2_" class="st15" d="M330.4,339.3c0,0-15-137-13-141"/>
+		<line id="second4_1_" class="st15" x1="308" y1="206.6" x2="328" y2="381.6"/>
+		<path id="second4" class="st15" d="M324.4,386.3c0,0-26-168-26-174"/>
 		<path class="st15" d="M296.8,208.3l1.2,3c0.1,0.2,0.2,0.4,0.3,0.5c0.2,0.1,0.4,0.2,0.6,0.1c0.1-0.1,0.2-0.3,0.2-0.4l0.6-4"/>
 		<path class="st15" d="M306.3,204.4c0.3,0.7,0.7,1.4,1.2,2.1c0.1,0.2,0.3,0.4,0.5,0.3c0.1-0.1,0.2-0.2,0.3-0.3
 			c0.5-1.2,1.3-2.3,2.3-3.3"/>
@@ -578,9 +578,9 @@
 			/>
 	</g>
 	<g id="third-order">
-		<path class="st15" d="M298.2,208.6c0,0,36.5,5.9,49.5-5.1s36-49,65-52s64,11,64,11"/>
-		<path class="st15" d="M308,203.5c0,0,28.7,3,41.7-13s38-56,48-96s7-33,7-33"/>
-		<path class="st15" d="M319.1,196c0,0,46.6-3.5,30.6-56.5s-36-80-70-81"/>
+		<path id="third_2_" class="st15" d="M298.2,208.6c0,0,36.5,5.9,49.5-5.1s36-49,65-52s64,11,64,11"/>
+		<path id="third_1_" class="st15" d="M308,203.5c0,0,28.7,3,41.7-13s38-56,48-96s7-33,7-33"/>
+		<path id="third" class="st15" d="M319.1,196c0,0,46.6-3.5,30.6-56.5s-36-80-70-81"/>
 		<path class="st15" d="M277.3,55.7l1.2,1.5c0.3,0.5,0.7,0.9,1.2,1.2c-1,0.5-1.9,1.3-2.4,2.2"/>
 	</g>
 </g>
@@ -589,4 +589,404 @@
 	<path class="st15" d="M34,1131.2c0,0,57.7-23.7,90.5-4.2s37.1,25.8,37.1,25.8"/>
 	<path class="st15" d="M12,637.8c0,0-1.3,48.7,32,73.3s36.7,52.3,36.7,52.3"/>
 </g>
+
+<!-- Flowing Signal on Path dorsalcolumn -->
+<path 
+      d="M227.1,1077c0,0,1,8,10,7s8.5-51.2,8.5-51.2" 
+      fill="none"
+      stroke="#22c55e" 
+      stroke-width="7" 
+      stroke-dasharray="16 24" 
+      stroke-linecap="round"
+      opacity="0.93">
+  
+  <animate 
+    attributeName="stroke-dashoffset" 
+    from="40" 
+    to="-40" 
+    dur="2.0s" 
+    repeatCount="indefinite"/>
+</path>
+
+<!-- Flowing Signal on Line dorsalcolumn_2 -->
+<line 
+      x1="251.1" y1="1081" 
+      x2="252.9" y2="1032.2" 
+      fill="none"
+      stroke="#22c55e" 
+      stroke-width="7" 
+      stroke-dasharray="16 24" 
+      stroke-linecap="round"
+      opacity="0.93">
+  
+  <animate 
+    attributeName="stroke-dashoffset" 
+    from="40" 
+    to="-40" 
+    dur="2.0s" 
+    repeatCount="indefinite"/>
+</line>
+
+<path class="st15" d="M248.9,884.7c0-6-6-16-6-16s-4-1-3,3"/>
+		<path class="st15" d="M223.9,901.7c-2-3-5-15-5-15s-3-4-4,1"/>
+
+<path 
+      d="M248.9,884.7c0-6-6-16-6-16s-4-1-3,3" 
+      fill="none"
+      stroke="#22c55e" 
+      stroke-width="7" 
+      stroke-dasharray="16 24" 
+      stroke-linecap="round"
+      opacity="0.93">
+  
+  <animate 
+    attributeName="stroke-dashoffset" 
+    from="-40" 
+    to="40" 
+    dur="2.0s" 
+    repeatCount="indefinite"/>
+</path>
+
+<path 
+      d="M223.9,901.7c-2-3-5-15-5-15s-3-4-4,1" 
+      fill="none"
+      stroke="#22c55e" 
+      stroke-width="7" 
+      stroke-dasharray="16 24" 
+      stroke-linecap="round"
+      opacity="0.93">
+  
+  <animate 
+    attributeName="stroke-dashoffset" 
+    from="-40" 
+    to="40" 
+    dur="2.0s" 
+    repeatCount="indefinite"/>
+</path>
+
+<path id="decussation1" class="st15" d="M249.5,889.7c0,0-1,41,14,53c15,12,9-25,9-35l-2-54"/>
+			<path id="decussation2" class="st15" d="M226.5,906.7c0,0,29,46,43,46c14,0,5-45,7-44l-2-54"/>
+
+<path 
+      d="M249.5,889.7c0,0-1,41,14,53c15,12,9-25,9-35l-2-54" 
+      fill="none"
+      stroke="#22c55e" 
+      stroke-width="7" 
+      stroke-dasharray="16 24" 
+      stroke-linecap="round"
+      opacity="0.93">
+  
+  <animate 
+    attributeName="stroke-dashoffset" 
+    from="40" 
+    to="-40" 
+    dur="2.0s" 
+    repeatCount="indefinite"/>
+</path>
+
+<path 
+      d="M226.5,906.7c0,0,29,46,43,46c14,0,5-45,7-44l-2-54" 
+      fill="none"
+      stroke="#22c55e" 
+      stroke-width="7" 
+      stroke-dasharray="16 24" 
+      stroke-linecap="round"
+      opacity="0.93">
+  
+  <animate 
+    attributeName="stroke-dashoffset" 
+    from="40" 
+    to="-40" 
+    dur="2.0s" 
+    repeatCount="indefinite"/>
+</path>
+
+
+<path 
+      d="M179.1,735.6c0,0,68.2-13.6,90.2-35.6c13.3-13.3,17.7-25.8,25.6-42.9" 
+      fill="none"
+      stroke="#22c55e" 
+      stroke-width="7" 
+      stroke-dasharray="16 24" 
+      stroke-linecap="round"
+      opacity="0.93">
+  
+  <animate 
+    attributeName="stroke-dashoffset" 
+    from="40" 
+    to="-40" 
+    dur="2.0s" 
+    repeatCount="indefinite"/>
+</path>
+
+
+<path 
+      d="M287.5,564.6c0,0,19.5-105.5,21-111" 
+      fill="none"
+      stroke="#22c55e" 
+      stroke-width="7" 
+      stroke-dasharray="16 24" 
+      stroke-linecap="round"
+      opacity="0.93">
+  
+  <animate 
+    attributeName="stroke-dashoffset" 
+    from="40" 
+    to="-40" 
+    dur="2.0s" 
+    repeatCount="indefinite"/>
+</path>
+
+<line 
+      x1="313.5" y1="534.6" 
+      x2="310.5" y2="452.6" 
+      fill="none"
+      stroke="#22c55e" 
+      stroke-width="7" 
+      stroke-dasharray="16 25" 
+      stroke-linecap="round"
+      opacity="0.92">
+  
+  <animate 
+    attributeName="stroke-dashoffset" 
+    from="41" 
+    to="-41" 
+    dur="2.1s" 
+    repeatCount="indefinite"/>
+</line>
+
+<line 
+      x1="283.5" y1="562.6" 
+      x2="302.5" y2="455.6" 
+      fill="none"
+      stroke="#22c55e" 
+      stroke-width="7" 
+      stroke-dasharray="16 25" 
+      stroke-linecap="round"
+      opacity="0.92">
+  
+  <animate 
+    attributeName="stroke-dashoffset" 
+    from="41" 
+    to="-41" 
+    dur="2.1s" 
+    repeatCount="indefinite"/>
+</line>
+<line class="st15" x1="283.5" y1="562.6" x2="302.5" y2="455.6"></line>
+<line id="medial-lemniscus-line2" class="st15" x1="280.5" y1="745.5" x2="283.5" y2="657.5"></line>
+<line id="medial-lemniscus-line1" class="st15" x1="276.5" y1="742.5" x2="277.5" y2="657.5"></line>
+
+<line 
+      x1="280.5" y1="745.5" 
+      x2="283.5" y2="657.5" 
+      fill="none"
+      stroke="#22c55e" 
+      stroke-width="7" 
+      stroke-dasharray="16 25" 
+      stroke-linecap="round"
+      opacity="0.92">
+  
+  <animate 
+    attributeName="stroke-dashoffset" 
+    from="41" 
+    to="-41" 
+    dur="2.1s" 
+    repeatCount="indefinite"/>
+</line>
+
+<line 
+      x1="276.5" y1="742.5" 
+      x2="277.5" y2="657.5" 
+      fill="none"
+      stroke="#22c55e" 
+      stroke-width="7" 
+      stroke-dasharray="16 25" 
+      stroke-linecap="round"
+      opacity="0.92">
+  
+  <animate 
+    attributeName="stroke-dashoffset" 
+    from="41" 
+    to="-41" 
+    dur="2.1s" 
+    repeatCount="indefinite"/>
+</line>
+
+
+<line 
+      x1="308" y1="206.6" 
+      x2="328" y2="381.6" 
+      fill="none"
+      stroke="#22c55e" 
+      stroke-width="7" 
+      stroke-dasharray="16 25" 
+      stroke-linecap="round"
+      opacity="0.92">
+  
+  <animate 
+    attributeName="stroke-dashoffset" 
+    from="-41" 
+    to="41" 
+    dur="2.1s" 
+    repeatCount="indefinite"/>
+</line>
+<path class="st15" d="M330.4,339.3c0,0-15-137-13-141"></path>
+<path class="st15" d="M324.4,386.3c0,0-26-168-26-174"></path>
+
+<path 
+      d="M330.4,339.3c0,0-15-137-13-141" 
+      fill="none"
+      stroke="#22c55e" 
+      stroke-width="7" 
+      stroke-dasharray="16 24" 
+      stroke-linecap="round"
+      opacity="0.93">
+  
+  <animate 
+    attributeName="stroke-dashoffset" 
+    from="40" 
+    to="-40" 
+    dur="2.0s" 
+    repeatCount="indefinite"/>
+</path>
+
+<path 
+      d="M324.4,386.3c0,0-26-168-26-174" 
+      fill="none"
+      stroke="#22c55e" 
+      stroke-width="7" 
+      stroke-dasharray="16 24" 
+      stroke-linecap="round"
+      opacity="0.93">
+  
+  <animate 
+    attributeName="stroke-dashoffset" 
+    from="40" 
+    to="-40" 
+    dur="2.0s" 
+    repeatCount="indefinite"/>
+</path>
+
+
+
+<path 
+      d="M298.2,208.6c0,0,36.5,5.9,49.5-5.1s36-49,65-52s64,11,64,11" 
+      fill="none"
+      stroke="blue" 
+      stroke-width="7" 
+      stroke-dasharray="16 24" 
+      stroke-linecap="round"
+      opacity="0.93">
+  
+  <animate 
+    attributeName="stroke-dashoffset" 
+    from="40" 
+    to="-40" 
+    dur="2.0s" 
+    repeatCount="indefinite"/>
+</path>
+<path 
+      d="M308,203.5c0,0,28.7,3,41.7-13s38-56,48-96s7-33,7-33" 
+      fill="none"
+      stroke="blue" 
+      stroke-width="7" 
+      stroke-dasharray="16 24" 
+      stroke-linecap="round"
+      opacity="0.93">
+  
+  <animate 
+    attributeName="stroke-dashoffset" 
+    from="40" 
+    to="-40" 
+    dur="2.0s" 
+    repeatCount="indefinite"/>
+</path>
+
+<path 
+      d="M319.1,196c0,0,46.6-3.5,30.6-56.5s-36-80-70-81" 
+      fill="none"
+      stroke="blue" 
+      stroke-width="7" 
+      stroke-dasharray="16 24" 
+      stroke-linecap="round"
+      opacity="0.93">
+  
+  <animate 
+    attributeName="stroke-dashoffset" 
+    from="40" 
+    to="-40" 
+    dur="2.0s" 
+    repeatCount="indefinite"/>
+</path>
+
+</svg>
+<path 
+      d="M231.5,1210.2c0,0,2,8,7,6s20-9,21-21c0.6-8.7,0.7-17.5,0.3-26.3" 
+      fill="none"
+      stroke="green" 
+      stroke-width="7" 
+      stroke-dasharray="15 23" 
+      stroke-linecap="round"
+      opacity="0.94">
+  
+  <animate 
+    attributeName="stroke-dashoffset" 
+    from="38" 
+    to="-38" 
+    dur="2.0s" 
+    repeatCount="indefinite"/>
+</path>
+
+<!-- Flowing Signal on Line1_1 -->
+<path d="M120.1,1127c0,0,27.3-100.1,104-56" 
+      fill="none" 
+      stroke="#ef4444" 
+      stroke-width="6.5" 
+      stroke-dasharray="16 24" 
+      stroke-linecap="round"
+      opacity="0.95">
+  <animate attributeName="stroke-dashoffset" 
+           from="40" to="-40" 
+           dur="2.0s" repeatCount="indefinite"/>
+</path>
+
+<!-- Flowing Signal on Line1_2 -->
+<path d="M27.3,690.5c0,0,91.5-66.6,112.7-81.6c2.7-1.9,5.9-4.2,9.3-6.6c15.2-10.9,35.4-25.6,47.2-34.2
+         c3.9-2.9,9.3,0.8,8,5.5c-4.3,15.8-15.3,34.7-15.8,38.4c0,0-16,112.1-12,118.5" 
+      fill="none" 
+      stroke="#ef4444" 
+      stroke-width="6.5" 
+      stroke-dasharray="16 24" 
+      stroke-linecap="round"
+      opacity="0.95">
+  <animate attributeName="stroke-dashoffset" 
+           from="40" to="-40" 
+           dur="2.3s" repeatCount="indefinite"/>
+</path>
+
+  <!-- Circle on Line1_2 -->
+  <circle r="7" fill="#ef4444" filter="drop-shadow(0 0 14px #ef4444)">
+    <animateMotion dur="4.2s" repeatCount="indefinite" begin="0.7s">
+      <mpath href="#Line1_2"/>
+    </animateMotion>
+  </circle>
+
+  
+
+  <!-- === GLOWING FLOWING SIGNALS ON TOP OF FIRST-ORDER LINES === -->
+
+<!-- Flowing Signal on Line1 -->
+<path d="M124.5,1256.2c0-3,27-91,106-50" 
+      fill="none" 
+      stroke="#ef4444" 
+      stroke-width="6.5" 
+      stroke-dasharray="16 24" 
+      stroke-linecap="round"
+      opacity="0.95">
+  <animate attributeName="stroke-dashoffset" 
+           from="40" to="-40" 
+           dur="2.1s" repeatCount="indefinite"/>
+</path>
+
+
 </svg>
