@@ -30,3 +30,22 @@ textarea {
 .fade-leave-to {
   opacity: 0;
 }
+
+@keyframes quizBadgePop {
+  0% {
+    opacity: 0;
+    transform: scale(0.45) rotate(-12deg);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1.14) rotate(6deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+.quiz-badge-pop {
+  animation: quizBadgePop 0.5s ease-out;
+}

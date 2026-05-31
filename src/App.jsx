@@ -14,9 +14,9 @@ This is sensory ataxia. It is distinct from cerebellar ataxia, where the patient
 const pathwayLevels = [
   {
     id: 'drg',
-    phase: 'Phase 1',
-    label: 'Dorsal Root Ganglion',
-    shortLabel: 'DRG',
+    phase: 'Level 1',
+    label: 'Receptors',
+    shortLabel: 'Receptors',
     prompt:
       'The first-order neurons of the Dorsal Column pathway are located in the __________ and consist of large, heavily myelinated fibers.',
     type: 'blank',
@@ -24,81 +24,89 @@ const pathwayLevels = [
     answer: 'Dorsal Root Ganglion / DRG',
     accepted: ['dorsal root ganglion', 'drg'],
     minMatches: 1,
+    hint: 'The cell bodies sit just outside the spinal cord in a sensory ganglion.',
     knowMore: knowMoreBasics,
     position: 'left-[25%] bottom-[8%] sm:left-[28%]',
   },
   {
     id: 'lower-medulla',
-    phase: 'Phase 1',
-    label: 'Lower Medulla',
-    shortLabel: 'Lower medulla',
+    phase: 'Level 2',
+    label: 'Medulla',
+    shortLabel: 'Medulla',
     prompt: 'Where do the second-order neurons of the PCML pathway decussate (cross)?',
     type: 'mcq',
+    hint: 'Motor decussation is at the medulla; this sensory crossing is also in the medulla.',
     options: [
-      'A) Anterior White Commissure of the spinal cord',
-      'B) Sensory Decussation in the Medulla',
-      'C) Ventral Posterolateral (VPL) Nucleus',
-      'D) Internal Capsule',
+      'Anterior white commissure',
+      'Sensory decussation of medulla',
+      'VPL',
+      'Internal capsule',
     ],
-    answer: 'B) Sensory Decussation in the Medulla',
+    answer: 'Sensory decussation of medulla',
     knowMore: knowMoreBasics,
     position: 'right-[23%] bottom-[25%] sm:right-[26%]',
   },
   {
     id: 'columns',
-    phase: 'Phase 1',
+    phase: 'Level 3',
     label: 'Fasciculi Arrangement',
     shortLabel: 'Gracilis / Cuneatus',
     prompt:
       'True or False: Fibers in the Fasciculus Gracilis and Cuneatus are arranged such that sacral segments are located most laterally.',
     type: 'boolean',
+    hint: 'Think lower limb first: sacral and lumbar fibers enter earlier and occupy the medial dorsal column.',
     options: ['True', 'False'],
     answer: 'False',
     explanation: 'Sacral fibers are medial; cervical fibers are lateral.',
-    knowMore: knowMoreBasics,
+    knowMore: `${knowMoreBasics}
+
+Lower-limb sensory fibers from sacral and lumbar segments travel medially in the Fasciculus Gracilis, while upper-limb fibers ascend more laterally in the Fasciculus Cuneatus. This somatotopic map is useful when comparing lower-limb proprioceptive load in standing and sitting professions, including foot-arch and balance-related observations.`,
     position: 'left-[17%] bottom-[37%] sm:left-[21%]',
   },
   {
     id: 'proprioception',
-    phase: 'Phase 2',
+    phase: 'Level 4',
     label: 'Romberg Test',
     shortLabel: 'Romberg',
     prompt:
       'A patient presents with a positive Romberg test, swaying only when eyes are closed. Which receptor type is likely failing to transmit signals correctly?',
     type: 'mcq',
+    hint: 'The deficit appears when visual compensation is removed, so joint-position input is the weak link.',
     options: [
-      'A) Nociceptors (Pain)',
-      'B) Thermoreceptors (Temperature)',
-      'C) Proprioceptors (Muscle Spindles/Pacinian corpuscles)',
-      'D) Photoreceptors',
+      'Nociceptors',
+      'Thermoreceptors',
+      'Proprioceptors',
+      'Photoreceptors',
     ],
-    answer: 'C) Proprioceptors (Muscle Spindles/Pacinian corpuscles)',
+    answer: 'Proprioceptors',
     knowMore: knowMoreClinical,
     position: 'right-[20%] bottom-[49%] sm:right-[24%]',
   },
   {
     id: 'cordotomy',
-    phase: 'Phase 2',
+    phase: 'Level 5',
     label: 'Posterior Funiculus',
     shortLabel: 'Cordotomy',
     prompt:
-      "A neurosurgeon performing a cordotomy for pain relief may intentionally spare the posterior funiculus to preserve the patient's sense of __________ and __________.",
+      "Sparing the posterior funiculus preserves __________ and __________.",
     type: 'blank',
     placeholder: 'Type two preserved sensations',
-    answer: 'Fine touch / Vibration / Proprioception',
-    accepted: ['fine touch', 'vibration', 'proprioception'],
+    answer: 'Vibration / Proprioception',
+    accepted: ['vibration', 'proprioception'],
     minMatches: 2,
+    hint: 'These are dorsal column modalities, not spinothalamic pain and temperature.',
     knowMore: knowMoreClinical,
     position: 'left-[25%] bottom-[62%] sm:left-[31%]',
   },
   {
     id: 'b12',
-    phase: 'Phase 2',
+    phase: 'Level 6',
     label: 'Vitamin B12 Deficiency',
     shortLabel: 'B12',
     prompt:
       'True or False: In a patient with early-stage Vitamin B12 deficiency, you would expect to see a loss of pain sensation before a loss of vibration sense.',
     type: 'boolean',
+    hint: 'Subacute combined degeneration commonly affects posterior columns early.',
     options: ['True', 'False'],
     answer: 'False',
     explanation: 'PCML functions such as vibration are usually compromised first.',
@@ -211,8 +219,36 @@ function evaluateBadges(progress) {
   return [...earned];
 }
 
+function getCertificateRecords(progress) {
+  const ascendingComplete = ascendingTracts.every((tract) => progress.completedTracts.includes(tract.id));
+  const descendingTracts = ['corticospinal', 'rubrospinal', 'vestibulospinal', 'reticulospinal', 'tectospinal'];
+  const descendingComplete = descendingTracts.every((tractId) => progress.completedTracts.includes(tractId));
+
+  return [
+    {
+      id: 'ascending',
+      title: 'Ascending Pathways Completed',
+      description: 'Awarded after completion of all ascending tract pathways.',
+      earned: ascendingComplete,
+    },
+    {
+      id: 'descending',
+      title: 'Descending Pathways Completed',
+      description: 'Awarded after completion of all descending tract pathways.',
+      earned: descendingComplete,
+    },
+    {
+      id: 'all-tracts',
+      title: 'All Spinal Cord Tracts Completed',
+      description: 'Awarded when learning of all ascending and descending tracts is completed.',
+      earned: ascendingComplete && descendingComplete,
+    },
+  ];
+}
+
 function ProgressPill({ progress, compact = false }) {
-  const certificateReady = progress.completedTracts.includes('dcml');
+  const certificateRecords = getCertificateRecords(progress);
+  const earnedCertificateCount = certificateRecords.filter((certificate) => certificate.earned).length;
 
   return (
     <div className={`grid gap-2 ${compact ? '' : 'sm:grid-cols-3'}`}>
@@ -225,9 +261,9 @@ function ProgressPill({ progress, compact = false }) {
         <p className="mt-1 text-2xl font-semibold text-slate-950">{progress.badges.length}/{badges.length}</p>
       </div>
       <div className="rounded-lg border border-slate-200 bg-white px-4 py-3 shadow-sm">
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">Certificate</p>
-        <p className={`mt-1 text-sm font-semibold ${certificateReady ? 'text-emerald-700' : 'text-slate-500'}`}>
-          {certificateReady ? 'Ready' : 'In progress'}
+        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">Certificates</p>
+        <p className={`mt-1 text-sm font-semibold ${earnedCertificateCount ? 'text-emerald-700' : 'text-slate-500'}`}>
+          {earnedCertificateCount}/3 earned
         </p>
       </div>
     </div>
@@ -255,6 +291,42 @@ function BadgeShelf({ progress }) {
           </div>
         );
       })}
+    </div>
+  );
+}
+
+function BadgeDrawer({ progress, isOpen, onToggle }) {
+  return (
+    <div className="fixed left-0 top-1/2 z-40 flex -translate-y-1/2 flex-row-reverse items-stretch">
+      <button
+        type="button"
+        onClick={onToggle}
+        className="grid min-h-28 w-10 place-items-center rounded-r-lg border border-l-0 border-amber-500 bg-amber-500 px-2 py-3 text-xs font-semibold text-amber-950 shadow-xl transition hover:bg-amber-400"
+        style={{ writingMode: 'vertical-rl', textOrientation: 'mixed' }}
+        aria-expanded={isOpen}
+        aria-label="Badges"
+        title="Badges"
+      >
+        Badge
+      </button>
+
+      <motion.aside
+        initial={false}
+        animate={{ width: isOpen ? 340 : 0, opacity: isOpen ? 1 : 0 }}
+        transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+        className="overflow-hidden border-y border-r border-slate-200 bg-white shadow-2xl"
+      >
+        <div className="w-[340px] p-4 text-slate-950">
+          <div className="mb-4">
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-amber-700">Learning Awards</p>
+            <h2 className="mt-1 text-xl font-semibold">Badges</h2>
+            <p className="mt-1 text-sm leading-6 text-slate-600">
+              {progress.badges.length}/{badges.length} earned across this module.
+            </p>
+          </div>
+          <BadgeShelf progress={progress} />
+        </div>
+      </motion.aside>
     </div>
   );
 }
@@ -314,6 +386,8 @@ function BadgeCelebration({ badge, onClose }) {
 }
 
 function CertificateModal({ progress, onClose }) {
+  const certificateRecords = getCertificateRecords(progress);
+  const earnedCertificateCount = certificateRecords.filter((certificate) => certificate.earned).length;
   const today = new Date().toLocaleDateString(undefined, {
     year: 'numeric',
     month: 'long',
@@ -337,11 +411,38 @@ function CertificateModal({ progress, onClose }) {
         exit={{ scale: 0.98, y: 12 }}
       >
         <p className="text-xs font-semibold uppercase tracking-[0.32em] text-sky-700">Certificate of Completion</p>
-        <h2 id="certificate-title" className="mt-4 text-4xl font-semibold">Ascending Tracts: DCML Module</h2>
+        <h2 id="certificate-title" className="mt-4 text-4xl font-semibold">Spinal Cord Tract Certificates</h2>
         <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-slate-700">
-          This certifies completion of the Dorsal Column - Medial Lemniscus interactive pathway module.
+          Certificates are awarded only for full pathway groups: all ascending tracts, all descending tracts, and all tracts together.
         </p>
-        <div className="mt-8 grid gap-3 rounded-lg border border-slate-200 bg-slate-50 p-5 text-left sm:grid-cols-3">
+        <div className="mt-8 grid gap-3 text-left">
+          {certificateRecords.map((certificate) => (
+            <div
+              key={certificate.id}
+              className={`rounded-lg border p-4 ${
+                certificate.earned
+                  ? 'border-emerald-400 bg-emerald-50 text-emerald-950'
+                  : 'border-slate-200 bg-slate-50 text-slate-500'
+              }`}
+            >
+              <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+                <div>
+                  <h3 className="text-lg font-semibold">{certificate.title}</h3>
+                  <p className="mt-1 text-sm leading-6">{certificate.description}</p>
+                </div>
+                <span className="w-fit rounded-md border border-current px-2 py-1 text-xs font-semibold uppercase tracking-[0.16em]">
+                  {certificate.earned ? 'Earned' : 'Locked'}
+                </span>
+              </div>
+              {certificate.earned && (
+                <p className="mt-3 text-xs font-semibold uppercase tracking-[0.18em]">
+                  Certificate ID: SC-{certificate.id.toUpperCase()}-{progress.completedTracts.length}-{progress.points}
+                </p>
+              )}
+            </div>
+          ))}
+        </div>
+        <div className="mt-8 grid gap-3 rounded-lg border border-slate-200 bg-white p-5 text-left sm:grid-cols-3">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">Points</p>
             <p className="mt-1 text-2xl font-semibold">{progress.points}</p>
@@ -351,13 +452,14 @@ function CertificateModal({ progress, onClose }) {
             <p className="mt-1 text-2xl font-semibold">{progress.badges.length}</p>
           </div>
           <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">Certificates</p>
+            <p className="mt-1 text-2xl font-semibold">{earnedCertificateCount}/3</p>
+          </div>
+          <div>
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">Date</p>
             <p className="mt-1 text-sm font-semibold">{today}</p>
           </div>
         </div>
-        <p className="mt-6 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
-          Certificate ID: SC-DCML-{progress.completedLevels.length}-{progress.points}
-        </p>
         <button
           type="button"
           onClick={onClose}
@@ -699,16 +801,114 @@ function DescendingTractsScreen({ onBack }) {
   );
 }
 
+function QuizDrawer({ levels, completedLevelIds, activeLevelId, isReady, isOpen, onToggle, onSelectLevel }) {
+  const nextIndex = Math.min(completedLevelIds.length, levels.length - 1);
+
+  return (
+    <div className="fixed right-0 top-1/2 z-40 flex -translate-y-1/2 items-stretch">
+      <button
+        type="button"
+        onClick={onToggle}
+        className={`grid min-h-28 w-10 place-items-center rounded-l-lg border border-r-0 px-2 py-3 text-xs font-semibold shadow-xl transition ${
+          isReady
+            ? 'border-sky-600 bg-sky-700 text-white hover:bg-sky-800'
+            : 'border-slate-300 bg-slate-200 text-slate-500'
+        }`}
+        style={{ writingMode: 'vertical-rl', textOrientation: 'mixed' }}
+        aria-expanded={isOpen}
+        aria-label="Pathway Quiz"
+        title="Pathway Quiz"
+      >
+        Quiz
+      </button>
+
+      <motion.aside
+        initial={false}
+        animate={{ width: isOpen ? 360 : 0, opacity: isOpen ? 1 : 0 }}
+        transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+        className="overflow-hidden border-y border-l border-slate-200 bg-white shadow-2xl"
+      >
+        <div className="w-[360px] p-4 text-slate-950">
+          <div className="mb-4">
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-sky-700">Gamified Pathway</p>
+            <h2 className="mt-1 text-xl font-semibold">Pathway Quiz</h2>
+            <p className="mt-1 text-sm leading-6 text-slate-600">
+              {isReady ? 'Complete each level to unlock the next.' : 'Finish the 88-second pathway animation to unlock the quiz.'}
+            </p>
+          </div>
+
+          <div className="grid overflow-hidden rounded-lg border border-slate-200">
+            {levels.map((level, index) => {
+              const isCompleted = completedLevelIds.includes(level.id);
+              const isUnlocked = isReady && (index <= nextIndex || isCompleted);
+              const isActive = activeLevelId === level.id;
+
+              return (
+                <button
+                  key={level.id}
+                  type="button"
+                  disabled={!isUnlocked}
+                  onClick={() => onSelectLevel(level)}
+                  className={`grid grid-cols-[1fr_auto] items-center gap-3 border-b border-slate-200 px-3 py-3 text-left text-sm transition last:border-b-0 ${
+                    isActive && isUnlocked
+                      ? 'bg-sky-50 text-sky-950'
+                      : isReady && isCompleted
+                        ? 'bg-emerald-50 text-emerald-900'
+                        : isUnlocked
+                          ? 'bg-white text-slate-800 hover:bg-sky-50'
+                          : 'bg-slate-100 text-slate-400 grayscale'
+                  }`}
+                >
+                  <span>
+                    <span className="block text-xs font-semibold uppercase tracking-[0.16em]">{level.phase}</span>
+                    {level.label}
+                  </span>
+                  <span className="text-lg" aria-hidden="true">
+                    {isReady && isCompleted ? '✓' : isUnlocked ? '›' : '🔒'}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      </motion.aside>
+    </div>
+  );
+}
+
 function FlashcardModal({ level, onClose, onComplete, onKnowMore }) {
   const [answer, setAnswer] = useState('');
-  const [submitted, setSubmitted] = useState(false);
+  const [feedback, setFeedback] = useState(null);
+  const [hintVisible, setHintVisible] = useState(false);
+  const [optionsVisible, setOptionsVisible] = useState(level.type !== 'mcq');
   const [showMore, setShowMore] = useState(false);
   const correct = useMemo(() => isAnswerCorrect(level, answer), [answer, level]);
 
   const submitAnswer = () => {
     if (!answer.trim()) return;
-    setSubmitted(true);
-    onComplete(level.id, correct);
+    setFeedback(correct ? 'correct' : 'incorrect');
+
+    if (correct) {
+      onComplete(level.id, true);
+      setShowMore(true);
+      onKnowMore(level.id);
+    } else {
+      onComplete(level.id, false);
+    }
+  };
+
+  const chooseAnswer = (option) => {
+    setAnswer(option);
+    const optionCorrect = isAnswerCorrect(level, option);
+    setFeedback(optionCorrect ? 'correct' : 'incorrect');
+
+    if (optionCorrect) {
+      onComplete(level.id, true);
+      setShowMore(true);
+      onKnowMore(level.id);
+    } else {
+      onComplete(level.id, false);
+    }
   };
 
   return (
@@ -744,79 +944,132 @@ function FlashcardModal({ level, onClose, onComplete, onKnowMore }) {
           </button>
         </div>
 
-        <p className="text-lg leading-8 text-slate-900">{level.prompt}</p>
+        <div className="flex items-start gap-3">
+          <button
+            type="button"
+            onClick={() => {
+              setHintVisible(true);
+              if (level.type === 'mcq' && hintVisible) setOptionsVisible(true);
+            }}
+            className="mt-1 grid h-10 w-10 shrink-0 place-items-center rounded-lg border border-amber-300 bg-amber-50 text-xl transition hover:bg-amber-100"
+            aria-label="Show hint"
+            title="Show hint"
+          >
+            💡
+          </button>
+          <p className="text-lg leading-8 text-slate-900">{level.prompt}</p>
+        </div>
+
+        <AnimatePresence>
+          {hintVisible && (
+            <motion.div
+              className="mt-4 rounded-lg border border-amber-300 bg-amber-50 p-4 text-sm leading-6 text-amber-950"
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 8 }}
+            >
+              {level.hint}
+              {level.type === 'mcq' && !optionsVisible && (
+                <button
+                  type="button"
+                  onClick={() => setOptionsVisible(true)}
+                  className="mt-3 block rounded-lg border border-amber-600 px-3 py-2 text-sm font-semibold text-amber-900 transition hover:bg-amber-100"
+                >
+                  Show answer options
+                </button>
+              )}
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         <div className="mt-5">
           {level.type === 'blank' ? (
             <div className="flex flex-col gap-3 sm:flex-row">
               <input
                 value={answer}
-                onChange={(event) => setAnswer(event.target.value)}
-                disabled={submitted}
+                onChange={(event) => {
+                  setAnswer(event.target.value);
+                  setFeedback(null);
+                }}
+                disabled={feedback === 'correct'}
                 placeholder={level.placeholder}
                 className="min-h-12 flex-1 rounded-lg border border-slate-300 bg-white px-4 text-slate-950 outline-none transition focus:border-sky-600 focus:ring-2 focus:ring-sky-200"
               />
               <button
                 type="button"
                 onClick={submitAnswer}
-                disabled={!answer.trim() || submitted}
+                disabled={!answer.trim() || feedback === 'correct'}
                 className="min-h-12 rounded-lg bg-sky-700 px-5 font-semibold text-white transition hover:bg-sky-800 disabled:cursor-not-allowed disabled:bg-slate-300"
               >
                 Check
               </button>
             </div>
+          ) : level.type === 'mcq' && !optionsVisible ? (
+            <div className="rounded-lg border border-dashed border-slate-300 bg-slate-50 p-4 text-sm text-slate-600">
+              Use the hint first, then reveal the options when you are ready.
+            </div>
           ) : (
             <div className="grid gap-3">
               {level.options.map((option) => (
-                <button
-                  type="button"
+                <label
                   key={option}
-                  onClick={() => {
-                    setAnswer(option);
-                    setSubmitted(true);
-                    onComplete(level.id, isAnswerCorrect(level, option));
-                  }}
-                  disabled={submitted}
-                  className={`rounded-lg border px-4 py-3 text-left transition ${
+                  className={`flex cursor-pointer items-center gap-3 rounded-lg border px-4 py-3 text-left transition ${
                     answer === option
                       ? 'border-sky-700 bg-sky-50 text-sky-950'
                       : 'border-slate-300 bg-white text-slate-800 hover:border-sky-600 hover:bg-sky-50'
-                  } disabled:cursor-default`}
+                  } ${feedback === 'correct' ? 'cursor-default opacity-80' : ''}`}
                 >
+                  <input
+                    type="radio"
+                    name={`quiz-${level.id}`}
+                    value={option}
+                    checked={answer === option}
+                    disabled={feedback === 'correct'}
+                    onChange={() => chooseAnswer(option)}
+                    className="h-4 w-4 accent-sky-700"
+                  />
                   {option}
-                </button>
+                </label>
               ))}
             </div>
           )}
         </div>
 
         <AnimatePresence>
-          {submitted && (
+          {feedback && (
             <motion.div
-              className="mt-5 rounded-lg border border-slate-200 bg-slate-50 p-4"
+              className={`mt-5 rounded-lg border p-4 ${
+                feedback === 'correct'
+                  ? 'border-emerald-300 bg-emerald-50'
+                  : 'border-red-300 bg-red-50'
+              }`}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 10 }}
             >
-              <p className={`font-semibold ${correct ? 'text-emerald-700' : 'text-amber-700'}`}>
-                {correct ? 'Correct.' : 'Good attempt. Compare it with the answer below.'}
-              </p>
-              <p className="mt-2 text-slate-900">
-                <span className="font-semibold">Answer:</span> {level.answer}
-                {level.explanation ? ` - ${level.explanation}` : ''}
-              </p>
-              <button
-                type="button"
-                onClick={() => {
-                  setShowMore((value) => !value);
-                  if (!showMore) onKnowMore(level.id);
-                }}
-                className="mt-4 rounded-lg border border-sky-700 px-4 py-2 text-sm font-semibold text-sky-800 transition hover:bg-sky-50"
-              >
-                {showMore ? 'Hide know more' : 'Know more'}
-              </button>
-              {showMore && (
+              {feedback === 'correct' ? (
+                <div className="flex flex-wrap items-center gap-3">
+                  <div className="quiz-badge-pop grid h-12 w-12 place-items-center rounded-full border-2 border-amber-500 bg-amber-300 text-xl font-black text-amber-950 shadow-lg">
+                    ✓
+                  </div>
+                  <div>
+                    <p className="font-semibold text-emerald-800">Correct. Badge unlocked.</p>
+                    <p className="mt-1 text-sm text-emerald-900">
+                      <span className="font-semibold">Answer:</span> {level.answer}
+                      {level.explanation ? ` - ${level.explanation}` : ''}
+                    </p>
+                  </div>
+                </div>
+              ) : (
+                <div>
+                  <p className="font-semibold text-red-700">Incorrect. Try again.</p>
+                  <p className="mt-1 text-sm text-red-900">Use the hint, then submit another answer.</p>
+                </div>
+              )}
+
+              {feedback === 'correct' && showMore && (
                 <div className="mt-4 space-y-3 whitespace-pre-line border-t border-slate-200 pt-4 text-sm leading-7 text-slate-700">
+                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-sky-700">Know More</p>
                   {level.knowMore}
                 </div>
               )}
@@ -829,13 +1082,42 @@ function FlashcardModal({ level, onClose, onComplete, onKnowMore }) {
 }
 
 function DcmlModule({ onBack, progress, onAnswer, onKnowMore, onShowCertificate }) {
+  const pathwayFrameRef = useRef(null);
   const [activeLevel, setActiveLevel] = useState(null);
+  const [quizReady, setQuizReady] = useState(false);
+  const [quizDrawerOpen, setQuizDrawerOpen] = useState(false);
+  const [badgeDrawerOpen, setBadgeDrawerOpen] = useState(false);
   const completedLevelIds = progress.completedLevels;
-  const activeIndex = activeLevel ? pathwayLevels.findIndex((level) => level.id === activeLevel.id) : -1;
-  const nextIndex = Math.min(completedLevelIds.length, pathwayLevels.length - 1);
-  const certificateReady = progress.completedTracts.includes('dcml');
 
   const completeLevel = (levelId, correct) => onAnswer(levelId, correct);
+
+  useEffect(() => {
+    const unlockQuiz = () => {
+      setQuizReady(true);
+      setQuizDrawerOpen(true);
+    };
+
+    const handleMessage = (event) => {
+      if (event.origin !== window.location.origin) return;
+      if (event.data?.type === 'dcml-quiz-ready') unlockQuiz();
+    };
+
+    window.addEventListener('message', handleMessage);
+
+    const timer = quizReady ? undefined : window.setInterval(() => {
+      const audio = pathwayFrameRef.current?.contentDocument?.querySelector('audio');
+
+      if (audio?.currentTime >= 88) {
+        unlockQuiz();
+        window.clearInterval(timer);
+      }
+    }, 750);
+
+    return () => {
+      window.removeEventListener('message', handleMessage);
+      if (timer) window.clearInterval(timer);
+    };
+  }, [quizReady]);
 
   return (
     <div className="min-h-screen bg-[#f7fafc] text-slate-950">
@@ -851,106 +1133,55 @@ function DcmlModule({ onBack, progress, onAnswer, onKnowMore, onShowCertificate 
                 Dorsal Column - Medial Lemniscus
               </h1>
               <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-600">
-                Use the base video as your pathway map. Open each level marker in order, answer the flashcard, and unlock the next step.
+                Use the interactive pathway as your map. The quiz unlocks after the 88-second animation, then opens from the right-side drawer.
               </p>
             </div>
-            <div className="rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700">
-              {completedLevelIds.length}/{pathwayLevels.length} levels completed
-            </div>
+            <button
+              type="button"
+              onClick={onShowCertificate}
+              className="w-fit rounded-lg bg-sky-700 px-4 py-3 text-sm font-semibold text-white transition hover:bg-sky-800"
+            >
+              View Certificates
+            </button>
           </div>
           <ProgressPill progress={progress} />
         </div>
       </header>
 
-      <main className="mx-auto grid max-w-7xl gap-5 px-4 py-5 sm:px-6 lg:grid-cols-[minmax(0,1fr)_300px]">
+      <main className="mx-auto max-w-7xl px-4 py-5 sm:px-6">
         <section className="relative overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm">
-          <div className="border-b border-slate-200 bg-slate-50 px-4 py-3">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">Base Video</p>
-            <p className="mt-1 text-sm text-slate-700">Dorsal Column Medial Lemniscus Pathways</p>
+          <div className="border-b border-slate-200 bg-slate-50 px-12 py-4 text-center">
+            <p className="text-base font-semibold text-slate-800">Dorsal Column Medial Lemniscus</p>
           </div>
-          <div className="relative bg-slate-950">
-            <video
-              src="/assets/video/Dorsal Column Medial Lemniscus Pathways.mp4"
-              className="h-auto w-full"
-              autoPlay
-              muted
-              loop
-              playsInline
-              controls
+          <div className="relative min-h-[70vh] bg-slate-950">
+            <iframe
+              ref={pathwayFrameRef}
+              src="/assets/DCMLnewwithcameramovments1.html"
+              title="Dorsal Column Medial Lemniscus interactive pathway"
+              className="h-[70vh] w-full border-0"
             />
-            <div className="absolute inset-0">
-              {pathwayLevels.map((level, index) => {
-                const isCompleted = completedLevelIds.includes(level.id);
-                const isUnlocked = index <= nextIndex || isCompleted;
-
-                return (
-                  <button
-                    key={level.id}
-                    type="button"
-                    onClick={() => isUnlocked && setActiveLevel(level)}
-                    disabled={!isUnlocked}
-                    className={`absolute max-w-[150px] rounded-lg border px-3 py-2 text-left text-xs font-semibold shadow-lg transition sm:max-w-[180px] sm:text-sm ${level.position} ${
-                      isCompleted
-                        ? 'border-emerald-600 bg-emerald-50 text-emerald-900'
-                        : isUnlocked
-                          ? 'border-sky-700 bg-white text-sky-950 hover:-translate-y-0.5 hover:bg-sky-50'
-                          : 'border-slate-300 bg-slate-100 text-slate-400 opacity-70'
-                    }`}
-                  >
-                    <span className="block text-[10px] uppercase tracking-[0.16em]">{level.phase}</span>
-                    {level.shortLabel}
-                  </button>
-                );
-              })}
-            </div>
           </div>
         </section>
-
-        <aside className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
-          <h2 className="text-lg font-semibold text-slate-950">Pathway Levels</h2>
-          <div className="mt-4 grid gap-2">
-            {pathwayLevels.map((level, index) => {
-              const isCompleted = completedLevelIds.includes(level.id);
-              const isUnlocked = index <= nextIndex || isCompleted;
-
-              return (
-                <button
-                  key={level.id}
-                  type="button"
-                  onClick={() => isUnlocked && setActiveLevel(level)}
-                  disabled={!isUnlocked}
-                  className={`rounded-lg border px-3 py-3 text-left text-sm transition ${
-                    activeIndex === index
-                      ? 'border-sky-700 bg-sky-50 text-sky-950'
-                      : isCompleted
-                        ? 'border-emerald-500 bg-emerald-50 text-emerald-900'
-                        : isUnlocked
-                          ? 'border-slate-300 bg-white text-slate-800 hover:border-sky-600'
-                          : 'border-slate-200 bg-slate-50 text-slate-400'
-                  }`}
-                >
-                  <span className="block text-xs font-semibold uppercase tracking-[0.18em]">{level.phase}</span>
-                  {index + 1}. {level.label}
-                </button>
-              );
-            })}
-          </div>
-          <div className="mt-5 border-t border-slate-200 pt-5">
-            <h2 className="text-lg font-semibold text-slate-950">Badges</h2>
-            <div className="mt-3">
-              <BadgeShelf progress={progress} />
-            </div>
-          </div>
-          <button
-            type="button"
-            onClick={onShowCertificate}
-            disabled={!certificateReady}
-            className="mt-5 w-full rounded-lg bg-sky-700 px-4 py-3 text-sm font-semibold text-white transition hover:bg-sky-800 disabled:cursor-not-allowed disabled:bg-slate-300"
-          >
-            {certificateReady ? 'View Certificate' : 'Certificate locked'}
-          </button>
-        </aside>
       </main>
+
+      <BadgeDrawer
+        progress={progress}
+        isOpen={badgeDrawerOpen}
+        onToggle={() => setBadgeDrawerOpen((value) => !value)}
+      />
+
+      <QuizDrawer
+        levels={pathwayLevels}
+        completedLevelIds={completedLevelIds}
+        activeLevelId={activeLevel?.id}
+        isReady={quizReady}
+        isOpen={quizDrawerOpen}
+        onToggle={() => setQuizDrawerOpen((value) => !value)}
+        onSelectLevel={(level) => {
+          setActiveLevel(level);
+          setQuizDrawerOpen(false);
+        }}
+      />
 
       <AnimatePresence>
         {activeLevel && (
@@ -997,7 +1228,7 @@ export default function App() {
   const recordAnswer = (levelId, correct) => {
     updateProgress((current) => {
       const alreadyAttempted = current.attemptedLevels.includes(levelId);
-      const completedLevels = current.completedLevels.includes(levelId)
+      const completedLevels = !correct || current.completedLevels.includes(levelId)
         ? current.completedLevels
         : [...current.completedLevels, levelId];
       const attemptedLevels = alreadyAttempted ? current.attemptedLevels : [...current.attemptedLevels, levelId];
