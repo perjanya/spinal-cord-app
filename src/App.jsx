@@ -893,54 +893,6 @@ const homeAudioTracks = [
 
 const feedbackUrl = 'https://forms.gle/gtNquQPbzGsLYNW46';
 
-const homeHotspots = [
-  {
-    id: 'dcml',
-    title: 'Medial Column',
-    subtitle: 'DCML quiz and animation',
-    division: 'ascending',
-    top: '20%',
-    left: '50%',
-    tone: 'emerald',
-  },
-  {
-    id: 'lateral-stt',
-    title: 'Lateral Spinothalamic',
-    subtitle: 'Pain and temperature',
-    division: 'ascending',
-    top: '46%',
-    left: '72%',
-    tone: 'rose',
-  },
-  {
-    id: 'ventral-stt',
-    title: 'Anterior Spinothalamic',
-    subtitle: 'Crude touch and pressure',
-    division: 'ascending',
-    top: '64%',
-    left: '58%',
-    tone: 'cyan',
-  },
-  {
-    id: 'spinocerebellar',
-    title: 'Spinocerebellar',
-    subtitle: 'Coordination pathways',
-    division: 'ascending',
-    top: '34%',
-    left: '76%',
-    tone: 'indigo',
-  },
-  {
-    id: 'corticospinal',
-    title: 'Corticospinal',
-    subtitle: 'Descending motor control',
-    division: 'descending',
-    top: '36%',
-    left: '30%',
-    tone: 'orange',
-  },
-];
-
 const homeModuleShortcuts = [
   { id: 'dcml', title: 'DCML', division: 'ascending', label: 'Medial column' },
   { id: 'lateral-stt', title: 'Lateral STT', division: 'ascending', label: 'Pain and temperature' },
@@ -1307,13 +1259,24 @@ function CertificateModal({ progress, onClose }) {
       role="dialog"
       aria-modal="true"
       aria-labelledby="certificate-title"
+      onMouseDown={onClose}
     >
       <motion.div
-        className="w-full max-w-3xl rounded-lg border-4 border-sky-700 bg-white p-8 text-center text-slate-950 shadow-2xl"
+        className="relative max-h-[92vh] w-full max-w-3xl overflow-y-auto rounded-lg border-4 border-sky-700 bg-white p-8 text-center text-slate-950 shadow-2xl"
         initial={{ scale: 0.96, y: 16 }}
         animate={{ scale: 1, y: 0 }}
         exit={{ scale: 0.98, y: 12 }}
+        onMouseDown={(event) => event.stopPropagation()}
       >
+        <button
+          type="button"
+          onClick={onClose}
+          className="sticky right-0 top-0 float-right grid h-10 w-10 place-items-center rounded-lg border border-slate-300 bg-white text-xl leading-none text-slate-600 shadow-sm transition hover:border-slate-500 hover:text-slate-950"
+          aria-label="Close certificates"
+          title="Close"
+        >
+          x
+        </button>
         <p className="text-xs font-semibold uppercase tracking-[0.32em] text-sky-700">Certificate of Completion</p>
         <h2 id="certificate-title" className="mt-4 text-4xl font-semibold">Spinal Cord Tract Certificates</h2>
         <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-slate-700">
@@ -1517,7 +1480,7 @@ function HomeAudioControls() {
   };
 
   return (
-    <section className="absolute bottom-24 left-4 z-20 w-[min(19rem,calc(100%-2rem))] rounded-lg border border-white/80 bg-white/90 p-3 shadow-xl backdrop-blur">
+    <section className="absolute bottom-5 left-4 z-20 w-fit max-w-[calc(100%-2rem)] rounded-lg border border-white/80 bg-white/90 p-3 shadow-xl backdrop-blur sm:left-6">
       <audio
         ref={audioRef}
         src={activeTrack.src}
@@ -1555,8 +1518,11 @@ function HomeAudioControls() {
           >
             {expanded ? '-' : '+'}
           </button>
-          <span className="min-w-0 truncate text-xs font-semibold text-slate-700">
+          <span className="hidden max-w-40 truncate text-xs font-semibold text-slate-700 sm:block">
             {finished ? 'Complete' : activeTrack.title}
+          </span>
+          <span className="text-xs font-semibold text-slate-700 sm:hidden">
+            Audio
           </span>
         </div>
         <AnimatePresence initial={false}>
@@ -1618,31 +1584,18 @@ function LandingScreen({ onSelectDivision, onOpenTract, progress }) {
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">Tap a glowing tract to begin</p>
           </div>
           <div className="relative min-h-[520px] bg-gradient-to-b from-slate-50 via-white to-sky-50 p-4 sm:p-6">
-            <img
-              src="/assets/Cross section of spinal cord for animation.svg"
-              alt="Cross section of spinal cord with highlighted tract regions"
-              className="mx-auto h-[500px] w-full object-contain drop-shadow-[0_18px_32px_rgba(15,23,42,0.16)]"
-            />
-            <div className="pointer-events-none absolute inset-4 sm:inset-6">
-              {homeHotspots.map((hotspot) => (
-                <button
-                  key={hotspot.id}
-                  type="button"
-                  onClick={() => onOpenTract(hotspot.id, hotspot.division)}
-                  className={`home-hotspot home-hotspot-${hotspot.tone} pointer-events-auto absolute -translate-x-1/2 -translate-y-1/2`}
-                  style={{ top: hotspot.top, left: hotspot.left }}
-                  aria-label={`Open ${hotspot.title}`}
-                  title={hotspot.subtitle}
-                >
-                  <span className="home-hotspot-pulse" aria-hidden="true" />
-                  <span className="home-hotspot-core" aria-hidden="true" />
-                  <span className="home-hotspot-label">
-                    <span className="block text-[11px] font-semibold uppercase tracking-[0.14em]">{hotspot.title}</span>
-                    <span className="mt-0.5 block text-[10px] font-medium opacity-80">{hotspot.subtitle}</span>
-                  </span>
-                </button>
-              ))}
-            </div>
+            <object
+              data="/assets/Cross section of spinal cord for animation1.svg"
+              type="image/svg+xml"
+              title="Interactive spinal cord cross-section tract map"
+              className="mx-auto h-[500px] w-full drop-shadow-[0_18px_32px_rgba(15,23,42,0.16)]"
+            >
+              <img
+                src="/assets/Cross section of spinal cord for animation1.svg"
+                alt="Cross section of spinal cord with interactive tract regions"
+                className="mx-auto h-[500px] w-full object-contain"
+              />
+            </object>
           </div>
           <HomeAudioControls />
           <button
@@ -2273,9 +2226,25 @@ function DeveloperFooter() {
   );
 }
 
+function getInitialNavigation() {
+  if (typeof window === 'undefined') {
+    return { screen: 'landing', activeTractId: null };
+  }
+
+  const moduleId = new URLSearchParams(window.location.search).get('module');
+  const module = moduleId ? tractModules[moduleId] : null;
+
+  if (!module) {
+    return { screen: 'landing', activeTractId: null };
+  }
+
+  return { screen: module.division, activeTractId: module.id };
+}
+
 export default function App() {
-  const [screen, setScreen] = useState('landing');
-  const [activeTractId, setActiveTractId] = useState(null);
+  const initialNavigation = useMemo(getInitialNavigation, []);
+  const [screen, setScreen] = useState(initialNavigation.screen);
+  const [activeTractId, setActiveTractId] = useState(initialNavigation.activeTractId);
   const [progress, setProgress] = useState(loadProgress);
   const [celebrationBadge, setCelebrationBadge] = useState(null);
   const [isCertificateOpen, setIsCertificateOpen] = useState(false);

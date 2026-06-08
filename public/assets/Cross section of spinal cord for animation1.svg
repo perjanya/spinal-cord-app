@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1280 1024" style="enable-background:new 0 0 1280 1024;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#000000;stroke-width:2;stroke-miterlimit:10;}
+	.st1{fill:#FFCCCC;stroke:#000000;stroke-width:2;stroke-miterlimit:10;}
+	.st2{fill:#CCCCFF;stroke:#000000;stroke-width:2;stroke-miterlimit:10;}
+	.st3{fill:#FFE7AD;stroke:#000000;stroke-width:1.5;stroke-miterlimit:10;}
+	.st4{font-family:'LucidaSans';}
+	.st5{font-size:120px;}
+	.st6{fill:#AFD1A6;stroke:#000000;stroke-width:1.5;stroke-miterlimit:10;}
+	.st7{fill:#D1B1B2;stroke:#000000;stroke-width:1.5;stroke-miterlimit:10;}
+	.st8{fill:#FFF9EB;stroke:#000000;stroke-width:1.5;stroke-miterlimit:10;}
+	.st9{fill:#FFEDC2;stroke:#000000;stroke-width:1.5;stroke-miterlimit:10;}
+	.st10{fill:#C8D6B1;stroke:#000000;stroke-width:1.5;stroke-miterlimit:10;}
+	.st11{fill:#EEFFD1;stroke:#000000;stroke-width:1.5;stroke-miterlimit:10;}
+	.st12{fill:#E2FFB2;stroke:#000000;stroke-width:1.5;stroke-miterlimit:10;}
+	.st13{fill:#D1BBB6;stroke:#000000;stroke-width:1.5;stroke-miterlimit:10;}
+	.st14{fill:#C8D6B1;stroke:#000000;stroke-miterlimit:10;}
+
+	/* Interactive Tract Styles */
+	#dorsal_column,
+	#lateralcorticospinal_tract,
+	#anterior_corticospinal_tract,
+	#posteriorspinocerebellar_tract,
+	#anteriorspinocerebellar_tract,
+	#anteriorspinothalamic_tract {
+		cursor: pointer;
+		transition: fill 0.3s ease-in-out, filter 0.3s ease-in-out, opacity 0.3s ease-in-out;
+		stroke-width: 2px;
+		stroke: rgba(0, 0, 0, 0.32);
+	}
+
+	#ventral_spinothalamic_hotspot,
+	#lateral_spinothalamic_hotspot {
+		cursor: pointer;
+		fill: transparent;
+		stroke: transparent;
+		pointer-events: all;
+		transition: fill 0.3s ease-in-out, filter 0.3s ease-in-out;
+	}
+
+	.tract-tooltip {
+		opacity: 0;
+		pointer-events: none;
+		transition: opacity 0.22s ease-in-out;
+	}
+
+	a:hover .tract-tooltip {
+		opacity: 1;
+	}
+
+	.tooltip-bg {
+		fill: rgba(15, 23, 42, 0.92);
+		stroke: rgba(255, 255, 255, 0.9);
+		stroke-width: 2;
+		rx: 12;
+		ry: 12;
+	}
+
+	.tooltip-text {
+		fill: #ffffff;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 28px;
+		font-weight: 700;
+		letter-spacing: 0;
+	}
+
+	#dorsal_column:hover {
+		fill: #3b82f6 !important;
+		filter: drop-shadow(0px 0px 12px rgba(59, 130, 246, 0.75));
+	}
+
+	#lateralcorticospinal_tract:hover,
+	#anterior_corticospinal_tract:hover {
+		fill: #f97316 !important;
+		filter: drop-shadow(0px 0px 12px rgba(249, 115, 22, 0.75));
+	}
+
+	#posteriorspinocerebellar_tract:hover,
+	#anteriorspinocerebellar_tract:hover {
+		fill: #6366f1 !important;
+		filter: drop-shadow(0px 0px 12px rgba(99, 102, 241, 0.75));
+	}
+
+	#anteriorspinothalamic_tract:hover {
+		fill: #10b981 !important;
+		filter: drop-shadow(0px 0px 12px rgba(16, 185, 129, 0.75));
+	}
+
+	a:hover #ventral_spinothalamic_hotspot {
+		fill: rgba(16, 185, 129, 0.28);
+		filter: drop-shadow(0px 0px 12px rgba(16, 185, 129, 0.75));
+	}
+
+	a:hover #lateral_spinothalamic_hotspot {
+		fill: rgba(239, 68, 68, 0.28);
+		filter: drop-shadow(0px 0px 12px rgba(239, 68, 68, 0.75));
+	}
+
+	svg:has(a:hover) a:not(:hover) path[id$="_tract"],
+	svg:has(a:hover) a:not(:hover) #dorsal_column {
+		opacity: 0.58;
+	}
+</style>
+<g id="Layer_1">
+	<g id="Layer_2">
+		<g id="Layer_4">
+			<path class="st0" d="M1025.3,255.8c0,0,23.3,4.7,37.3,10.9s51.3,38.9,71.5,52.9c20.2,14,74.6,56,93.3,113.5
+				c18.7,57.5,49.7,88.6,40.4,166.3s-29.5,107.3-91.7,167.9s-91.7,96.4-258,99.5c-166.3,3.1-181.9,4.7-192.8,7.8
+				c-10.9,3.1-57.5-7.8-54.4-52.9c3.1-45.1-15.5-152.3-14-163.2s-7.8-28-10.9-23.3c-3.1,4.7-10.9,28-6.2,43.5
+				c4.7,15.5,1.6,99.5-6.2,122.8c-7.8,23.3,9.3,56-91.7,66.8c-101,10.9-191.2-9.3-227-6.2c-35.8,3.1-169.4-60.6-200.5-99.5
+				S7.2,686.4,27.4,531S218.6,279.1,232.6,276c14-3.1,45.1-12.4,45.1-12.4"/>
+			<path class="st0" d="M965.5,228.6c0,0-56-23.3-66.8-28c-10.9-4.7-51.3-15.5-91.7-20.2s-49.7,17.1-62.2,21.8
+				c-12.4,4.7-18.7-7.8-26.4-14s-48.2-14-62.2,0c-14,14-9.3,66.8-9.3,66.8s-3.9-30.3-8.5-52.1s-17.1-23.3-23.3-26.4
+				s-26.4,1.6-34.2,3.1s-18.7,15.5-32.6,17.1s-28-10.9-43.5-10.9c-15.5,0-46.6,3.1-62.2,4.7s-66.8,18.7-74.6,26.4
+				c-7.8,7.8-29.5,24.9-29.5,24.9"/>
+			<path class="st0" d="M552.8,199.9c0,0,10.9,143,9.3,167.9"/>
+			<path class="st1" d="M652.3,565.2c0,0,21.8-3.1,42,3.1c20.2,6.2,83.9,7.8,94.8-4.7c10.9-12.4,20.2-15.5,28-65.3
+				c7.8-49.7,28-104.1,52.9-119.7c24.9-15.5,34.2-28,42-31.1s32.6-4.7,37.3,6.2c4.7,10.9,7.8,70-12.4,99.5s-29.5,101-18.7,125.9
+				s29.5,46.6,68.4,48.2c38.9,1.6,80.8,26.4,91.7,46.6c10.9,20.2-3.1,38.9-52.9,57.5c-49.7,18.7-52.9,32.6-88.6,26.4
+				c-35.8-6.2-63.7,0-85.5,9.3c-21.8,9.3-76.2,17.1-90.2,3.1c-14-14-28-35.8-12.4-83.9c15.5-48.2,3.1-51.3-9.3-59.1
+				c-12.4-7.8-48.2-12.4-70-6.2c-21.8,6.2-68.4-4.7-80.8-3.1s-40.4,1.6-35.8,40.4c4.7,38.9,23.3,76.2,4.7,88.6s-23.3,23.3-57.5,15.5
+				s-48.2-1.6-62.2,4.7c-14,6.2-37.3-6.2-62.2-7.8c-24.9-1.6-77.7-17.1-96.4-10.9s-59.1-42-60.6-56c-1.6-14-1.6-23.3,45.1-40.4
+				c46.6-17.1,99.5-32.6,113.5-63.7c14-31.1,1.6-94.8-7.8-122.8c-9.3-28-34.2-63.7-18.7-77.7s35.8-37.3,43.5-32.6
+				c7.8,4.7,46.6,23.3,57.5,52.9s32.6,52.9,35.8,102.6s38.9,63.7,74.6,59.1C597.8,565.2,652.3,565.2,652.3,565.2z"/>
+			<path class="st2" d="M910.3,338.2c0,0,28-1.6,35.8,7.8s20.2,9.3,40.4-26.4c20.2-35.8,35.8-74.6,57.5-83.9
+				c21.8-9.3,38.9-17.1,37.3-32.6c-1.6-15.5-29.5-49.7-45.1-45.1s-71.5,68.4-87,97.9C933.6,285.4,910.3,338.2,910.3,338.2z"/>
+			<path class="st2" d="M389.6,346c0,0-45.1-97.9-65.3-125.9c-20.2-28-54.4-71.5-73.1-62.2s-38.9,38.9-29.5,45.1
+				s38.9,35.8,49.7,52.9c10.9,17.1,42,65.3,54.4,94.8c12.4,29.5,12.4,49.7,24.9,37.3S394.2,356.9,389.6,346z"/>
+			<path class="st3" d="M218.6,501.4"/>
+		</g>
+	</g>
+	<text transform="matrix(1 0 0 1 337.9238 130.9365)" class="st4 st5">Spinal Cord</text>
+</g>
+<g id="Layer_2_1_">
+	<a xlink:href="/?module=spinocerebellar" target="_parent" title="Go to Spinocerebellar Animation &amp; Quiz">
+	<path id="posteriorspinocerebellar_tract" class="st6" d="M1011.3,286.9c0,0,14-14,32.6-12.4c18.7,1.6,56,28,71.5,45.1
+		s68.4,37.3,74.6,60.6c6.2,23.3,28,51.3,34.2,76.2c6.2,24.9,24.9,35.8-6.2,54.4c-31.1,18.7-49.7,17.1-66.8-18.7
+		s-38.9-82.4-45.1-104.1c-6.2-21.8-49.7-57.5-63.7-57.5C1028.4,330.4,991.1,297.8,1011.3,286.9z"/>
+	<path id="anteriorspinocerebellar_tract" class="st6" d="M1190.1,549.6c0,0,15.5-37.3,35.8-37.3c20.2,0,29.5,18.7,29.5,52.9
+		c0,34.2,6.2,80.8-20.2,118.1s-76.2,88.6-82.4,94.8c-6.2,6.2-37.3-6.2-23.3-29.5c6.8-11.5,20.1-19.7,25.8-31.2
+		c3-5.9,3-13.8,6.1-20.1c3.6-7.3,8.2-14,12.3-21.1c3.3-6.2,6.2-12.7,8.9-19.3c6.8-17.3,18.5-41.3,15.2-60.2
+		C1194.8,580.1,1184.8,567.2,1190.1,549.6z"/>
+	<g class="tract-tooltip">
+		<rect class="tooltip-bg" x="840" y="240" width="348" height="58"/>
+		<text class="tooltip-text" x="862" y="278">Spinocerebellar tracts</text>
+	</g>
+	</a>
+	<path id="anteriorspinothalamic_tract" class="st7" d="M734.6,779.7c0,0,97.9,9.3,144.6-1.6c46.6-10.9,138.3-29.5,169.4-42
+		c31.1-12.4,70-38.9,63.7-90.2c-6.2-51.3-28-102.6-24.9-122.8s12.4-43.5,32.6-38.9c20.2,4.7,54.4,38.9,56,57.5s9.3,73.1,0,91.7
+		s-23.3,83.9-49.7,101s-45.1,51.3-97.9,65.3c-52.9,14-149.2,24.9-174.1,28c-24.9,3.1-52.9,1.6-77.7,0
+		C751.7,826.3,674,818.5,734.6,779.7z"/>
+	<a xlink:href="/?module=ventral-stt" target="_parent" title="Medial side: Go to Ventral Spinothalamic Animation &amp; Quiz">
+		<polygon id="ventral_spinothalamic_hotspot" points="710,763 918,742 1008,706 1048,760 930,828 735,828"/>
+		<g class="tract-tooltip">
+			<rect class="tooltip-bg" x="610" y="846" width="396" height="58"/>
+			<text class="tooltip-text" x="632" y="884">Ventral spinothalamic tract</text>
+		</g>
+	</a>
+	<a xlink:href="/?module=lateral-stt" target="_parent" title="Lateral side: Go to Lateral Spinothalamic Animation &amp; Quiz">
+		<polygon id="lateral_spinothalamic_hotspot" points="1008,706 1114,482 1178,536 1178,632 1138,724 1048,760"/>
+		<g class="tract-tooltip">
+			<rect class="tooltip-bg" x="800" y="432" width="390" height="58"/>
+			<text class="tooltip-text" x="822" y="470">Lateral spinothalamic tract</text>
+		</g>
+	</a>
+	<a xlink:href="/?module=corticospinal" target="_parent" title="Go to Corticospinal Animation &amp; Quiz">
+	<path id="lateralcorticospinal_tract" class="st8" d="M209.2,370.9c0,0-45.2,56.1,0,96.5s98.1,29.5,109,9.3
+		c10.9-20.2,28-59.2,15.5-85.7c-12.4-26.4-38.9-53-56.1-53C260.4,338.1,235.8,339.8,209.2,370.9z"/>
+	<g class="tract-tooltip">
+		<rect class="tooltip-bg" x="120" y="300" width="332" height="58"/>
+		<text class="tooltip-text" x="142" y="338">Corticospinal tract</text>
+	</g>
+	</a>
+	<path id="rubrospinal_tract" class="st9" d="M273.1,500H273c6.1,14,8.2,26,22.4,34.8c11.3,7,25,9.5,38.4,8.9c1.9,0,3.7-0.3,5.4-1.1
+		c1.6-0.9,3-2,4-3.4c18.7-22.1,23.3-60,12.3-86.1c-17.1-40.4-13.4-44.3-22.2-12.1c-3,10.9-1.6,24.9-7.8,34.5
+		C315.1,491.6,289.1,494,273.1,500z"/>
+	<a xlink:href="/?module=corticospinal" target="_parent" title="Go to Corticospinal Animation &amp; Quiz">
+	<path id="anterior_corticospinal_tract" class="st10" d="M583.9,796.8c0,0,28-10.9,12.4-68.4c-15.5-57.5-4.7-79.3,4.7-82.4
+		c9.3-3.1,32.6,32.6,34.2,48.2c1.6,15.5,4.7,15.5,1.6,32.6c-3.1,17.1,1.6,24.9-1.6,37.3c-3.1,12.4-6.2,52.9-12.4,59.1
+		s-18.7-1.6-24.9-6.2C591.6,812.3,569.9,806.1,583.9,796.8z"/>
+	<g class="tract-tooltip">
+		<rect class="tooltip-bg" x="405" y="720" width="332" height="58"/>
+		<text class="tooltip-text" x="427" y="758">Corticospinal tract</text>
+	</g>
+	</a>
+	<path id="tectospinal_tract" class="st11" d="M527.6,843.4c-1.1,4.2-1.9,9,0.6,12.6c2.5,3.6,7,4.8,11.2,4.5c4.2-0.3,8.1-2,12.1-3.3
+		c12.1-3.7,25.2-3.7,37-8.5c5-2,9.6-4.8,14.9-6.1c2.8-0.6,5.6-0.8,8.1-2s4.4-4.2,3.4-6.8c-0.9-1.7-2.5-3.1-4.5-3.7l-28.8-14
+		c-4.4-2.3-9.2-4.2-14-5.4c-8.1-1.7-20.7-3.3-25.8,4.5C536,823.8,530.4,833.3,527.6,843.4z"/>
+	<path id="vestibulospinal_tract" class="st12" d="M356.9,824.3c7,1.6,14.1,3.1,21.3,3.1c6.1-0.3,12.1-1.2,18-2.6
+		c36.8-7.3,74.3-9.9,111.8-7.8c4,0.2,8.7,0.9,10.9,4.4c1.1,2.3,1.6,4.8,1.4,7.3l-0.2,17.7c0.2,2.3-0.2,4.7-0.9,7
+		c-1.6,4.2-5.9,7-10.1,8.4c-13.2,4.2-27,5.6-40.9,4.4c-8.7-0.6-17.3-1.9-26-2.5c-8.2-0.6-16.2,2-24.2,1.1
+		c-6.8-0.8-13.8-1.1-20.8-1.1c-3.4,0-15.2-2.6-18.7-3.1c-22.5-3.1-34.2-4.8-56.9-6.8c-17.6-1.6-34.5-6.5-51.5-11.3
+		c-3.6-1.1-7.3-2.2-9.6-5.1c-4-5.3-1.1-12.9,3.1-18c10.6-12.4,23.9-10.4,38.1-7.3L356.9,824.3z"/>
+	<path id="olivospinal_tract" class="st13" d="M200.4,811.4c5.8,7,11.8,14.1,20.2,17.4c5.9,2.3,12.6,2.5,18.7,4
+		c1.9,0.6,3.9,0.9,5.9,1.2c5.4,0.2,10.3-4,12.4-9c2.2-5,2.5-10.6,2.8-16c1.1-4.4-1.7-8.9-6.1-9.9h-0.2c-11.3-5.1-23-13.1-35.8-9.5
+		C208.1,792.4,190.3,798.8,200.4,811.4z"/>
+	<a xlink:href="/?module=dcml" target="_parent" title="Go to Dorsal Column Animation &amp; Quiz">
+	<path id="dorsal_column" class="st14" d="M650.5,269.2c0,0-10.4-56.4,3-70.1c13.4-13.7,45.5-26,64.8-7.8s26,23,39.9,7.3
+		s49.3-20.8,100.1-5.8c50.8,15.1,98.6,35.9,98.6,35.9s-50.4,102.7-56,117.4c-22.5,12.3-54,35.8-79.4,106.5
+		c-14.9,41.3-7.9,71.8-20.2,92.8c-12.3,21.1-49.4,32.6-90.2,23.5c-40.6-9-57.7-12.9-57.7-12.9L650.5,269.2z"/>
+	<g class="tract-tooltip">
+		<rect class="tooltip-bg" x="650" y="130" width="416" height="58"/>
+		<text class="tooltip-text" x="672" y="168">Dorsal column / DCML</text>
+	</g>
+	</a>
+	<path class="st0" d="M739.3,203.1c0,0-6.2,159.8-3.1,167.6"/>
+</g>
+</svg>
