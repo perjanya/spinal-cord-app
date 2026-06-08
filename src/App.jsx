@@ -548,6 +548,179 @@ That high tension activates Golgi tendon organs, which send signals through fast
   },
 ];
 
+const corticobulbarNucleusRows = [
+  ['Mastication', 'Trigeminal nerve (CN V)', 'Motor nucleus of CN V', 'Pons'],
+  ['Facial expression', 'Facial nerve (CN VII)', 'Facial motor nucleus', 'Pons'],
+  ['Swallowing and vocalizing', 'Glossopharyngeal (CN IX) and vagus (CN X)', 'Nucleus ambiguus', 'Medulla'],
+  ['Shrugging and turning head', 'Spinal accessory nerve (CN XI)', 'Spinal accessory nucleus', 'C1-C5 anterior horn'],
+  ['Tongue protrusion and movement', 'Hypoglossal nerve (CN XII)', 'Hypoglossal nucleus', 'Medulla'],
+];
+
+const facialPalsyRows = [
+  ['Supranuclear facial palsy', 'Cortex or corticobulbar fibers above the facial nucleus', 'Contralateral lower face weakness with forehead sparing.'],
+  ['Infranuclear facial palsy', 'Facial nucleus or facial nerve after it leaves the pons', 'Ipsilateral upper and lower face weakness, including impaired forehead wrinkling and eye closure.'],
+];
+
+const corticobulbarProjectionRows = [
+  ['Genu of internal capsule', 'Corticobulbar tract', 'Dense descending motor fibers for face, head, neck, swallowing, and speech.'],
+  ['Posterior limb of internal capsule', 'Corticospinal tract', 'Voluntary motor fibers for trunk and limbs.'],
+  ['Upper facial nucleus', 'Bilateral cortical input', 'Forehead is usually spared in a unilateral UMN lesion.'],
+  ['Lower facial nucleus', 'Predominantly contralateral cortical input', 'Contralateral lower facial weakness follows a unilateral UMN lesion.'],
+  ['Hypoglossal nucleus', 'Mainly contralateral input', 'Tongue may deviate away from a supranuclear lesion.'],
+  ['Spinal accessory nucleus', 'Mainly ipsilateral input', 'Shoulder shrug and head-turning can be affected depending on lesion side.'],
+];
+
+const corticobulbarPathwayLevels = [
+  {
+    id: 'corticobulbar-genu',
+    phase: 'Level 1',
+    label: 'Internal Capsule Genu',
+    shortLabel: 'Genu',
+    prompt: 'A 68-year-old patient has sudden difficulty speaking and swallowing after a lacunar infarct precisely involving the genu of the internal capsule. Which descending tract is most likely disrupted?',
+    type: 'mcq',
+    hint: 'The genu carries motor commands to cranial nerve motor nuclei.',
+    options: ['Lateral corticospinal tract', 'Corticobulbar tract', 'Anterior corticospinal tract', 'Rubrospinal tract'],
+    answer: 'Corticobulbar tract',
+    knowMore: `The corticobulbar tract arises mainly from the lateral portion of the primary motor cortex, especially the face region of the precentral gyrus. Its axons descend through the genu of the internal capsule, then continue into the cerebral peduncle, basis pontis, and medullary region before distributing to cranial nerve motor nuclei.
+
+The capsule distinction is high-yield: corticobulbar fibers pass through the genu, while corticospinal fibers pass through the posterior limb. A small genu lesion can therefore produce dysarthria, dysphagia, and facial or tongue weakness without the same limb-dominant pattern expected from a posterior limb lesion.`,
+    knowMoreImages: [
+      {
+        src: '/assets/Corticobular tract for animation.svg',
+        alt: 'Corticobulbar tract labeled pathway',
+        caption: 'Corticobulbar tract pathway through the genu and brainstem motor nuclei.',
+      },
+    ],
+    knowMoreTables: [
+      {
+        title: 'Corticobulbar Projection Map',
+        headers: ['Site', 'Key Fibers / Input', 'Clinical High-Yield'],
+        rows: corticobulbarProjectionRows,
+      },
+    ],
+  },
+  {
+    id: 'corticobulbar-facial-nucleus',
+    phase: 'Level 2',
+    label: 'Facial Nucleus Split',
+    shortLabel: 'Face',
+    prompt: 'A right corticobulbar UMN lesion causes a symmetric forehead but a drooping lower left mouth. The lower facial nucleus receives predominantly 1. ________ cortical input, while the upper facial nucleus receives 2. ________ cortical input.',
+    type: 'blank',
+    placeholder: 'Type both cortical input patterns',
+    answer: 'Contralateral; bilateral',
+    accepted: ['contralateral', 'bilateral'],
+    minMatches: 2,
+    hint: 'Forehead sparing happens because the upper face gets commands from both hemispheres.',
+    knowMore: `The facial motor nucleus in the pons is functionally split. The upper division controls the forehead and receives bilateral cortical input, so a unilateral UMN lesion usually spares forehead wrinkling. The lower division controls the lower face and receives predominantly contralateral cortical input, so a right UMN lesion weakens the left lower face.
+
+This separates central facial palsy from peripheral facial palsy. A central lesion weakens the contralateral lower face only. A peripheral lesion at the facial nucleus or nerve weakens the entire ipsilateral half of the face, including forehead movement and eye closure.`,
+    knowMoreTables: [
+      {
+        title: 'Central Versus Peripheral Facial Palsy',
+        headers: ['Pattern', 'Lesion Location', 'Exam Finding'],
+        rows: facialPalsyRows,
+      },
+    ],
+  },
+  {
+    id: 'corticobulbar-homunculus',
+    phase: 'Level 3',
+    label: 'Motor Homunculus Origin',
+    shortLabel: 'Homunculus',
+    prompt: 'The upper motor neurons that form the corticobulbar tract originate primarily within the medial and superior aspects of the precentral gyrus.',
+    type: 'boolean',
+    hint: 'Face and head representation sits more inferior and lateral near the lateral fissure.',
+    options: ['True', 'False'],
+    answer: 'False',
+    explanation: 'Corticobulbar fibers arise mainly from the lateral face region of the primary motor cortex.',
+    knowMore: `Wilder Penfield's motor homunculus places the lower limb on the medial surface of the hemisphere, while face and head muscles are represented more inferiorly and laterally on the precentral gyrus near the lateral fissure. That lateral face area is the main cortical origin of corticobulbar fibers.
+
+The tract then carries voluntary motor commands from cortex to cranial nerve motor nuclei, supporting facial expression, chewing, swallowing, phonation, tongue movement, and selected head or neck movements.`,
+    knowMoreImages: [
+      {
+        src: '/assets/Corticobular tract for animation.svg',
+        alt: 'Corticobulbar tract and cortical origin figure',
+        caption: 'The pathway begins from the lateral motor cortex representation for face and head.',
+      },
+    ],
+  },
+  {
+    id: 'corticobulbar-pseudobulbar',
+    phase: 'Level 4',
+    label: 'Pseudobulbar Palsy',
+    shortLabel: 'Bilateral UMN',
+    prompt: 'An isolated extensive bilateral corticobulbar lesion can cause severe dysphagia, dysarthria, and uncontrolled crying or laughing despite preserved facial muscle bulk.',
+    type: 'boolean',
+    hint: 'Bilateral UMN pathway loss affects voluntary control without denervating the muscles directly.',
+    options: ['True', 'False'],
+    answer: 'True',
+    knowMore: `This pattern is pseudobulbar palsy. It reflects bilateral upper motor neuron damage to corticobulbar pathways, causing loss of voluntary control over facial, speech, and swallowing movements. Emotional expression can become exaggerated or poorly controlled, producing pseudobulbar affect.
+
+Bulbar palsy is different: it results from lower motor neuron damage to cranial nerve nuclei or nerves serving the face, tongue, pharynx, and larynx. Bulbar palsy is more likely to show LMN signs such as wasting, fasciculations, and reduced reflexes in affected muscles.`,
+    knowMoreTables: [
+      {
+        title: 'Pseudobulbar Versus Bulbar Palsy',
+        headers: ['Syndrome', 'Primary Lesion Type', 'Typical Clues'],
+        rows: [
+          ['Pseudobulbar palsy', 'Bilateral corticobulbar UMN lesion', 'Dysarthria, dysphagia, brisk jaw jerk, emotional lability, preserved muscle bulk.'],
+          ['Bulbar palsy', 'Cranial nerve LMN lesion in nucleus or nerve', 'Dysarthria, dysphagia, tongue wasting or fasciculations, reduced reflexes.'],
+        ],
+      },
+    ],
+  },
+  {
+    id: 'corticobulbar-target-nuclei',
+    phase: 'Level 5',
+    label: 'Target Nuclei',
+    shortLabel: 'Nuclei',
+    prompt: 'Which pairing correctly matches a corticobulbar-controlled muscle action with its downstream cranial nerve motor nucleus destination?',
+    type: 'mcq',
+    hint: 'Choose the motor action, not sensory taste or facial pain.',
+    options: [
+      'Shrugging the shoulders -> accessory nerve nucleus (CN XI)',
+      'Moving the eyes horizontally -> Edinger-Westphal nucleus',
+      'Tasting sugar on the tongue -> solitary / gustatory nucleus',
+      'Sensation of a toothache -> spinal trigeminal nucleus',
+    ],
+    answer: 'Shrugging the shoulders -> accessory nerve nucleus (CN XI)',
+    knowMore: `The corticobulbar tract is a descending motor pathway. It targets cranial nerve motor nuclei that control chewing, facial expression, swallowing, phonation, shoulder shrugging, head turning, and tongue movement.
+
+Horizontal eye movement is coordinated through gaze centers and somatic motor nuclei such as abducens and oculomotor, while Edinger-Westphal is parasympathetic. Taste and toothache are sensory, so they do not belong to the corticobulbar motor pathway.`,
+    knowMoreTables: [
+      {
+        title: 'Corticobulbar Muscle Action To Nucleus Map',
+        headers: ['Muscle Action', 'Cranial Nerve Involved', 'Target Nucleus', 'Level'],
+        rows: corticobulbarNucleusRows,
+      },
+    ],
+  },
+  {
+    id: 'corticobulbar-spasticity',
+    phase: 'Level 6',
+    label: 'Spasticity',
+    shortLabel: 'Tone',
+    prompt: 'Spasticity is characterized as a velocity-dependent form of hypertonia.',
+    type: 'boolean',
+    hint: 'Fast passive stretch produces more resistance than slow passive stretch.',
+    options: ['True', 'False'],
+    answer: 'True',
+    knowMore: `Spasticity is velocity-dependent hypertonia after an upper motor neuron lesion. A rapid passive stretch triggers an exaggerated stretch reflex through over-sensitive muscle spindle pathways, while a slow stretch may meet less resistance.
+
+Rigidity, classically associated with basal ganglia disorders such as Parkinson disease, is velocity independent. The limb resists passive movement more uniformly regardless of movement speed.`,
+    knowMoreTables: [
+      {
+        title: 'Spasticity Versus Rigidity',
+        headers: ['Feature', 'Spasticity', 'Rigidity'],
+        rows: [
+          ['Dependence on speed', 'Velocity-dependent', 'Velocity-independent'],
+          ['Typical pathway problem', 'Upper motor neuron pathway lesion', 'Basal ganglia circuit dysfunction'],
+          ['Passive movement', 'More resistance with rapid stretch', 'Uniform resistance through range'],
+        ],
+      },
+    ],
+  },
+];
+
 const pathwayLevels = [
   {
     id: 'drg',
@@ -692,32 +865,18 @@ const descendingTracts = [
     description: 'Voluntary motor control, internal capsule, crus cerebri somatotopy, UMN/LMN signs, and spasticity.',
   },
   {
-    id: 'rubrospinal',
-    title: 'Rubrospinal Tract',
-    image: '/Corticospinal tracts.svg',
-    status: 'Content next',
-    description: 'Reserved for future descending motor tract content.',
+    id: 'corticobulbar',
+    title: 'Corticobulbar Tract',
+    image: '/assets/Corticobular tract for animation.svg',
+    status: 'Ready',
+    description: 'Genu of internal capsule, facial nucleus input, pseudobulbar palsy, cranial motor nuclei, and spasticity.',
   },
   {
-    id: 'vestibulospinal',
-    title: 'Vestibulospinal Tract',
+    id: 'other-descending',
+    title: 'Other Descending Tracts',
     image: '/Corticospinal tracts.svg',
-    status: 'Content next',
-    description: 'Reserved for future descending motor tract content.',
-  },
-  {
-    id: 'reticulospinal',
-    title: 'Reticulospinal Tract',
-    image: '/Corticospinal tracts.svg',
-    status: 'Content next',
-    description: 'Reserved for future descending motor tract content.',
-  },
-  {
-    id: 'tectospinal',
-    title: 'Tectospinal Tract',
-    image: '/Corticospinal tracts.svg',
-    status: 'Content next',
-    description: 'Reserved for future descending motor tract content.',
+    status: 'Unmapped',
+    description: 'Rubrospinal, vestibulospinal, reticulospinal, and tectospinal tracts will be mapped later.',
   },
 ];
 
@@ -730,6 +889,65 @@ const homeAudioTracks = [
     title: 'Motor pathway overview',
     src: '/audio/motor-file.mp3',
   },
+];
+
+const feedbackUrl = 'https://forms.gle/gtNquQPbzGsLYNW46';
+
+const homeHotspots = [
+  {
+    id: 'dcml',
+    title: 'Medial Column',
+    subtitle: 'DCML quiz and animation',
+    division: 'ascending',
+    top: '20%',
+    left: '50%',
+    tone: 'emerald',
+  },
+  {
+    id: 'lateral-stt',
+    title: 'Lateral Spinothalamic',
+    subtitle: 'Pain and temperature',
+    division: 'ascending',
+    top: '46%',
+    left: '72%',
+    tone: 'rose',
+  },
+  {
+    id: 'ventral-stt',
+    title: 'Anterior Spinothalamic',
+    subtitle: 'Crude touch and pressure',
+    division: 'ascending',
+    top: '64%',
+    left: '58%',
+    tone: 'cyan',
+  },
+  {
+    id: 'spinocerebellar',
+    title: 'Spinocerebellar',
+    subtitle: 'Coordination pathways',
+    division: 'ascending',
+    top: '34%',
+    left: '76%',
+    tone: 'indigo',
+  },
+  {
+    id: 'corticospinal',
+    title: 'Corticospinal',
+    subtitle: 'Descending motor control',
+    division: 'descending',
+    top: '36%',
+    left: '30%',
+    tone: 'orange',
+  },
+];
+
+const homeModuleShortcuts = [
+  { id: 'dcml', title: 'DCML', division: 'ascending', label: 'Medial column' },
+  { id: 'lateral-stt', title: 'Lateral STT', division: 'ascending', label: 'Pain and temperature' },
+  { id: 'ventral-stt', title: 'Ventral STT', division: 'ascending', label: 'Crude touch and pressure' },
+  { id: 'spinocerebellar', title: 'Spinocerebellar', division: 'ascending', label: 'Cerebellar coordination' },
+  { id: 'corticospinal', title: 'Corticospinal', division: 'descending', label: 'Voluntary motor output' },
+  { id: 'corticobulbar', title: 'Corticobulbar', division: 'descending', label: 'Cranial motor output' },
 ];
 
 const STORAGE_KEY = 'spinal-cord-explorer-progress-v1';
@@ -792,6 +1010,12 @@ const badges = [
     title: 'Motor Command Explorer',
     description: 'Complete every Corticospinal Tract level.',
     tone: 'bg-rose-50 text-rose-900 border-rose-500',
+  },
+  {
+    id: 'corticobulbar-explorer',
+    title: 'Cranial Motor Explorer',
+    description: 'Complete every Corticobulbar Tract level.',
+    tone: 'bg-orange-50 text-orange-900 border-orange-500',
   },
 ];
 
@@ -856,6 +1080,18 @@ const tractModules = {
     unlockTime: 97,
     intro: 'Use the interactive pathway as your map. The quiz unlocks after the pathway animation, then opens from the right-side drawer.',
   },
+  corticobulbar: {
+    id: 'corticobulbar',
+    division: 'descending',
+    title: 'Corticobulbar Tract',
+    displayTitle: 'Corticobulbar Tract',
+    iframeSrc: '/assets/Corticospinal tract animation1.html',
+    iframeTitle: 'Corticobulbar Tract interactive pathway',
+    levels: corticobulbarPathwayLevels,
+    unlockMessageType: 'dcml-quiz-ready',
+    unlockTime: 97,
+    intro: 'Use the interactive corticobulbar pathway as your map. The quiz unlocks after the pathway animation, then opens from the right-side drawer.',
+  },
 };
 
 function loadProgress() {
@@ -881,13 +1117,16 @@ function evaluateBadges(progress) {
   if (ventralPathwayLevels.every((level) => progress.completedLevels.includes(level.id))) earned.add('ventral-stt-explorer');
   if (spinocerebellarPathwayLevels.every((level) => progress.completedLevels.includes(level.id))) earned.add('spinocerebellar-explorer');
   if (corticospinalPathwayLevels.every((level) => progress.completedLevels.includes(level.id))) earned.add('corticospinal-explorer');
+  if (corticobulbarPathwayLevels.every((level) => progress.completedLevels.includes(level.id))) earned.add('corticobulbar-explorer');
 
   return [...earned];
 }
 
 function getCertificateRecords(progress) {
-  const ascendingComplete = ascendingTracts.every((tract) => progress.completedTracts.includes(tract.id));
-  const descendingComplete = descendingTracts.every((tract) => progress.completedTracts.includes(tract.id));
+  const readyAscendingTracts = ascendingTracts.filter((tract) => tractModules[tract.id]);
+  const readyDescendingTracts = descendingTracts.filter((tract) => tractModules[tract.id]);
+  const ascendingComplete = readyAscendingTracts.every((tract) => progress.completedTracts.includes(tract.id));
+  const descendingComplete = readyDescendingTracts.every((tract) => progress.completedTracts.includes(tract.id));
 
   return [
     {
@@ -1353,45 +1592,97 @@ function HomeAudioControls() {
   );
 }
 
-function LandingScreen({ onSelectDivision, progress }) {
+function LandingScreen({ onSelectDivision, onOpenTract, progress }) {
   return (
     <div className="min-h-screen bg-[#f7fafc] text-slate-950">
-      <header className="border-b border-slate-200 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-5 sm:px-6">
-          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-sky-700">Spinal Cord Explorer</p>
-          <h1 className="mt-2 text-3xl font-semibold tracking-normal text-slate-950 sm:text-4xl">
-            Choose A Pathway System
-          </h1>
+      <header className="border-b border-slate-200 bg-white/95">
+        <div className="mx-auto flex max-w-7xl flex-col gap-5 px-4 py-6 sm:px-6 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-sky-700">Spinal Cord Explorer</p>
+            <h1 className="mt-2 text-3xl font-semibold tracking-normal text-slate-950 sm:text-5xl">
+              Interactive Tract Map
+            </h1>
+            <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-600 sm:text-base">
+              Start from a spinal cord cross-section, then jump into pathway animations, quizzes, clinical tables, and figures.
+            </p>
+          </div>
           <div className="mt-4">
             <ProgressPill progress={progress} />
           </div>
         </div>
       </header>
 
-      <main className="mx-auto grid max-w-7xl gap-6 px-4 py-6 sm:px-6 lg:grid-cols-[minmax(320px,520px)_1fr]">
-        <section className="relative min-h-[560px] overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm">
-          <spline-viewer
-            url="https://prod.spline.design/GVrlap4FGO1V3lj4/scene.splinecode"
-            className="pointer-events-none block h-[560px] w-full"
-          />
+      <main className="mx-auto grid max-w-7xl gap-6 px-4 py-6 sm:px-6 lg:grid-cols-[minmax(0,1.35fr)_minmax(320px,0.65fr)]">
+        <section className="relative overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm">
+          <div className="border-b border-slate-200 bg-slate-50 px-4 py-3">
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">Tap a glowing tract to begin</p>
+          </div>
+          <div className="relative min-h-[520px] bg-gradient-to-b from-slate-50 via-white to-sky-50 p-4 sm:p-6">
+            <img
+              src="/assets/Cross section of spinal cord for animation.svg"
+              alt="Cross section of spinal cord with highlighted tract regions"
+              className="mx-auto h-[500px] w-full object-contain drop-shadow-[0_18px_32px_rgba(15,23,42,0.16)]"
+            />
+            <div className="pointer-events-none absolute inset-4 sm:inset-6">
+              {homeHotspots.map((hotspot) => (
+                <button
+                  key={hotspot.id}
+                  type="button"
+                  onClick={() => onOpenTract(hotspot.id, hotspot.division)}
+                  className={`home-hotspot home-hotspot-${hotspot.tone} pointer-events-auto absolute -translate-x-1/2 -translate-y-1/2`}
+                  style={{ top: hotspot.top, left: hotspot.left }}
+                  aria-label={`Open ${hotspot.title}`}
+                  title={hotspot.subtitle}
+                >
+                  <span className="home-hotspot-pulse" aria-hidden="true" />
+                  <span className="home-hotspot-core" aria-hidden="true" />
+                  <span className="home-hotspot-label">
+                    <span className="block text-[11px] font-semibold uppercase tracking-[0.14em]">{hotspot.title}</span>
+                    <span className="mt-0.5 block text-[10px] font-medium opacity-80">{hotspot.subtitle}</span>
+                  </span>
+                </button>
+              ))}
+            </div>
+          </div>
           <HomeAudioControls />
           <button
             type="button"
             onClick={() => onSelectDivision('ascending')}
-            className="absolute left-1/2 top-5 z-10 w-44 -translate-x-1/2 rounded-lg border border-emerald-600 bg-emerald-50/95 px-4 py-3 text-sm font-semibold text-emerald-900 shadow-lg transition hover:-translate-y-0.5 hover:bg-emerald-100"
+            className="absolute left-4 top-16 z-10 rounded-lg border border-emerald-600 bg-emerald-50/95 px-4 py-3 text-sm font-semibold text-emerald-900 shadow-lg transition hover:-translate-y-0.5 hover:bg-emerald-100 sm:left-6"
           >
             Ascending Tracts
           </button>
           <button
             type="button"
             onClick={() => onSelectDivision('descending')}
-            className="absolute bottom-5 left-1/2 z-10 w-44 -translate-x-1/2 rounded-lg border border-rose-600 bg-rose-50/95 px-4 py-3 text-sm font-semibold text-rose-900 shadow-lg transition hover:-translate-y-0.5 hover:bg-rose-100"
+            className="absolute right-4 top-16 z-10 rounded-lg border border-rose-600 bg-rose-50/95 px-4 py-3 text-sm font-semibold text-rose-900 shadow-lg transition hover:-translate-y-0.5 hover:bg-rose-100 sm:right-6"
           >
             Descending Tracts
           </button>
         </section>
 
         <section className="grid content-start gap-4">
+          <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-sky-700">Ready Modules</p>
+            <div className="mt-3 grid gap-2">
+              {homeModuleShortcuts.map((shortcut) => (
+                <button
+                  key={shortcut.id}
+                  type="button"
+                  onClick={() => onOpenTract(shortcut.id, shortcut.division)}
+                  className="group flex items-center justify-between gap-3 rounded-lg border border-slate-200 bg-slate-50 px-3 py-3 text-left transition hover:border-sky-400 hover:bg-sky-50"
+                >
+                  <span>
+                    <span className="block text-sm font-semibold text-slate-950">{shortcut.title}</span>
+                    <span className="mt-1 block text-xs leading-5 text-slate-600">{shortcut.label}</span>
+                  </span>
+                  <span className="grid h-8 w-8 place-items-center rounded-lg bg-white text-sky-700 shadow-sm transition group-hover:bg-sky-700 group-hover:text-white">
+                    &gt;
+                  </span>
+                </button>
+              ))}
+            </div>
+          </div>
           <button
             type="button"
             onClick={() => onSelectDivision('ascending')}
@@ -1411,7 +1702,7 @@ function LandingScreen({ onSelectDivision, progress }) {
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-rose-700">Motor output downward</p>
             <h2 className="mt-2 text-2xl font-semibold text-slate-950">Descending Tracts</h2>
             <p className="mt-2 text-sm leading-6 text-slate-600">
-              A placeholder destination is ready for corticospinal and related motor tract modules when you want them.
+              Open corticospinal and corticobulbar modules now, with more descending motor pathways reserved for later.
             </p>
           </button>
         </section>
@@ -1947,6 +2238,41 @@ function PathwayModule({ module, onBack, progress, onAnswer, onKnowMore, onShowC
   );
 }
 
+function FeedbackLink() {
+  return (
+    <a
+      href={feedbackUrl}
+      target="_blank"
+      rel="noreferrer"
+      className="fixed bottom-4 right-4 z-50 rounded-lg border border-sky-500 bg-sky-700 px-4 py-3 text-sm font-semibold text-white shadow-xl transition hover:-translate-y-0.5 hover:bg-sky-800"
+    >
+      Feedback
+    </a>
+  );
+}
+
+function DeveloperFooter() {
+  return (
+    <footer className="border-t border-slate-200 bg-white px-4 py-5 text-slate-700 sm:px-6">
+      <div className="mx-auto grid max-w-7xl gap-3 text-sm leading-6 lg:grid-cols-[1fr_auto] lg:items-center">
+        <div>
+          <p className="font-semibold text-slate-950">Developed by</p>
+          <p>Dr. Prarthana KG, Department of Human Biology, IMU University, Bukit Jalil, Kuala Lumpur, Malaysia.</p>
+          <p>Dr. Viveka S, Department of Anatomy, Shridevi Medical College, Tumkur, India.</p>
+        </div>
+        <a
+          href={feedbackUrl}
+          target="_blank"
+          rel="noreferrer"
+          className="w-fit rounded-lg border border-sky-600 bg-sky-50 px-4 py-3 font-semibold text-sky-800 transition hover:bg-sky-100"
+        >
+          Share feedback
+        </a>
+      </div>
+    </footer>
+  );
+}
+
 export default function App() {
   const [screen, setScreen] = useState('landing');
   const [activeTractId, setActiveTractId] = useState(null);
@@ -2025,6 +2351,10 @@ export default function App() {
           setScreen(division);
           setActiveTractId(null);
         }}
+        onOpenTract={(tractId, division) => {
+          setScreen(division);
+          setActiveTractId(tractId);
+        }}
       />
     );
   } else if (screen === 'descending' && !activeTractId) {
@@ -2064,7 +2394,9 @@ export default function App() {
 
   return (
     <>
+      <FeedbackLink />
       {content}
+      <DeveloperFooter />
       <AnimatePresence>
         {celebrationBadge && (
           <BadgeCelebration badge={celebrationBadge} onClose={() => setCelebrationBadge(null)} />
