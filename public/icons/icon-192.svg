@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" role="img" aria-label="Spinal Cord Explorer icon">
+  <rect width="192" height="192" rx="42" fill="#082f49"/>
+  <path d="M96 28c-22 0-38 13-38 34 0 12 7 23 18 29-15 7-25 20-25 36 0 23 18 37 45 37s45-14 45-37c0-16-10-29-25-36 11-6 18-17 18-29 0-21-16-34-38-34z" fill="#e0f2fe"/>
+  <path d="M96 46c-10 0-18 7-18 17s8 17 18 17 18-7 18-17-8-17-18-17zm0 57c-14 0-24 8-24 20 0 13 10 21 24 21s24-8 24-21c0-12-10-20-24-20z" fill="#38bdf8"/>
+  <path d="M96 30v132" stroke="#082f49" stroke-width="10" stroke-linecap="round" opacity=".42"/>
+</svg>

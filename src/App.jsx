@@ -993,8 +993,8 @@ const tractModules = {
     iframeTitle: 'Lateral Spinothalamic Tract interactive pathway',
     levels: lateralPathwayLevels,
     unlockMessageType: 'dcml-quiz-ready',
-    unlockTime: 97,
-    intro: 'Use the interactive pathway as your map. The quiz unlocks after the 97-second animation, then opens from the right-side drawer.',
+    unlockTime: 88,
+    intro: 'Use the interactive pathway as your map. The quiz unlocks after the pathway animation, then opens from the right-side drawer.',
   },
   'ventral-stt': {
     id: 'ventral-stt',
@@ -2098,7 +2098,7 @@ function PathwayModule({ module, onBack, progress, onAnswer, onKnowMore, onShowC
     const timer = quizReady ? undefined : window.setInterval(() => {
       const audio = pathwayFrameRef.current?.contentDocument?.querySelector('audio');
 
-      if (audio?.currentTime >= module.unlockTime) {
+      if (audio?.ended || audio?.currentTime >= module.unlockTime) {
         unlockQuiz();
         window.clearInterval(timer);
       }

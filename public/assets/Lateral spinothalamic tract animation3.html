@@ -1750,12 +1750,17 @@ p {
 
   if (!audio) return;
 
-  audio.addEventListener('timeupdate', function() {
-    if (!quizUnlocked && audio.currentTime >= 97) {
+  function unlockQuiz() {
+    if (!quizUnlocked) {
       quizUnlocked = true;
       window.parent.postMessage({ type: 'dcml-quiz-ready' }, window.location.origin);
     }
+  }
+
+  audio.addEventListener('timeupdate', function() {
+    if (audio.currentTime >= 88) unlockQuiz();
   });
+  audio.addEventListener('ended', unlockQuiz);
 })();
 
 $(document).ready(function() {
@@ -1763,12 +1768,17 @@ $(document).ready(function() {
   const audio = document.getElementById('Lateral spinothalamic tract audio');
   let quizUnlocked = false;
 
-  audio.addEventListener('timeupdate', function() {
-    if (!quizUnlocked && audio.currentTime >= 97) {
+  function unlockQuiz() {
+    if (!quizUnlocked) {
       quizUnlocked = true;
       window.parent.postMessage({ type: 'dcml-quiz-ready' }, window.location.origin);
     }
+  }
+
+  audio.addEventListener('timeupdate', function() {
+    if (audio.currentTime >= 88) unlockQuiz();
   });
+  audio.addEventListener('ended', unlockQuiz);
 
     // Define camera targets (Ensure these IDs exist in your SVG rectangles)
   const cameraSchedule = [
