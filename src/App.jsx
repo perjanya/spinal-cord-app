@@ -2041,7 +2041,7 @@ function HomeAudioControls() {
 
 function LandingScreen({ onSelectDivision, progress }) {
   const [labelMode, setLabelMode] = useState('tracts');
-  const spinalCordSvgUrl = `/assets/Cross section of spinal cord for animation1.svg?labels=${labelMode}`;
+  const spinalCordSvgUrl = `/assets/Cross section of spinal cord for animation1.svg?v=2&labels=${labelMode}`;
 
   return (
     <div className="min-h-screen bg-[#030b18] text-slate-100">

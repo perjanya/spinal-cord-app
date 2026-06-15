@@ -60,7 +60,7 @@
 			<path class="st2" d="M1462.2,450.2c0,0,28-1.6,35.8,7.8s20.2,9.3,40.4-26.4c20.2-35.8,35.8-74.6,57.5-83.9
 				c21.8-9.3,38.9-17.1,37.3-32.6s-29.5-49.7-45.1-45.1s-71.5,68.4-87,97.9C1485.4,397.4,1462.2,450.2,1462.2,450.2z"/>
 			<path class="st2" d="M773.5,315"/>
-			<a xlink:href="/?module=spinal-nerve" >
+			<a xlink:href="/?module=spinal-nerve" target="_top">
 				<path id="Spinalnerve" class="st2" d="M802.9,848.1c-7,5.1-14.1,10.2-21.3,15.1c-44.1,30.7-88.8,61.1-136.6,85.7
 					c-40.9,21-88.6,46.3-135.3,37.7c-81.4-15-129.1-83.6-166.7-151.3c-25.2-45.5-77.1-46.1-125.9-46.3
 					c-53.8-0.2-142.5,11.8-163.1,72C24,948.6,0,987.1,0,987.1v-169c-10.5-61.5,130.5-70.5,90-75.4S0,648.6,0,648.6V500
@@ -80,7 +80,7 @@
 	<text transform="matrix(1 0 0 1 977.7738 237)" class="st10 st11">Spinal Cord</text>
 </g>
 <g id="Layer_2_1_">
-	<a xlink:href="/?module=spinocerebellar" >
+	<a xlink:href="/?module=spinocerebellar" target="_top">
 		<path id="posteriorspinocerebellar_tract" class="st12" d="M1563.2,398.9c0,0,14-14,32.6-12.4c18.7,1.6,56,28,71.5,45.1
 			s68.4,37.3,74.6,60.6c6.2,23.3,28,51.3,34.2,76.2s24.9,35.8-6.2,54.4c-31.1,18.7-49.7,17.1-66.8-18.7
 			c-17.1-35.8-38.9-82.4-45.1-104.1c-6.2-21.8-49.7-57.5-63.7-57.5C1580.3,442.4,1542.9,409.8,1563.2,398.9z"/>
@@ -90,7 +90,7 @@
 			<text transform="matrix(1 0 0 1 1389.4346 366)" class="st8 st6 st7">Unconscious proprioception</text>
 		</g>
 	</a>
-	<a xlink:href="/?module=spinocerebellar" >
+	<a xlink:href="/?module=spinocerebellar" target="_top">
 		<path id="anteriorspinocerebellar_tract" class="st12" d="M1741.9,661.6c0,0,15.5-37.3,35.8-37.3c20.2,0,29.5,18.7,29.5,52.9
 			s6.2,80.8-20.2,118.1s-76.2,88.6-82.4,94.8c-6.2,6.2-37.3-6.2-23.3-29.5c6.8-11.5,20.1-19.7,25.8-31.2c3-5.9,3-13.8,6.1-20.1
 			c3.6-7.3,8.2-14,12.3-21.1c3.3-6.2,6.2-12.7,8.9-19.3c6.8-17.3,18.5-41.3,15.2-60.2C1746.7,692.1,1736.7,679.2,1741.9,661.6z"/>
@@ -100,7 +100,7 @@
 			<text transform="matrix(1 0 0 1 1409.4004 951)" class="st8 st6 st7">Motor activity feedback</text>
 		</g>
 	</a>
-	<a xlink:href="/?module=ventral-stt" >
+	<a xlink:href="/?module=ventral-stt" target="_top">
 		<path id="anteriorspinothalamic_tract_1_" class="st13" d="M1626.8,889.8c-12.3,8.8-27.1,16.7-46.6,21.9
 			c-52.9,14-149.2,24.9-174.1,28s-52.9,1.6-77.7,0c-24.9-1.4-102.6-9.2-42-48c0,0,97.9,9.3,144.6-1.6c46.6-10.9,138.3-29.5,169.4-42
 			L1626.8,889.8z"/>
@@ -110,7 +110,7 @@
 			<text transform="matrix(1 0 0 1 1320.7451 1026)" class="st8 st6 st7">Crude touch and pressure</text>
 		</g>
 	</a>
-	<a xlink:href="/?module=lateral-stt" >
+	<a xlink:href="/?module=lateral-stt" target="_top">
 		<path id="lateralspinothalamic_tract" class="st13" d="M1600.4,848.1c31.1-12.4,70-38.9,63.7-90.2c-6.2-51.3-28-102.6-24.9-122.8
 			s12.4-43.5,32.6-38.9c20.2,4.7,54.4,38.9,56,57.5s9.3,73.1,0,91.7s-23.3,83.9-49.7,101c-16.7,10.8-30.3,28.4-51.3,43.4
 			L1600.4,848.1z"/>
@@ -120,7 +120,7 @@
 			<text transform="matrix(1 0 0 1 1396.8486 576)" class="st8 st6 st7">Pain and temperature</text>
 		</g>
 	</a>
-	<a xlink:href="/?module=corticospinal" >
+	<a xlink:href="/?module=corticospinal" target="_top">
 		<path id="lateralcorticospinal_tract" class="st14" d="M761,482.9c0,0-45.2,56.1,0,96.5c45.2,40.4,98.1,29.5,109,9.3
 			c10.9-20.2,28-59.2,15.5-85.7c-12.4-26.4-38.9-53-56.1-53C812.3,450.1,787.7,451.8,761,482.9z"/>
 		<g class="st3">
@@ -132,7 +132,7 @@
 	<path id="rubrospinal_tract" class="st15" d="M825,612L825,612c6,14,8.1,26,22.3,34.8c11.3,7,25,9.5,38.4,8.9
 		c1.9,0,3.7-0.3,5.4-1.1c1.6-0.9,3-2,4-3.4c18.7-22.1,23.3-60,12.3-86.1c-17.1-40.4-13.4-44.3-22.2-12.1c-3,10.9-1.6,24.9-7.8,34.5
 		C867,603.6,841,606,825,612z"/>
-	<a xlink:href="/?module=corticospinal" >
+	<a xlink:href="/?module=corticospinal" target="_top">
 		<path id="anterior_corticospinal_tract" class="st16" d="M1135.8,908.8c0,0,28-10.9,12.4-68.4c-15.5-57.5-4.7-79.3,4.7-82.4
 			c9.3-3.1,32.6,32.6,34.2,48.2c1.6,15.5,4.7,15.5,1.6,32.6s1.6,24.9-1.6,37.3c-3.1,12.4-6.2,52.9-12.4,59.1
 			c-6.2,6.2-18.7-1.6-24.9-6.2C1143.4,924.3,1121.8,918.1,1135.8,908.8z"/>
@@ -153,7 +153,7 @@
 	<path id="olivospinal_tract" class="st19" d="M752.3,923.4c5.8,7,11.8,14.1,20.2,17.4c5.9,2.3,12.6,2.5,18.7,4
 		c1.9,0.6,3.9,0.9,5.9,1.2c5.4,0.2,10.3-4,12.4-9c2.2-5,2.5-10.6,2.8-16c1.1-4.4-1.7-8.9-6.1-9.9H806c-11.3-5.1-23-13.1-35.8-9.5
 		C760,904.4,742.2,910.8,752.3,923.4z"/>
-	<a xlink:href="/?module=dcml" >
+	<a xlink:href="/?module=dcml" target="_top">
 		<path id="dorsal_column" class="st20" d="M1202.3,381.2c0,0-10.4-56.4,3-70.1c13.4-13.7,45.5-26,64.8-7.8
 			c19.3,18.2,26,23,39.9,7.3s49.3-20.8,100.1-5.8c50.8,15.1,98.6,35.9,98.6,35.9s-50.4,102.7-56,117.4
 			c-22.5,12.3-54,35.8-79.4,106.5c-14.9,41.3-7.9,71.8-20.2,92.8c-12.3,21.1-49.4,32.6-90.2,23.5c-40.6-9-57.7-12.9-57.7-12.9
@@ -187,7 +187,7 @@
 
 		]]>
 </script>
-<a xlink:href="/?module=corticobulbar" target="_parent" tabindex="0" title="Open Corticobulbar Tract module">
+<a xlink:href="/?module=corticobulbar" target="_top" tabindex="0" title="Open Corticobulbar Tract module">
 	<text transform="matrix(1 0 0 1 486.7007 103.2678)" class="st22 st24 corticobulbar-link">Corticobulbar tract</text>
 </a>
 </svg>
