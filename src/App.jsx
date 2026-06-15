@@ -1309,16 +1309,6 @@ const homeAudioTracks = [
 
 const feedbackUrl = 'https://forms.gle/gtNquQPbzGsLYNW46';
 
-const homeModuleShortcuts = [
-  { id: 'spinal-nerve', title: 'Spinal Nerve', division: 'foundation', label: 'Segments and spinal nerves' },
-  { id: 'dcml', title: 'DCML', division: 'ascending', label: 'Medial column' },
-  { id: 'lateral-stt', title: 'Lateral STT', division: 'ascending', label: 'Pain and temperature' },
-  { id: 'ventral-stt', title: 'Ventral STT', division: 'ascending', label: 'Crude touch and pressure' },
-  { id: 'spinocerebellar', title: 'Spinocerebellar', division: 'ascending', label: 'Cerebellar coordination' },
-  { id: 'corticospinal', title: 'Corticospinal', division: 'descending', label: 'Voluntary motor output' },
-  { id: 'corticobulbar', title: 'Corticobulbar', division: 'descending', label: 'Cranial motor output' },
-];
-
 const STORAGE_KEY = 'spinal-cord-explorer-progress-v1';
 
 const initialProgress = {
@@ -1915,7 +1905,6 @@ function HomeAudioControls() {
   const audioRef = useRef(null);
   const [trackIndex, setTrackIndex] = useState(0);
   const [volume, setVolume] = useState(0.8);
-  const [muted, setMuted] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [shouldPlay, setShouldPlay] = useState(true);
   const [autoplayBlocked, setAutoplayBlocked] = useState(false);
@@ -1944,8 +1933,7 @@ function HomeAudioControls() {
     if (!audio) return;
 
     audio.volume = volume;
-    audio.muted = muted;
-  }, [muted, volume]);
+  }, [volume]);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -1988,7 +1976,7 @@ function HomeAudioControls() {
   };
 
   return (
-    <section className="absolute bottom-5 left-4 z-20 w-fit max-w-[calc(100%-2rem)] rounded-lg border border-white/80 bg-white/90 p-3 shadow-xl backdrop-blur sm:left-6">
+    <section className="absolute bottom-5 left-4 z-20 w-fit max-w-[calc(100%-2rem)] rounded-xl border border-sky-700/70 bg-[#071426]/95 p-3 text-slate-200 shadow-xl backdrop-blur sm:left-6">
       <audio
         ref={audioRef}
         src={activeTrack.src}
@@ -2002,47 +1990,32 @@ function HomeAudioControls() {
           <button
             type="button"
             onClick={togglePlayback}
-            className="grid h-10 w-10 place-items-center rounded-lg bg-sky-700 text-lg font-semibold text-white transition hover:bg-sky-800"
+            className="grid h-10 w-10 place-items-center rounded-lg bg-pink-600 text-lg font-semibold text-white transition hover:bg-pink-500"
             aria-label={isPlaying ? 'Pause audio' : finished ? 'Replay audio' : 'Play audio'}
             title={isPlaying ? 'Pause' : finished ? 'Replay' : 'Play'}
           >
-            {isPlaying ? 'II' : finished ? 'R' : '>'}
-          </button>
-          <button
-            type="button"
-            onClick={() => setMuted((value) => !value)}
-            className="grid h-10 w-10 place-items-center rounded-lg border border-slate-300 text-lg font-semibold text-slate-700 transition hover:border-slate-500 hover:text-slate-950"
-            aria-label={muted ? 'Unmute audio' : 'Mute audio'}
-            title={muted ? 'Unmute' : 'Mute'}
-          >
-            {muted ? 'M' : 'S'}
+            {isPlaying ? '⏸' : '▶'}
           </button>
           <button
             type="button"
             onClick={() => setExpanded((value) => !value)}
-            className="grid h-10 w-10 place-items-center rounded-lg border border-slate-300 text-lg font-semibold text-slate-700 transition hover:border-slate-500 hover:text-slate-950"
-            aria-label={expanded ? 'Collapse audio controls' : 'Expand audio controls'}
-            title={expanded ? 'Collapse' : 'Volume'}
+            className="grid h-10 w-10 place-items-center rounded-lg border border-sky-800 text-lg font-semibold text-sky-200 transition hover:border-cyan-400 hover:text-white"
+            aria-label={expanded ? 'Close volume controls' : 'Open volume controls'}
+            title="Volume"
           >
-            {expanded ? '-' : '+'}
+            {volume === 0 ? '🔇' : '🔊'}
           </button>
-          <span className="hidden max-w-40 truncate text-xs font-semibold text-slate-700 sm:block">
-            {finished ? 'Complete' : activeTrack.title}
-          </span>
-          <span className="text-xs font-semibold text-slate-700 sm:hidden">
-            Audio
-          </span>
         </div>
         <AnimatePresence initial={false}>
           {expanded && (
             <motion.div
-              className="border-t border-slate-200 pt-3"
+              className="border-t border-sky-900 pt-3"
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
             >
-              <label className="flex items-center gap-2 text-sm font-semibold text-slate-700">
-                Volume
+              <label className="flex items-center gap-2 text-sm font-semibold text-slate-300" aria-label="Audio volume">
+                <span aria-hidden="true">🔉</span>
                 <input
                   type="range"
                   min="0"
@@ -2050,11 +2023,11 @@ function HomeAudioControls() {
                   step="0.05"
                   value={volume}
                   onChange={(event) => setVolume(Number(event.target.value))}
-                  className="w-full accent-sky-700"
+                  className="w-full accent-pink-500"
                 />
               </label>
               {autoplayBlocked && (
-                <p className="mt-2 text-xs leading-5 text-amber-700">
+                <p className="mt-2 text-xs leading-5 text-amber-300">
                   Press play once to start audio.
                 </p>
               )}
@@ -2066,34 +2039,37 @@ function HomeAudioControls() {
   );
 }
 
-function LandingScreen({ onSelectDivision, onOpenTract, progress }) {
+function LandingScreen({ onSelectDivision, progress }) {
   const [labelMode, setLabelMode] = useState('tracts');
   const spinalCordSvgUrl = `/assets/Cross section of spinal cord for animation1.svg?labels=${labelMode}`;
 
   return (
-    <div className="min-h-screen bg-[#f7fafc] text-slate-950">
-      <header className="border-b border-slate-200 bg-white/95">
-        <div className="mx-auto flex max-w-7xl flex-col gap-5 px-4 py-6 sm:px-6 lg:flex-row lg:items-end lg:justify-between">
+    <div className="min-h-screen bg-[#030b18] text-slate-100">
+      <header className="border-b border-sky-950 bg-[#061222]">
+        <div className="mx-auto flex max-w-[1500px] flex-col gap-5 px-4 py-6 sm:px-6 lg:flex-row lg:items-end lg:justify-between">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-sky-700">Spinal Cord Explorer</p>
-            <h1 className="mt-2 text-3xl font-semibold tracking-normal text-slate-950 sm:text-5xl">
-              Interactive Tract Map
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-amber-300">Spinal Cord Explorer</p>
+            <h1 className="mt-2 text-3xl font-semibold tracking-normal text-white sm:text-5xl">
+              Spinal Cord Explorer
             </h1>
-            <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-600 sm:text-base">
-              Start from a spinal cord cross-section, then jump into pathway animations, quizzes, clinical tables, and figures.
+            <p className="mt-3 max-w-3xl text-lg font-medium tracking-wide text-amber-200 sm:text-xl">
+              Learn. Integrate. Heal
             </p>
           </div>
-          <div className="mt-4">
-            <ProgressPill progress={progress} />
+          <div className="mt-4 w-full max-w-xl">
+            <ProgressPill progress={progress} dark />
           </div>
         </div>
       </header>
 
-      <main className="mx-auto grid max-w-7xl gap-6 px-4 py-6 sm:px-6 lg:grid-cols-[minmax(0,1.35fr)_minmax(320px,0.65fr)]">
-        <section className="relative overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm">
-          <div className="flex flex-col gap-3 border-b border-slate-200 bg-slate-50 px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">Hover to identify, then tap to begin</p>
-            <div className="inline-flex w-fit rounded-lg border border-slate-300 bg-white p-1" aria-label="Diagram label mode">
+      <main className="mx-auto grid max-w-[1500px] gap-5 px-4 py-6 sm:px-6 lg:grid-cols-[minmax(0,1.45fr)_minmax(330px,0.55fr)]">
+        <section className="relative overflow-hidden rounded-2xl border border-sky-900/80 bg-[#071426] shadow-2xl">
+          <div className="flex flex-col gap-3 border-b border-sky-900 bg-[#0a1930] px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-pink-300">Interactive spinal cord atlas</p>
+              <p className="mt-1 text-sm text-slate-300">Hover to identify a tract, then select it to start learning.</p>
+            </div>
+            <div className="inline-flex w-fit rounded-lg border border-sky-800 bg-[#061222] p-1" aria-label="Diagram label mode">
               {['tracts', 'functions'].map((mode) => (
                 <button
                   key={mode}
@@ -2102,8 +2078,8 @@ function LandingScreen({ onSelectDivision, onOpenTract, progress }) {
                   aria-pressed={labelMode === mode}
                   className={`rounded-md px-3 py-1.5 text-xs font-semibold capitalize transition ${
                     labelMode === mode
-                      ? 'bg-sky-700 text-white shadow-sm'
-                      : 'text-slate-600 hover:bg-slate-100 hover:text-slate-950'
+                      ? 'bg-pink-600 text-white shadow-sm'
+                      : 'text-slate-400 hover:bg-sky-900/60 hover:text-white'
                   }`}
                 >
                   {mode}
@@ -2111,13 +2087,27 @@ function LandingScreen({ onSelectDivision, onOpenTract, progress }) {
               ))}
             </div>
           </div>
-          <div className="relative min-h-[520px] bg-gradient-to-b from-slate-50 via-white to-sky-50 p-4 sm:p-6">
+          <div className="relative min-h-[520px] bg-[radial-gradient(circle_at_center,rgba(14,116,144,0.18),transparent_62%)] p-4 sm:p-6">
+            <button
+              type="button"
+              onClick={() => onSelectDivision('ascending')}
+              className="absolute left-5 top-4 z-10 rounded-xl border border-cyan-500 bg-white/95 px-3 py-2 text-xs font-semibold text-cyan-900 shadow-lg transition hover:-translate-y-0.5 hover:bg-cyan-50 sm:left-10 sm:top-8 sm:px-4 sm:py-3 sm:text-sm"
+            >
+              Ascending Tracts
+            </button>
+            <button
+              type="button"
+              onClick={() => onSelectDivision('descending')}
+              className="absolute right-5 top-4 z-10 rounded-xl border border-pink-500 bg-white/95 px-3 py-2 text-xs font-semibold text-pink-900 shadow-lg transition hover:-translate-y-0.5 hover:bg-pink-50 sm:right-10 sm:top-8 sm:px-4 sm:py-3 sm:text-sm"
+            >
+              Descending Tracts
+            </button>
             <object
               key={labelMode}
               data={spinalCordSvgUrl}
               type="image/svg+xml"
               title="Interactive spinal cord cross-section tract map"
-              className="mx-auto h-[500px] w-full drop-shadow-[0_18px_32px_rgba(15,23,42,0.16)]"
+              className="mx-auto h-[500px] w-full rounded-xl border-0 bg-white drop-shadow-[0_18px_38px_rgba(0,0,0,0.35)]"
             >
               <img
                 src={spinalCordSvgUrl}
@@ -2127,66 +2117,54 @@ function LandingScreen({ onSelectDivision, onOpenTract, progress }) {
             </object>
           </div>
           <HomeAudioControls />
-          <button
-            type="button"
-            onClick={() => onSelectDivision('ascending')}
-            className="absolute left-4 top-16 z-10 rounded-lg border border-emerald-600 bg-emerald-50/95 px-4 py-3 text-sm font-semibold text-emerald-900 shadow-lg transition hover:-translate-y-0.5 hover:bg-emerald-100 sm:left-6"
-          >
-            Ascending Tracts
-          </button>
-          <button
-            type="button"
-            onClick={() => onSelectDivision('descending')}
-            className="absolute right-4 top-16 z-10 rounded-lg border border-rose-600 bg-rose-50/95 px-4 py-3 text-sm font-semibold text-rose-900 shadow-lg transition hover:-translate-y-0.5 hover:bg-rose-100 sm:right-6"
-          >
-            Descending Tracts
-          </button>
         </section>
 
         <section className="grid content-start gap-4">
-          <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-sky-700">Ready Modules</p>
-            <div className="mt-3 grid gap-2">
-              {homeModuleShortcuts.map((shortcut) => (
-                <button
-                  key={shortcut.id}
-                  type="button"
-                  onClick={() => onOpenTract(shortcut.id, shortcut.division)}
-                  className="group flex items-center justify-between gap-3 rounded-lg border border-slate-200 bg-slate-50 px-3 py-3 text-left transition hover:border-sky-400 hover:bg-sky-50"
-                >
-                  <span>
-                    <span className="block text-sm font-semibold text-slate-950">{shortcut.title}</span>
-                    <span className="mt-1 block text-xs leading-5 text-slate-600">{shortcut.label}</span>
-                  </span>
-                  <span className="grid h-8 w-8 place-items-center rounded-lg bg-white text-sky-700 shadow-sm transition group-hover:bg-sky-700 group-hover:text-white">
-                    &gt;
-                  </span>
-                </button>
-              ))}
-            </div>
-          </div>
           <button
             type="button"
             onClick={() => onSelectDivision('ascending')}
-            className="rounded-lg border border-emerald-600 bg-white p-5 text-left shadow-sm transition hover:bg-emerald-50"
+            className="group overflow-hidden rounded-2xl border border-cyan-500/50 bg-gradient-to-br from-cyan-500/15 via-[#0a1930] to-[#071426] p-6 text-left shadow-xl transition hover:-translate-y-1 hover:border-cyan-300"
           >
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-emerald-700">Sensory input upward</p>
-            <h2 className="mt-2 text-2xl font-semibold text-slate-950">Ascending Tracts</h2>
-            <p className="mt-2 text-sm leading-6 text-slate-600">
-              Open DCML now, then add lateral STT, ventral STT, and spinocerebellar tract content in the same interactive format.
+            <div className="flex items-start justify-between gap-4">
+              <span className="rounded-xl border border-cyan-300/50 bg-cyan-400/15 px-3 py-2 text-xs font-bold uppercase tracking-[0.16em] text-cyan-200">Explore Ascending tracts</span>
+              <span className="text-2xl text-cyan-300 transition group-hover:translate-x-1">&gt;</span>
+            </div>
+            <p className="mt-6 text-xs font-semibold uppercase tracking-[0.22em] text-cyan-300">Sensory input toward the brain</p>
+            <h2 className="mt-2 text-2xl font-semibold text-white">Sensory Pathways</h2>
+            <p className="mt-3 text-sm leading-7 text-slate-300">
+              Fine touch, pain, temperature, crude touch, proprioception, and cerebellar coordination.
             </p>
           </button>
           <button
             type="button"
             onClick={() => onSelectDivision('descending')}
-            className="rounded-lg border border-rose-600 bg-white p-5 text-left shadow-sm transition hover:bg-rose-50"
+            className="group overflow-hidden rounded-2xl border border-pink-500/50 bg-gradient-to-br from-pink-500/15 via-[#0a1930] to-[#071426] p-6 text-left shadow-xl transition hover:-translate-y-1 hover:border-pink-300"
           >
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-rose-700">Motor output downward</p>
-            <h2 className="mt-2 text-2xl font-semibold text-slate-950">Descending Tracts</h2>
-            <p className="mt-2 text-sm leading-6 text-slate-600">
-              Open corticospinal and corticobulbar modules now, with more descending motor pathways reserved for later.
+            <div className="flex items-start justify-between gap-4">
+              <span className="rounded-xl border border-pink-300/50 bg-pink-400/15 px-3 py-2 text-xs font-bold uppercase tracking-[0.16em] text-pink-200">Explore Descending tracts</span>
+              <span className="text-2xl text-pink-300 transition group-hover:translate-x-1">&gt;</span>
+            </div>
+            <p className="mt-6 text-xs font-semibold uppercase tracking-[0.22em] text-pink-300">Motor commands toward the body</p>
+            <h2 className="mt-2 text-2xl font-semibold text-white">Motor Pathways</h2>
+            <p className="mt-3 text-sm leading-7 text-slate-300">
+              Voluntary limb movement, cranial motor control, upper motor neuron signs, and clinical localization.
             </p>
           </button>
+          <div className="rounded-2xl border border-violet-500/40 bg-[#08172b] p-5 shadow-xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-violet-300">Learn in three moves</p>
+            <div className="mt-4 grid gap-3">
+              {[
+                ['1', 'Watch', 'Follow the animated pathway and its key crossings.'],
+                ['2', 'Attempt', 'Answer first; receive a targeted tip only when needed.'],
+                ['3', 'Localize', 'Connect anatomy to clinical deficits and examination findings.'],
+              ].map(([number, title, text]) => (
+                <div key={number} className="grid grid-cols-[36px_1fr] gap-3 rounded-xl border border-sky-900 bg-[#0c1d36] p-3">
+                  <span className="grid h-9 w-9 place-items-center rounded-full border border-violet-400/60 bg-violet-400/10 text-sm font-bold text-violet-200">{number}</span>
+                  <span><span className="block text-sm font-semibold text-white">{title}</span><span className="mt-1 block text-xs leading-5 text-slate-400">{text}</span></span>
+                </div>
+              ))}
+            </div>
+          </div>
         </section>
       </main>
     </div>
@@ -2195,40 +2173,41 @@ function LandingScreen({ onSelectDivision, onOpenTract, progress }) {
 
 function AscendingTractsScreen({ onBack, onOpenTract, progress }) {
   return (
-    <div className="min-h-screen bg-[#f7fafc] text-slate-950">
-      <header className="border-b border-slate-200 bg-white">
-        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-5 sm:px-6 lg:flex-row lg:items-end lg:justify-between">
+    <div className="min-h-screen bg-[#030b18] text-slate-100">
+      <header className="border-b border-sky-950 bg-[#061222]">
+        <div className="mx-auto flex max-w-[1500px] flex-col gap-5 px-4 py-6 sm:px-6 lg:flex-row lg:items-end lg:justify-between">
           <div>
-            <button type="button" onClick={onBack} className="mb-3 text-sm font-semibold text-sky-800 hover:text-sky-950">
+            <button type="button" onClick={onBack} className="mb-3 text-sm font-semibold text-sky-300 hover:text-white">
               Back to spinal cord object
             </button>
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-emerald-700">Ascending Tracts</p>
-            <h1 className="mt-2 text-3xl font-semibold tracking-normal text-slate-950 sm:text-4xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-cyan-300">Ascending Tracts</p>
+            <h1 className="mt-2 text-3xl font-semibold tracking-normal text-white sm:text-4xl">
               Select A Sensory Pathway
             </h1>
+            <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-400">Choose a tract to explore its animation, active-recall levels, clinical localization, and supplementary learning.</p>
           </div>
-          <div className="w-full max-w-sm">
-            <ProgressPill progress={progress} compact />
+          <div className="w-full max-w-xl">
+            <ProgressPill progress={progress} dark />
           </div>
         </div>
       </header>
 
-      <main className="mx-auto grid max-w-7xl gap-4 px-4 py-6 sm:px-6 md:grid-cols-2 xl:grid-cols-4">
+      <main className="mx-auto grid max-w-[1500px] gap-5 px-4 py-6 sm:px-6 md:grid-cols-2 xl:grid-cols-4">
         {ascendingTracts.map((tract) => (
           <button
             key={tract.id}
             type="button"
             onClick={() => onOpenTract(tract.id)}
-            className="overflow-hidden rounded-lg border border-slate-200 bg-white text-left shadow-sm transition hover:-translate-y-0.5 hover:border-sky-500"
+            className="group overflow-hidden rounded-2xl border border-cyan-900/80 bg-[#08172b] text-left shadow-xl transition hover:-translate-y-1 hover:border-cyan-400"
           >
-            <div className="h-72 bg-slate-50">
-              <img src={tract.image} alt={`${tract.title} diagram`} className="h-full w-full object-contain" />
+            <div className="h-72 bg-white p-3">
+              <img src={tract.image} alt={`${tract.title} diagram`} className="h-full w-full object-contain transition duration-300 group-hover:scale-[1.03]" />
             </div>
-            <div className="border-t border-slate-200 p-4">
+            <div className="border-t border-cyan-900/80 p-5">
               <div className={`mb-3 inline-flex rounded-md border px-2 py-1 text-xs font-semibold ${
                 progress.completedTracts.includes(tract.id)
-                  ? 'border-emerald-500 bg-emerald-50 text-emerald-800'
-                  : 'border-slate-200 bg-slate-50 text-slate-600'
+                  ? 'border-lime-400/60 bg-lime-400/10 text-lime-200'
+                  : 'border-cyan-500/50 bg-cyan-500/10 text-cyan-200'
               }`}>
                 {progress.completedTracts.includes(tract.id) ? 'Completed' : tract.status}
               </div>
@@ -2267,48 +2246,50 @@ function PlaceholderTractScreen({ tract, onBack }) {
 
 function DescendingTractsScreen({ onBack, onOpenTract, progress }) {
   return (
-    <div className="min-h-screen bg-[#f7fafc] text-slate-950">
-      <header className="border-b border-slate-200 bg-white">
-        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-5 sm:px-6 lg:flex-row lg:items-end lg:justify-between">
+    <div className="min-h-screen bg-[#030b18] text-slate-100">
+      <header className="border-b border-sky-950 bg-[#061222]">
+        <div className="mx-auto flex max-w-[1500px] flex-col gap-5 px-4 py-6 sm:px-6 lg:flex-row lg:items-end lg:justify-between">
           <div>
-            <button type="button" onClick={onBack} className="mb-3 text-sm font-semibold text-sky-800 hover:text-sky-950">
+            <button type="button" onClick={onBack} className="mb-3 text-sm font-semibold text-sky-300 hover:text-white">
               Back to spinal cord object
             </button>
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-rose-700">Descending Tracts</p>
-            <h1 className="mt-2 text-3xl font-semibold tracking-normal text-slate-950 sm:text-4xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-pink-300">Descending Tracts</p>
+            <h1 className="mt-2 text-3xl font-semibold tracking-normal text-white sm:text-4xl">
               Select A Motor Pathway
             </h1>
+            <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-400">Choose a motor pathway to connect cortical commands, brainstem crossings, examination signs, and clinical lesions.</p>
           </div>
-          <div className="w-full max-w-sm">
-            <ProgressPill progress={progress} compact />
+          <div className="w-full max-w-xl">
+            <ProgressPill progress={progress} dark />
           </div>
         </div>
       </header>
 
-      <main className="mx-auto grid max-w-7xl gap-4 px-4 py-6 sm:px-6 md:grid-cols-2 xl:grid-cols-5">
+      <main className="mx-auto grid max-w-[1500px] gap-5 px-4 py-6 sm:px-6 md:grid-cols-2 xl:grid-cols-5">
         {descendingTracts.map((tract) => (
           <button
             key={tract.id}
             type="button"
             onClick={() => onOpenTract(tract.id)}
-            className="overflow-hidden rounded-lg border border-slate-200 bg-white text-left shadow-sm transition hover:-translate-y-0.5 hover:border-rose-500 disabled:cursor-not-allowed disabled:opacity-75 disabled:hover:translate-y-0"
+            className="group overflow-hidden rounded-2xl border border-pink-900/80 bg-[#08172b] text-left shadow-xl transition hover:-translate-y-1 hover:border-pink-400 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:translate-y-0"
             disabled={!tractModules[tract.id]}
           >
-            <div className="h-72 bg-slate-50">
-              <img src={tract.image} alt={`${tract.title} diagram`} className="h-full w-full object-contain" />
+            <div className="h-72 bg-white p-3">
+              <img src={tract.image} alt={`${tract.title} diagram`} className="h-full w-full object-contain transition duration-300 group-hover:scale-[1.03]" />
             </div>
-            <div className="border-t border-slate-200 p-4">
+            <div className="border-t border-pink-900/80 p-5">
               <div className={`mb-3 inline-flex rounded-md border px-2 py-1 text-xs font-semibold ${
                 progress.completedTracts.includes(tract.id)
-                  ? 'border-emerald-500 bg-emerald-50 text-emerald-800'
+                  ? 'border-lime-400/60 bg-lime-400/10 text-lime-200'
                   : tractModules[tract.id]
-                    ? 'border-slate-200 bg-slate-50 text-slate-600'
-                    : 'border-rose-200 bg-rose-50 text-rose-700'
+                    ? 'border-pink-500/50 bg-pink-500/10 text-pink-200'
+                    : 'border-slate-700 bg-slate-900 text-slate-400'
               }`}>
                 {progress.completedTracts.includes(tract.id) ? 'Completed' : tract.status}
               </div>
-              <h2 className="text-lg font-semibold text-slate-950">{tract.title}</h2>
-              <p className="mt-2 text-sm leading-6 text-slate-600">{tract.description}</p>
+              <h2 className="text-lg font-semibold text-white">{tract.title}</h2>
+              <p className="mt-2 text-sm leading-6 text-slate-400">{tract.description}</p>
+              <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-pink-300">{tractModules[tract.id] ? 'Begin pathway' : 'Coming later'} <span aria-hidden="true">&gt;</span></span>
             </div>
           </button>
         ))}
@@ -2825,21 +2806,13 @@ function FeedbackLink() {
 
 function DeveloperFooter() {
   return (
-    <footer className="border-t border-slate-200 bg-white px-4 py-5 text-slate-700 sm:px-6">
-      <div className="mx-auto grid max-w-7xl gap-3 text-sm leading-6 lg:grid-cols-[1fr_auto] lg:items-center">
+    <footer className="border-t border-sky-950 bg-[#061222] px-4 py-5 text-slate-400 sm:px-6">
+      <div className="mx-auto max-w-[1500px] text-sm leading-6">
         <div>
-          <p className="font-semibold text-slate-950">Developed by</p>
+          <p className="font-semibold text-slate-200">Developed by</p>
           <p>Dr. Prarthana KG, Department of Human Biology, IMU University, Bukit Jalil, Kuala Lumpur, Malaysia.</p>
           <p>Dr. Viveka S, Department of Anatomy, Shridevi Medical College, Tumkur, India.</p>
         </div>
-        <a
-          href={feedbackUrl}
-          target="_blank"
-          rel="noreferrer"
-          className="w-fit rounded-lg border border-sky-600 bg-sky-50 px-4 py-3 font-semibold text-sky-800 transition hover:bg-sky-100"
-        >
-          Share feedback
-        </a>
       </div>
     </footer>
   );
