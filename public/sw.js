@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'spinal-cord-explorer-v4';
+const CACHE_VERSION = 'spinal-cord-explorer-v11';
 const APP_SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`;
 
@@ -23,6 +23,9 @@ const LOCAL_VECTOR_AND_MEDIA_ASSETS = [
   '/spinocerebellar.png',
   '/Ventral spinothalamic tract.svg',
   '/ventral-spinothalamic.png',
+  '/audio/Spinalvideo.mp4',
+  '/images/dcml/balance-inputs.png',
+  '/images/dcml/sensory-vs-cerebellar-ataxia.png',
   '/assets/Anterior and posterior spinocerebellar tract animation.html',
   '/assets/Anterior and posterior spinocerebellar tracts for animation.svg',
   '/assets/Corticobular tract for animation.svg',
@@ -119,12 +122,51 @@ async function navigationFallback(request) {
   }
 }
 
+async function rangeResponse(request) {
+  const rangeHeader = request.headers.get('range');
+  const cacheKey = new URL(request.url).pathname;
+  const cachedResponse = await caches.match(cacheKey);
+
+  if (!cachedResponse || !rangeHeader) return fetch(request);
+
+  const match = /^bytes=(\d+)-(\d*)$/.exec(rangeHeader);
+  if (!match) return new Response(null, { status: 416 });
+
+  const videoBuffer = await cachedResponse.arrayBuffer();
+  const start = Number(match[1]);
+  const requestedEnd = match[2] ? Number(match[2]) : videoBuffer.byteLength - 1;
+  const end = Math.min(requestedEnd, videoBuffer.byteLength - 1);
+
+  if (start > end || start >= videoBuffer.byteLength) {
+    return new Response(null, {
+      status: 416,
+      headers: { 'Content-Range': `bytes */${videoBuffer.byteLength}` },
+    });
+  }
+
+  const headers = new Headers(cachedResponse.headers);
+  headers.set('Accept-Ranges', 'bytes');
+  headers.set('Content-Length', String(end - start + 1));
+  headers.set('Content-Range', `bytes ${start}-${end}/${videoBuffer.byteLength}`);
+
+  return new Response(videoBuffer.slice(start, end + 1), {
+    status: 206,
+    statusText: 'Partial Content',
+    headers,
+  });
+}
+
 self.addEventListener('fetch', (event) => {
   const { request } = event;
   if (request.method !== 'GET') return;
 
   if (request.mode === 'navigate') {
     event.respondWith(navigationFallback(request));
+    return;
+  }
+
+  if (request.headers.has('range')) {
+    event.respondWith(rangeResponse(request));
     return;
   }
 

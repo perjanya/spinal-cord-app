@@ -17,6 +17,118 @@ First-order neurons start at skin receptors, travel to the dorsal root ganglion,
 
 Because the fibers cross soon after entering the spinal cord, a lateral spinothalamic tract lesion causes contralateral loss of pain and temperature, usually beginning 1-2 segments below the lesion.`;
 
+const dcmlSupplementary = {
+  title: 'SEQ',
+  blocks: [
+    {
+      type: 'scenario',
+      text: 'A 60-year-old woman was involved in a road traffic accident and sustained trauma to the right side of her spinal cord at the T8 level. On examination, she has loss of vibration sense, fine touch, and position sense in her right lower limb below the level of injury. Pain and temperature sensations are intact.',
+    },
+    { type: 'qa', question: 'A. State the tract that is damaged in this patient.', answer: 'DCML pathway.' },
+    {
+      type: 'qa',
+      question: 'B. Explain why the patient has ipsilateral sensory loss in the right lower limb below the lesion.',
+      answer: 'First-order neurons enter the spinal cord via dorsal roots and ascend ipsilaterally in the posterior funiculus. Lower-limb fibers travel in the fasciculus gracilis. At T8, these fibers have not yet decussated; therefore, the lesion causes ipsilateral sensory loss in the right lower limb below the lesion.',
+    },
+    { type: 'qa', question: 'C. State where decussation occurs in the damaged pathway.', answer: 'Decussation occurs in the lower medulla.' },
+    { type: 'qa', question: 'D. State what would happen if the lesion occurred after decussation.', answer: 'A lesion after decussation causes contralateral loss of fine touch and proprioception.' },
+    { type: 'heading', text: 'Curious Clinician' },
+    {
+      type: 'qa',
+      question: '1. Why do the dorsal columns not decussate in the spinal cord unlike the spinothalamic tract?',
+      answer: 'The dorsal columns carry fine and discriminative touch, vibration, conscious proprioception, and two-point discrimination. These modalities require high spatial precision, preserved somatotopic organization, and fast conduction. First-order neurons therefore ascend ipsilaterally in the posterior funiculus to the lower medulla before synapsing and crossing.',
+    },
+    {
+      type: 'qa',
+      question: '2. Why does the fasciculus gracilis carry lower-limb fibers medially and the fasciculus cuneatus carry upper-limb fibers laterally?',
+      answer: 'Every spinal segment adds its sensory fibers to the lateral edge of the existing bundle. Fibers that entered lowest in the cord are pushed progressively medially as new fibers join from the side at each successive level.',
+    },
+    { type: 'image', src: '/Images/dcml/Positiontracts.png', alt: 'Position of gracile and cuneate fibers in the dorsal columns' },
+    { type: 'subheading', text: 'Clinical significance in localizing cord lesions' },
+    { type: 'paragraph', text: 'A central cord lesion, such as syringomyelia or central cord syndrome after hyperextension injury, expands outward from the center and reaches the medially placed sacral fibers last. This produces sacral sparing: proprioception may be lost in the legs while perianal sensation is preserved.' },
+    { type: 'paragraph', text: 'In a peripheral cord lesion, such as an extramedullary tumor, the laterally placed cervical fibers are affected first.' },
+  ],
+};
+
+const lateralSupplementary = {
+  title: 'SEQ: Lateral Spinothalamic Tract',
+  blocks: [
+    {
+      type: 'qa',
+      question: '1. Why does the lateral spinothalamic tract decussate within the spinal cord rather than ascending ipsilaterally like the dorsal column pathway?',
+      answer: 'The tract carries pain, temperature, and itch, which require rapid protective responses rather than highly precise spatial discrimination. First-order neurons synapse soon after entering the dorsal horn. Second-order neurons cross through the anterior white commissure within one or two spinal segments and ascend contralaterally. This early decussation rapidly sends protective sensory information to higher centers.',
+    },
+    {
+      type: 'qa',
+      question: '2. Why are sacral fibers located laterally and cervical fibers located medially within the lateral spinothalamic tract?',
+      answer: 'As pain and temperature fibers enter at progressively higher levels, newly entering fibers are added medially. Fibers from lower levels are displaced laterally. From lateral to medial, the order is: Sacral -> Lumbar -> Thoracic -> Cervical.',
+    },
+    { type: 'heading', text: 'Clinical Significance in Localizing Cord Lesions' },
+    { type: 'subheading', text: 'Central Cord Lesion (Syringomyelia)' },
+    { type: 'paragraph', text: 'A syrinx expanding from the central canal first damages crossing spinothalamic fibers in the anterior white commissure. This causes bilateral pain and temperature loss, often in cervical dermatomes with a cape-like distribution over the shoulders and upper limbs. Sacral fibers lie laterally and are affected late, producing sacral sparing.' },
+    { type: 'subheading', text: 'Peripheral Compression Lesion (Extramedullary Tumor)' },
+    { type: 'paragraph', text: 'An outside-in tumor compresses the lateral fibers first. Sacral pain and temperature loss therefore occurs early, while cervical fibers are affected later. This sacral involvement without sacral sparing helps distinguish an extramedullary lesion from an intramedullary lesion.' },
+    { type: 'heading', text: 'Curious Clinician' },
+    {
+      type: 'qa',
+      question: 'Why does a patient with syringomyelia lose pain and temperature sensation but preserve fine touch and proprioception?',
+      answer: 'Crossing spinothalamic fibers lie in the anterior white commissure beside the central canal and are damaged early by an expanding syrinx. The posteriorly placed dorsal columns remain intact initially. Pain and temperature are lost while fine touch, vibration, and proprioception are preserved, producing dissociated sensory loss.',
+    },
+    {
+      type: 'qa',
+      question: 'Why does spinothalamic sensory loss usually begin 1-2 segments below the lesion?',
+      answer: "After entering the cord, first-order pain fibers travel up or down in Lissauer's tract before synapsing in the dorsal horn. The second-order neurons then cross and ascend. A lateral spinothalamic lesion therefore causes contralateral pain and temperature loss beginning about 1-2 spinal segments below the lesion.",
+    },
+  ],
+};
+
+const ventralSupplementary = {
+  title: 'SEQ: Anterior Spinothalamic Tract',
+  blocks: [
+    {
+      type: 'qa',
+      question: '1. Why does the anterior spinothalamic tract decussate in the spinal cord similar to the lateral spinothalamic tract?',
+      answer: 'The anterior spinothalamic tract carries crude touch and pressure as part of the anterolateral system. First-order neurons enter through dorsal roots and synapse mainly in the nucleus proprius, Rexed laminae III and IV. Second-order neurons cross through the anterior white commissure within one or two spinal segments and ascend contralaterally. Crude touch does not require the highly precise localization preserved by the dorsal column pathway, so it crosses early with the anterolateral system.',
+    },
+    {
+      type: 'qa',
+      question: '2. Why is sensory loss due to anterior spinothalamic tract lesions often less obvious than dorsal column lesions?',
+      answer: 'Crude touch has bilateral representation. Overlapping input from the opposite side and contributions from the dorsal column pathway preserve some tactile perception after a unilateral lesion. Complete loss is uncommon; patients may detect touch but localize it poorly, so deficits can be subtle.',
+    },
+    { type: 'heading', text: 'Clinical Significance in Localizing Cord Lesions' },
+    { type: 'subheading', text: 'Central Cord Lesion (Syringomyelia)' },
+    { type: 'paragraph', text: 'As a syrinx expands around the central canal, crossing fibers of the lateral spinothalamic tract and anterior spinothalamic tract may be affected. Findings include bilateral loss of pain and temperature, variable reduction of crude touch, and initial preservation of dorsal column modalities.' },
+    { type: 'subheading', text: 'Brown-Sequard Syndrome' },
+    { type: 'paragraph', text: 'In spinal cord hemisection, anterior spinothalamic fibers have already crossed. There may be contralateral reduction of crude touch and pressure below the lesion, but ipsilateral sensation may persist because of bilateral representation. The deficit is often less dramatic than pain and temperature loss.' },
+    { type: 'heading', text: 'Curious Clinician' },
+    {
+      type: 'qa',
+      question: 'Why can a patient still feel touch even after severe spinothalamic tract damage?',
+      answer: 'Touch travels through multiple pathways: the anterior spinothalamic tract carries crude touch, while the dorsal column-medial lemniscus pathway carries fine touch. Damage to one pathway therefore does not completely abolish tactile sensation.',
+    },
+  ],
+};
+
+const spinocerebellarSupplementary = {
+  title: 'SEQ: Spinocerebellar Tracts',
+  blocks: [
+    { type: 'qa', question: '1. Why do spinocerebellar tracts terminate in the cerebellum instead of the cerebral cortex like the dorsal column pathway?', answer: 'Spinocerebellar tracts carry unconscious proprioceptive information from muscles, tendons, joints, and spinal interneurons. They continuously inform the cerebellum about body position and movement so posture, balance, and coordination can be adjusted in real time. They provide rapid feedback rather than conscious perception.' },
+    { type: 'qa', question: '2. Why do both posterior and anterior spinocerebellar tracts ultimately convey information to the ipsilateral cerebellar hemisphere?', answer: 'The posterior tract ascends without crossing and enters through the inferior cerebellar peduncle. The anterior tract crosses in the spinal cord and crosses again near or within the cerebellum as it enters through the superior cerebellar peduncle. This double decussation returns information to the side of origin, matching the cerebellum\'s ipsilateral control of coordination.' },
+    { type: 'heading', text: 'Clinical Significance in Localizing Cord Lesions' },
+    { type: 'subheading', text: 'Lesion of the Posterior Spinocerebellar Tract' },
+    { type: 'paragraph', text: 'Because the tract does not cross, a lesion produces ipsilateral limb ataxia, an unsteady gait, impaired coordination, and difficulty performing smooth movements.' },
+    { type: 'subheading', text: 'Lesion of the Cerebellum' },
+    { type: 'paragraph', text: 'Spinocerebellar pathways terminate ipsilaterally. A right cerebellar lesion therefore produces right-sided ataxia, dysmetria, and intention tremor.' },
+    { type: 'heading', text: 'Curious Clinician' },
+    { type: 'qa', question: 'Why do patients with cerebellar lesions fall toward the side of the lesion?', answer: 'Each cerebellar hemisphere coordinates the ipsilateral side of the body. Damage disrupts coordination on that same side: a right cerebellar lesion causes right-sided ataxia, and a left lesion causes left-sided ataxia.' },
+    { type: 'qa', question: 'Why can a patient have severe ataxia but normal muscle strength?', answer: 'Spinocerebellar tracts do not carry motor commands. They provide feedback about limb position, muscle length, tendon tension, and ongoing movement. The patient can generate force but cannot coordinate it accurately, producing dysmetria, intention tremor, past-pointing, and gait ataxia with preserved power.' },
+    { type: 'qa', question: "Why is Romberg's test usually negative in pure cerebellar disease?", answer: "Romberg's test primarily evaluates proprioceptive pathways. In cerebellar disease, proprioceptive input is intact but cannot be processed correctly. The patient is already unsteady with eyes open, and closing the eyes does not produce the defining deterioration of a positive Romberg test. In dorsal column disease, the patient is relatively stable with eyes open but falls when the eyes close." },
+    { type: 'qa', question: "Why does Friedreich's ataxia produce both sensory and cerebellar ataxia?", answer: "Friedreich's ataxia affects the dorsal columns, spinocerebellar tracts, dorsal root ganglia, and corticospinal tracts. Patients lose both conscious proprioception from dorsal column dysfunction and unconscious proprioception from spinocerebellar dysfunction, causing profound gait instability and frequent falls." },
+    { type: 'heading', text: 'Clinical Pearl' },
+    { type: 'pearl', text: 'The dorsal columns tell the brain where the limb is. The spinocerebellar tracts tell the cerebellum what the limb is doing.\n\nDCML = Conscious proprioception\nSpinocerebellar = Unconscious proprioception' },
+  ],
+};
+
 const rexedLaminaRows = [
   ['Dorsal Horn (Sensory)', 'I', 'Marginal Zone', 'Receives sharp, fast pain from A-delta fibers.'],
   ['Dorsal Horn (Sensory)', 'II', 'Substantia Gelatinosa', 'Receives dull, slow pain from C fibers. Important for pain gating and opioid receptors.'],
@@ -64,7 +176,8 @@ const lateralPathwayLevels = [
     type: 'blank',
     placeholder: 'Type the lamina',
     answer: 'Lamina I and II (Rexed)',
-    accepted: ['lamina i', 'lamina 1', 'lamina ii', 'lamina 2', 'substantia gelatinosa'],
+    acceptedAnswers: ['rexed lamina i', 'rexed lamina ii', 'rexed lamina i and ii', 'lamina i', 'lamina ii', 'lamina i and ii', 'i', 'ii', 'i and ii', '1', '2', '1 and 2'],
+    accepted: ['lamina i', 'lamina 1', 'lamina ii', 'lamina 2', 'i and ii', '1 and 2', 'substantia gelatinosa'],
     minMatches: 1,
     hint: 'Slow dull pain is especially associated with the substantia gelatinosa.',
     knowMore: `C fibers are unmyelinated, slow-conducting fibers that carry dull, aching, or burning pain. They predominantly terminate in Lamina II, the substantia gelatinosa. From there, the signal is processed and passed to deeper laminae such as Lamina V or directly to second-order projection neurons that cross to form the lateral spinothalamic tract.
@@ -97,9 +210,9 @@ Sacral and lumbar fibers enter lowest and become the most superficial or lateral
 Clinical correlation: in syringomyelia, an expanding central syrinx first affects local crossing fibers and then the medial spinothalamic fibers. A cervical syrinx can therefore cause a cape-like loss of pain and temperature across the arms and shoulders while sparing sacral sensation until later.`,
     knowMoreImages: [
       {
-        src: '/assets/Lateral spinothalamic tract for animation with labels.svg',
+        src: '/Images/spinothalamic/Positiontracts.png',
         alt: 'Labeled lateral spinothalamic tract somatotopy',
-        caption: 'Labeled lateral spinothalamic tract asset.',
+        caption: 'Sacral fibers lie laterally and cervical fibers lie medially.',
       },
     ],
   },
@@ -167,7 +280,15 @@ It causes crossed sensory loss: ipsilateral face pain and temperature loss from 
     answer: 'True',
     knowMore: `Tic Douloureux is another name for trigeminal neuralgia. It causes brief, severe, stabbing or electric-shock facial pain, commonly from compression of the trigeminal nerve root.
 
-The trigeminal nerve divides into V1, V2, and V3. V1 supplies the forehead, upper eyelid, and eye. V2 supplies the cheek, upper lip, upper teeth, and roof of the mouth. V3 supplies the lower jaw, lower lip, and lower teeth, and also carries motor fibers for chewing. V2 and V3 are most commonly affected, so the pain is often mistaken for tooth or jaw disease.
+The trigeminal nerve divides into V1, V2, and V3.
+
+V1 supplies the forehead, upper eyelid, and eye.
+
+V2 supplies the cheek, upper lip, upper teeth, and roof of the mouth.
+
+V3 supplies the lower jaw, lower lip, and lower teeth, and also carries motor fibers for chewing.
+
+V2 and V3 are most commonly affected, so the pain is often mistaken for tooth or jaw disease.
 
 Triggers include shaving, washing the face, brushing teeth, drinking hot or cold liquids, and chewing. Diagnosis is clinical, but high-resolution MRI can rule out tumors or multiple sclerosis plaques and may show vascular compression of the nerve root.`,
   },
@@ -188,6 +309,7 @@ Triggers include shaving, washing the face, brushing teeth, drinking hot or cold
 Visceral afferents from the heart enter the spinal cord around T1-T5 and synapse on dorsal horn neurons that also receive somatic input from regions such as the left arm, shoulder, neck, and jaw. During cardiac ischemia, the brain may misattribute the visceral signal to a familiar somatic location.
 
 This convergence theory also connects with gate control theory. Melzack and Wall proposed that large-diameter A-beta fibers carrying touch and vibration activate inhibitory interneurons in the substantia gelatinosa, suppressing lateral spinothalamic second-order neurons. That is why rubbing a sore area or using TENS can reduce pain at the spinal cord level.`,
+    supplementary: lateralSupplementary,
   },
 ];
 
@@ -240,6 +362,7 @@ Crude touch allows a person to detect that a stimulus touched the skin without a
     knowMore: `Mechanoreceptors relay mechanical stimuli into intracellular signal transduction through mechanically gated ion channels. The stimuli may include touch, pressure, stretch, sound waves, or motion.
 
 Crude touch is poorly localized because these receptors and their pathways often have larger, more overlapping receptive fields than systems specialized for discriminative touch. The person can recognize that touch occurred, but may not accurately identify the exact location.`,
+    knowMoreHighlight: 'Crude touch is poorly localized.',
     knowMoreTables: [
       {
         title: 'Tactile Mechanoreceptor Map',
@@ -279,9 +402,11 @@ A lesion involving the anterior white commissure can therefore interrupt crossin
     hint: 'Crude touch detects contact but localizes it poorly.',
     options: ['High receptor density', 'Small receptive fields', 'Precise somatotopic organization', 'Poor spatial discrimination'],
     answer: 'Poor spatial discrimination',
-    knowMore: `The anterior spinothalamic tract carries crude touch with large, overlapping receptive fields. When a stimulus activates these fibers, many neurons may respond over a broad area, making precise localization difficult.
+    knowMore: `Receptor density refers to how many sensory receptors are packed into a given area of skin. This is a peripheral property, not a property of the anterior spinothalamic tract itself. High receptor density, such as dense Meissner corpuscles in the fingertips, improves spatial discrimination.
 
-High receptor density and small receptive fields improve spatial discrimination, as seen in fingertips and dorsal column-mediated discriminative touch. Somatotopy means the body map is preserved in tract geography, but that is not the same as distinguishing two nearby skin points.`,
+Small receptive fields provide precise localization. A neuron with a small receptive field responds only when a restricted patch of skin is stimulated, allowing the brain to pinpoint the stimulus. This is characteristic of the dorsal column system: large A-beta fibers, Meissner corpuscles, and Merkel receptors with tight, well-defined receptive fields. The anterior spinothalamic tract uses C and A-delta fibers with larger receptive fields.
+
+The anterior spinothalamic tract does have somatotopic organization, with sacral fibers lateral and cervical fibers medial, so that statement is partially true. However, somatotopy is not the same as spatial discrimination. Somatotopy preserves a body map within the tract; spatial discrimination is the ability to distinguish two nearby points. A tract can have an orderly somatotopic map and still localize poorly when its receptive fields are large.`,
   },
   {
     id: 'ventral-stt-itch',
@@ -314,6 +439,7 @@ Signals travel through unmyelinated C fibers to the dorsal horn. Second-order ne
 This produces sensory ataxia: a wide-based stamping gait where the patient slaps the feet down forcefully to maximize crude pressure input. Patients often look at the floor because vision is compensating for lost proprioception.
 
 The Romberg test expresses this dissociation. Eyes open: visual input compensates. Eyes closed: visual compensation is removed, crude touch cannot substitute for proprioception, and the patient sways or falls. A positive Romberg points to dorsal column loss, not cerebellar disease.`,
+    supplementary: ventralSupplementary,
   },
 ];
 
@@ -439,8 +565,35 @@ Diagnosis relies on clinical evaluation, electromyography, and genetic testing f
         rows: friedreichRows,
       },
     ],
+    supplementary: spinocerebellarSupplementary,
   },
 ];
+
+const corticospinalSupplementary = {
+  title: 'SEQ: Corticospinal Tract',
+  blocks: [
+    {
+      type: 'qa',
+      question: '1. Anatomically, where do the majority of upper motor neuron fibers in the pyramidal system undergo decussation before descending into the lateral corticospinal tract?\n\nA. The midbrain peduncles\nB. The internal capsule\nC. The medullary pyramids\nD. The anterior horn of the spinal cord',
+      answer: 'C. The medullary pyramids. The fibers originate in the cerebral cortex, descend through the internal capsule, and pass through the midbrain peduncles and pons before reaching the medulla. Most fibers cross in the lower medulla at the pyramidal decussation. Only after crossing do they enter the contralateral lateral corticospinal tract and continue toward lower motor neurons.',
+    },
+    {
+      type: 'qa',
+      question: '2. Which option best describes the physiological synaptic arrangement of the pyramidal system within the spinal cord?\n\nA. Synapse on dorsal root ganglia\nB. Direct synapse on skeletal muscle fibers\nC. Synapse primarily on lower motor neurons\nD. Synapse exclusively within the basal ganglia',
+      answer: 'C. Synapse primarily on lower motor neurons. Dorsal root ganglia belong to sensory afferent pathways. Direct muscle innervation is performed by lower motor neurons, not descending upper motor neurons. Corticospinal upper motor neurons transmit cortical signals to spinal interneurons and lower motor neurons, the final common pathway. The basal ganglia are associated with extrapyramidal motor control rather than being the primary termination site of pyramidal fibers.',
+    },
+    {
+      type: 'qa',
+      question: '3. A lesion in the internal capsule is physiologically significant because:\n\nA. It prevents acetylcholine release at the neuromuscular junction.\nB. Descending fibers are so closely packed that a small lesion causes severe hemiparesis.\nC. It is the only site where extrapyramidal fibers originate.\nD. It is the primary site of muscle spindle reflex integration.',
+      answer: 'B. Descending fibers are so closely packed that a small lesion causes severe hemiparesis. The neuromuscular junction lies at the distal end of the lower motor neuron, far from the internal capsule. Extrapyramidal pathways do not originate exclusively in the capsule, and muscle spindle reflexes are integrated segmentally in the spinal cord.',
+    },
+    {
+      type: 'qa',
+      question: '4. A patient presents with sudden weakness of the right face, arm, and leg. Examination reveals aphasia and a right extensor plantar response. Where is the most likely lesion?\n\nA. Left cerebellar hemisphere\nB. Right internal capsule\nC. Left cerebral hemisphere\nD. Spinal cord at T1',
+      answer: 'C. Left cerebral hemisphere. Right-sided weakness with upper motor neuron signs localizes above the pyramidal decussation on the left. Aphasia additionally points to the language-dominant left cerebral hemisphere. A cerebellar lesion causes ipsilateral ataxia rather than hemiparesis; a right capsular lesion causes left-sided weakness; and a T1 spinal lesion would spare the face, arm, and language function.',
+    },
+  ],
+};
 
 const corticospinalPathwayLevels = [
   {
@@ -476,9 +629,10 @@ The primary motor cortex contains the giant pyramidal cells of Betz in layer V. 
     accepted: ['posterior limb'],
     minMatches: 1,
     hint: 'Posterior limb equals power: this is the densely packed motor pathway.',
-    knowMore: `Posterior limb means power: corticospinal motor fibers pass through the posterior limb of the internal capsule. The anterior limb is more associated with frontopontine fibers and behavior or affect.
+    knowMoreHighlight: 'REMEMBER',
+    knowMore: `Posterior limb = Power (motor/CST), while the anterior limb is heavily associated with Affect and behavior through frontopontine fibers.
 
-Because fibers are tightly packed here, a small lacunar stroke, often from hypertension affecting lenticulostriate arteries, can cause pure motor weakness of an entire half of the body.`,
+Because the posterior limb is tightly packed, even a tiny lacunar stroke in this specific region, often caused by unmanaged hypertension obstructing the lenticulostriate arteries, can wipe out motor function for an entire half of the body and produce a pure motor stroke.`,
   },
   {
     id: 'corticospinal-crus-cerebri',
@@ -499,6 +653,11 @@ This spatial organization helps localize compressive lesions, masses, or aneurys
         alt: 'Labeled corticospinal tract pathway',
         caption: 'Labeled corticospinal tract animation asset.',
       },
+      {
+        src: '/Images/corticospinal/fibrearrangementcruscerebri.png',
+        alt: 'Somatotopic fiber arrangement in the crus cerebri',
+        caption: 'Corticospinal fiber arrangement within the crus cerebri.',
+      },
     ],
   },
   {
@@ -517,6 +676,18 @@ This spatial organization helps localize compressive lesions, masses, or aneurys
 Upper motor neuron lesions remove descending inhibitory control over spinal circuits. They produce hyperreflexia, spasticity, increased tone, clonus, and Babinski-type signs.
 
 Upper motor neuron cell bodies are mainly in the primary motor cortex and brainstem motor centers. Their axons descend in pathways such as the corticospinal tract for limb and trunk movement and corticobulbar tract for face, head, and neck muscles. Lower motor neurons are in anterior horn cells, anterior nerve roots, cranial motor nuclei, and motor cranial nerves.`,
+    knowMoreImages: [
+      {
+        src: '/Images/corticospinal/hyperreflexia.png',
+        alt: 'Hyperreflexia following an upper motor neuron lesion',
+        caption: 'Hyperreflexia is a characteristic upper motor neuron sign.',
+      },
+      {
+        src: '/Images/corticospinal/ClinicalexamCorticospinaltracts.png',
+        alt: 'Clinical examination of corticospinal tract function',
+        caption: 'Clinical examination findings used to assess corticospinal tract integrity.',
+      },
+    ],
   },
   {
     id: 'corticospinal-reciprocal-inhibition',
@@ -530,7 +701,16 @@ Upper motor neuron cell bodies are mainly in the primary motor cortex and brains
     answer: 'True',
     knowMore: `This is reciprocal inhibition. When the corticospinal tract helps command the biceps to contract, it also helps spinal interneurons quiet the triceps. Without this coordinated inhibition, opposing muscles would fight each other and voluntary movement would become stiff and inefficient.
 
-After an upper motor neuron lesion such as a stroke damaging the corticospinal tract, descending control of inhibitory interneurons breaks down. Antagonist muscles resist passive movement, contributing to spasticity and clasp-knife rigidity.`,
+After an upper motor neuron lesion, such as a stroke affecting the corticospinal tract, descending inhibitory control over spinal reflex circuits is lost. Stretch-reflex pathways become more excitable because interneuronal inhibition is reduced and alpha-gamma motor neuron activity increases. Passive limb movement consequently produces increased resistance, or spasticity, especially in antigravity muscles.
+
+A characteristic feature is clasp-knife rigidity: strong initial resistance is followed by a sudden decrease in tone due to Golgi tendon organ-mediated autogenic inhibition.`,
+    knowMoreImages: [
+      {
+        src: '/Images/corticospinal/reciprocalinhibition.png',
+        alt: 'Reciprocal inhibition of antagonist muscles',
+        caption: 'Reciprocal inhibition coordinates agonist contraction with antagonist relaxation.',
+      },
+    ],
   },
   {
     id: 'corticospinal-clasp-knife',
@@ -545,6 +725,7 @@ After an upper motor neuron lesion such as a stroke damaging the corticospinal t
     knowMore: `This is the clasp-knife phenomenon, a manifestation of the inverse myotatic reflex. As the examiner forces a spastic muscle to lengthen, tension builds at the muscle-tendon junction.
 
 That high tension activates Golgi tendon organs, which send signals through fast Ib afferent fibers. These fibers synapse on inhibitory interneurons in the spinal cord, which shut down the overactive alpha motor neurons to that same muscle. The result is a sudden drop in resistance.`,
+    supplementary: corticospinalSupplementary,
   },
 ];
 
@@ -621,6 +802,13 @@ This separates central facial palsy from peripheral facial palsy. A central lesi
         rows: facialPalsyRows,
       },
     ],
+    knowMoreEndImages: [
+      {
+        src: '/Images/corticobulbar/bulbarlesions.png',
+        alt: 'Comparison of bulbar and pseudobulbar lesions',
+        caption: 'Clinical patterns of bulbar and pseudobulbar palsy.',
+      },
+    ],
   },
   {
     id: 'corticobulbar-homunculus',
@@ -660,10 +848,10 @@ Bulbar palsy is different: it results from lower motor neuron damage to cranial 
     knowMoreTables: [
       {
         title: 'Pseudobulbar Versus Bulbar Palsy',
-        headers: ['Syndrome', 'Primary Lesion Type', 'Typical Clues'],
+        headers: ['Syndrome', 'Primary Lesion Type', 'Jaw Jerk', 'Affect', 'Typical Clues'],
         rows: [
-          ['Pseudobulbar palsy', 'Bilateral corticobulbar UMN lesion', 'Dysarthria, dysphagia, brisk jaw jerk, emotional lability, preserved muscle bulk.'],
-          ['Bulbar palsy', 'Cranial nerve LMN lesion in nucleus or nerve', 'Dysarthria, dysphagia, tongue wasting or fasciculations, reduced reflexes.'],
+          ['Pseudobulbar palsy', 'Bilateral corticobulbar UMN lesion', 'Brisk', 'Emotionally labile', 'Dysarthria, dysphagia, and preserved muscle bulk.'],
+          ['Bulbar palsy', 'Cranial nerve LMN lesion in nucleus or nerve', 'Normal or absent', 'Normal', 'Dysarthria, dysphagia, tongue wasting or fasciculations, and reduced reflexes.'],
         ],
       },
     ],
@@ -718,6 +906,198 @@ Rigidity, classically associated with basal ganglia disorders such as Parkinson 
         ],
       },
     ],
+  },
+];
+
+const spinalCordPathwayLevels = [
+  {
+    id: 'spinal-cord-nerve-formation',
+    phase: 'Phase 1 - Foundations',
+    label: 'Spinal Nerve Formation',
+    shortLabel: 'Formation',
+    prompt: 'A spinal nerve is formed by the union of which structures?',
+    type: 'mcq',
+    hint: 'One root carries sensory fibers and the other carries motor fibers.',
+    options: ['Two dorsal roots', 'Two ventral roots', 'A dorsal root and a ventral root', 'A dorsal ramus and a ventral ramus'],
+    answer: 'A dorsal root and a ventral root',
+    knowMore: `The dorsal root carries sensory fibers into the spinal cord, while the ventral root carries motor fibers away from it. Their union forms a short mixed spinal nerve, which then divides into dorsal and ventral rami.
+
+There are eight cervical spinal nerves but only seven cervical vertebrae. C1 exits above the C1 vertebra, C8 exits between C7 and T1, and from T1 downward spinal nerves exit below the corresponding vertebra.`,
+    knowMoreTables: [{
+      title: 'Cervical Nerve Exit Pattern',
+      headers: ['Nerve', 'Exit relationship'],
+      rows: [['C1-C7', 'Above the corresponding cervical vertebra'], ['C8', 'Between C7 and T1'], ['T1 downward', 'Below the corresponding vertebra']],
+    }],
+    knowMoreImages: [{
+      src: '/Spinal cord.svg',
+      alt: 'Spinal cord and segmental spinal nerve anatomy',
+      caption: 'Spinal cord segments and the paired spinal nerves that connect the cord with the body.',
+    }],
+  },
+  {
+    id: 'spinal-cord-ventral-root',
+    phase: 'Phase 1 - Foundations',
+    label: 'Ventral Root',
+    shortLabel: 'Ventral root',
+    prompt: 'The ventral root of a spinal nerve contains which type of fibers?',
+    type: 'mcq',
+    hint: 'Think of signals leaving the spinal cord for skeletal muscle.',
+    options: ['Sensory fibers only', 'Motor fibers only', 'Mixed sensory and motor fibers', 'Postganglionic sympathetic fibers only'],
+    answer: 'Motor fibers only',
+    knowMore: 'Ventral rootlets arise from the anterior aspect of the spinal cord and join to form a ventral root. These fibers are motor before the root joins the sensory dorsal root to form a mixed spinal nerve.',
+  },
+  {
+    id: 'spinal-cord-recurrent-meningeal',
+    phase: 'Phase 2 - Functional Integration',
+    label: 'Recurrent Meningeal Nerve',
+    shortLabel: 'Meningeal',
+    prompt: 'Which branch of a spinal nerve re-enters the vertebral canal through the intervertebral foramen?',
+    type: 'mcq',
+    hint: 'It turns back toward the meninges and vertebral canal.',
+    options: ['Dorsal ramus', 'Ventral ramus', 'Recurrent meningeal nerve', 'Gray ramus communicans'],
+    answer: 'Recurrent meningeal nerve',
+    knowMore: 'The recurrent meningeal nerve, also called the sinuvertebral nerve, re-enters the vertebral canal. It supplies the meninges, vertebral ligaments, outer intervertebral discs, and vessels within the canal.',
+  },
+  {
+    id: 'spinal-cord-white-rami',
+    phase: 'Phase 2 - Functional Integration',
+    label: 'White Rami Communicantes',
+    shortLabel: 'White rami',
+    prompt: 'White rami communicantes mainly carry which fibers?',
+    type: 'mcq',
+    hint: 'These myelinated autonomic fibers travel from T1 to L2 toward the sympathetic chain.',
+    options: ['Postganglionic sympathetic fibers', 'Preganglionic sympathetic fibers', 'Somatic sensory fibers only', 'Parasympathetic fibers'],
+    answer: 'Preganglionic sympathetic fibers',
+    knowMore: 'White rami communicantes carry myelinated preganglionic sympathetic fibers and occur only from T1 to L2. Gray rami carry unmyelinated postganglionic fibers and connect with spinal nerves at every level.',
+    knowMoreTables: [{
+      title: 'Rami Communicantes',
+      headers: ['Ramus', 'Fiber type', 'Distribution'],
+      rows: [['White ramus', 'Preganglionic sympathetic, myelinated', 'T1-L2 only'], ['Gray ramus', 'Postganglionic sympathetic, unmyelinated', 'All spinal nerve levels']],
+    }],
+  },
+  {
+    id: 'spinal-cord-posterior-rami-plexus',
+    phase: 'Phase 2 - Functional Integration',
+    label: 'Spinal Nerve Plexuses',
+    shortLabel: 'Plexuses',
+    prompt: 'Posterior rami of spinal nerves form the major cervical, brachial, lumbar, and sacral plexuses.',
+    type: 'boolean',
+    hint: 'The rami supplying the limbs redistribute their fibers in plexuses.',
+    options: ['True', 'False'],
+    answer: 'False',
+    knowMore: 'Major nerve plexuses are formed by anterior rami. Posterior rami remain segmental and supply intrinsic back muscles, facet joints, and overlying skin. Plexuses redistribute fibers from several spinal levels, providing functional overlap and redundancy.',
+  },
+  {
+    id: 'spinal-cord-zoster',
+    phase: 'Phase 3 - Clinical Reasoning',
+    label: 'Herpes Zoster',
+    shortLabel: 'Zoster',
+    prompt: 'A patient develops a painful vesicular rash in the T8 dermatome. Where was the varicella-zoster virus most likely dormant?',
+    type: 'mcq',
+    hint: 'The sensory neuron cell bodies lie just outside the spinal cord.',
+    options: ['Anterior horn', 'Ventral root', 'Dorsal root ganglion', 'Sympathetic chain only'],
+    answer: 'Dorsal root ganglion',
+    knowMore: 'Varicella-zoster virus remains latent in sensory ganglia, especially dorsal root ganglia. Reactivation travels along a sensory nerve and produces pain and rash in its dermatome.',
+  },
+  {
+    id: 'spinal-cord-dorsal-root-lesion',
+    phase: 'Phase 3 - Clinical Reasoning',
+    label: 'Dorsal Root Lesion',
+    shortLabel: 'Dorsal lesion',
+    prompt: 'An isolated lesion of the L5 dorsal root most directly produces which deficit?',
+    type: 'mcq',
+    hint: 'The dorsal root is sensory before it joins the ventral root.',
+    options: ['Pure motor weakness', 'Pure sensory loss', 'Mixed sensory and motor loss', 'Upper motor neuron signs'],
+    answer: 'Pure sensory loss',
+    knowMore: 'A dorsal root lesion interrupts afferent sensory fibers and causes segmental sensory symptoms. A ventral root lesion causes motor loss, while a mixed spinal nerve lesion can affect both sensation and lower motor neuron function.',
+  },
+  {
+    id: 'spinal-cord-mixed-nerve-lesion',
+    phase: 'Phase 3 - Clinical Reasoning',
+    label: 'Mixed Spinal Nerve Lesion',
+    shortLabel: 'Mixed lesion',
+    prompt: 'Weakness in one myotome together with sensory loss in the corresponding dermatome most strongly suggests a lesion of the:',
+    type: 'mcq',
+    hint: 'Choose the structure that already contains both sensory and motor fibers.',
+    options: ['Dorsal root only', 'Ventral root only', 'Spinal nerve', 'Dorsal column'],
+    answer: 'Spinal nerve',
+    knowMore: 'A spinal nerve is mixed. Its injury can produce segmental sensory loss plus lower motor neuron weakness, hypotonia, fasciculations, and eventual muscle wasting in the affected myotome.',
+  },
+  {
+    id: 'spinal-cord-l5-radiculopathy',
+    phase: 'Phase 3 - Clinical Reasoning',
+    label: 'L5 Radiculopathy',
+    shortLabel: 'L5 root',
+    prompt: 'An L4-L5 disc prolapse compresses the L5 nerve root. Which pattern is most expected?',
+    type: 'mcq',
+    hint: 'A compressed nerve root produces both segmental motor and sensory symptoms.',
+    options: ['Segmental weakness and sensory loss', 'Contralateral spastic paralysis', 'Loss of pain only below the lesion', 'Isolated autonomic dysfunction'],
+    answer: 'Segmental weakness and sensory loss',
+    knowMore: 'L5 radiculopathy can cause weakness of great-toe extension and ankle dorsiflexion with altered sensation over the dorsum of the foot. Sciatica commonly involves roots from L4 to S3 and may produce radiating pain, tingling, numbness, and weakness.',
+  },
+  {
+    id: 'spinal-cord-foraminal-compression',
+    phase: 'Phase 3 - Clinical Reasoning',
+    label: 'Foraminal Compression',
+    shortLabel: 'Foramen',
+    prompt: 'Compression within an intervertebral foramen most directly threatens which structure?',
+    type: 'mcq',
+    hint: 'At this point sensory and motor roots have united.',
+    options: ['Dorsal horn', 'Ventral horn', 'Mixed spinal nerve', 'Posterior median septum'],
+    answer: 'Mixed spinal nerve',
+    knowMore: 'The mixed spinal nerve and its roots occupy the intervertebral foramen. Foraminal narrowing can therefore produce radicular pain, sensory disturbance, and lower motor neuron weakness in a segmental pattern.',
+  },
+  {
+    id: 'spinal-cord-examination',
+    phase: 'Phase 4 - Clinical Examination',
+    label: 'Dermatome And Myotome Exam',
+    shortLabel: 'Examination',
+    prompt: 'A patient has weak ankle dorsiflexion and numbness over the dorsum of the foot. Which examination approach best localizes the involved spinal level?',
+    type: 'mcq',
+    hint: 'Combine a sensory map with a segmental movement map.',
+    options: ['Cranial nerve examination', 'Dermatome and myotome assessment', 'Cerebellar testing only', 'Autonomic reflex testing only'],
+    answer: 'Dermatome and myotome assessment',
+    knowMore: 'Dermatomes map skin sensation by spinal root, while myotomes map key movements. Combining them improves localization: dorsum-of-foot sensation and great-toe extension or ankle dorsiflexion point strongly toward L5.',
+    knowMoreTables: [
+      { title: 'Key Dermatomes', headers: ['Root', 'Sensory landmark'], rows: [['C6', 'Thumb'], ['C7', 'Middle finger'], ['L4', 'Medial leg'], ['L5', 'Dorsum of foot'], ['S1', 'Lateral foot']] },
+      { title: 'Key Myotomes', headers: ['Root', 'Movement'], rows: [['C5', 'Shoulder abduction'], ['C6', 'Elbow flexion'], ['C7', 'Elbow extension'], ['L4', 'Knee extension'], ['L5', 'Great-toe extension'], ['S1', 'Plantar flexion']] },
+    ],
+    knowMoreImages: [{
+      src: '/Cross section of spinal cord.svg',
+      alt: 'Cross section of the spinal cord',
+      caption: 'Cross-sectional orientation supports root and tract localization during the neurologic examination.',
+    }],
+  },
+  {
+    id: 'spinal-cord-laminectomy',
+    phase: 'Phase 5 - Surgical Application',
+    label: 'Lumbar Decompression',
+    shortLabel: 'Surgery',
+    prompt: 'Which procedure removes part of the vertebral lamina to decompress neural structures in severe lumbar disease?',
+    type: 'mcq',
+    hint: 'The procedure is named for the bony plate being removed.',
+    options: ['Discectomy only', 'Laminectomy', 'Rhizotomy', 'Cordotomy'],
+    answer: 'Laminectomy',
+    knowMore: 'Compression can cause ischemia, inflammation, and demyelination, leading to radicular pain, tingling, numbness, and weakness. Decompression restores space around neural tissue; modern approaches aim to preserve nerves and stability while minimizing tissue disruption.',
+    knowMoreImages: [{
+      src: '/Spinal cord.svg',
+      alt: 'Spinal cord within the vertebral canal',
+      caption: 'Decompression creates space around neural structures while aiming to preserve stability and nerve function.',
+    }],
+  },
+  {
+    id: 'spinal-cord-stimulation',
+    phase: 'Phase 6 - Advances',
+    label: 'Spinal Cord Stimulation',
+    shortLabel: 'Stimulation',
+    prompt: 'Electrical stimulation of dorsal columns and spinal pathways to treat chronic neuropathic pain is called:',
+    type: 'mcq',
+    hint: 'An implanted system modulates pain signaling rather than removing tissue.',
+    options: ['Transcranial magnetic stimulation', 'Deep brain stimulation', 'Spinal cord stimulation', 'Neuromuscular blockade'],
+    answer: 'Spinal cord stimulation',
+    knowMore: `Spinal cord stimulation is used for selected cases of failed back surgery syndrome, complex regional pain syndrome, and chronic neuropathic pain. Modern systems include high-frequency, adaptive, and wireless technologies. Their effect is commonly explained in part by modulation of pain transmission and gate-control mechanisms.
+
+Peripheral spinal nerves may regenerate roughly 1-3 mm per day when the pathway remains intact. Central nervous system regeneration is far more limited because inhibitory molecules and scar tissue restrict axonal growth. Research includes stem cells, nerve conduits, growth factors, and AI-assisted neuroprosthetics.`,
   },
 ];
 
@@ -776,7 +1156,7 @@ Lower-limb sensory fibers from sacral and lumbar segments travel medially in the
   {
     id: 'proprioception',
     phase: 'Level 4',
-    label: 'Romberg Test',
+    label: "Romberg's Test",
     shortLabel: 'Romberg',
     prompt:
       'A patient presents with a positive Romberg test, swaying only when eyes are closed. Which receptor type is likely failing to transmit signals correctly?',
@@ -789,7 +1169,31 @@ Lower-limb sensory fibers from sacral and lumbar segments travel medially in the
       'Photoreceptors',
     ],
     answer: 'Proprioceptors',
-    knowMore: knowMoreClinical,
+    knowMore: `Romberg's test is performed in three steps:
+
+1. Ask the patient to stand with the feet together.
+2. Ask the patient to close both eyes.
+3. Ask the patient to maintain the posture for 60 seconds.
+
+The test is positive if the patient cannot maintain the posture with the feet together and eyes closed, or develops marked sway or falls during the observation period.
+
+Balance depends on three inputs: vision, proprioception, and the vestibular system. The cerebellum acts as the processor that integrates these inputs and helps produce an appropriate postural response through skeletal muscle tone. If cerebellar processing is severely impaired, the patient may already be unable to stand steadily with the eyes open; in that situation, Romberg's test cannot be meaningfully performed.
+
+When cerebellar function is sufficiently intact, closing the eyes removes visual compensation. Proprioceptive and vestibular pathways must then provide the cerebellum with the information required to maintain balance. If proprioception is impaired, the brain cannot accurately sense limb position, and the patient sways or falls.
+
+Romberg's test may therefore be positive in proprioceptive dysfunction, including sensory peripheral neuropathy, dorsal column dysfunction, vitamin B12 deficiency, and tabes dorsalis. It may also be positive in vestibular dysfunction, such as vestibular neuritis. In cerebellar ataxia, the patient is typically unsteady even with the eyes open, so closing the eyes does not produce the defining sensory-dependent deterioration.`,
+    knowMoreImages: [
+      {
+        src: '/images/dcml/balance-inputs.png',
+        alt: 'Vision, proprioceptive, and vestibular inputs integrated by the cerebellum to maintain balance',
+        caption: 'Balance requires sensory inputs, cerebellar processing, and an effective postural response.',
+      },
+      {
+        src: '/images/dcml/sensory-vs-cerebellar-ataxia.png',
+        alt: 'Comparison of sensory ataxia and cerebellar ataxia during Romberg testing',
+        caption: 'Sensory ataxia worsens when the eyes close; cerebellar ataxia is evident even with the eyes open.',
+      },
+    ],
     position: 'right-[20%] bottom-[49%] sm:right-[24%]',
   },
   {
@@ -820,7 +1224,19 @@ Lower-limb sensory fibers from sacral and lumbar segments travel medially in the
     options: ['True', 'False'],
     answer: 'False',
     explanation: 'PCML functions such as vibration are usually compromised first.',
-    knowMore: knowMoreClinical,
+    knowMore: `Why does vitamin B12 deficiency damage the dorsal columns before the spinothalamic tract in subacute combined degeneration?
+
+Dorsal column fibers are large A-beta fibers, approximately 6-12 micrometers in diameter, wrapped in thick myelin sheaths. Larger fibers have more myelin surface area and a greater ongoing metabolic demand for B12-dependent maintenance than the smaller fibers of the spinothalamic tract.
+
+Dorsal column axons may ascend nearly the entire length of the spinal cord. More myelin must therefore be maintained along each axon, so these fibers fail earlier when B12-dependent synthesis is impaired. The fasciculus gracilis, carrying lower-limb fibers, is affected before the fasciculus cuneatus because sacral and lumbar fibers travel the longest distance. This is why symptoms commonly begin in the feet.`,
+    knowMoreImages: [
+      {
+        src: '/Images/dcml/VitB12def.png',
+        alt: 'Vitamin B12 deficiency affecting the dorsal columns',
+        caption: 'Subacute combined degeneration preferentially affects long, heavily myelinated pathways.',
+      },
+    ],
+    supplementary: dcmlSupplementary,
     position: 'right-[18%] bottom-[76%] sm:right-[25%]',
   },
 ];
@@ -894,6 +1310,7 @@ const homeAudioTracks = [
 const feedbackUrl = 'https://forms.gle/gtNquQPbzGsLYNW46';
 
 const homeModuleShortcuts = [
+  { id: 'spinal-nerve', title: 'Spinal Nerve', division: 'foundation', label: 'Segments and spinal nerves' },
   { id: 'dcml', title: 'DCML', division: 'ascending', label: 'Medial column' },
   { id: 'lateral-stt', title: 'Lateral STT', division: 'ascending', label: 'Pain and temperature' },
   { id: 'ventral-stt', title: 'Ventral STT', division: 'ascending', label: 'Crude touch and pressure' },
@@ -915,6 +1332,12 @@ const initialProgress = {
 };
 
 const badges = [
+  {
+    id: 'spinal-cord-explorer',
+    title: 'Segmental Anatomy Explorer',
+    description: 'Complete every Spinal Cord and Spinal Nerve level.',
+    tone: 'bg-teal-50 text-teal-900 border-teal-500',
+  },
   {
     id: 'first-signal',
     title: 'First Signal',
@@ -972,6 +1395,18 @@ const badges = [
 ];
 
 const tractModules = {
+  'spinal-nerve': {
+    id: 'spinal-nerve',
+    division: 'foundation',
+    title: 'Spinal Nerve',
+    displayTitle: 'Spinal Nerve',
+    mediaType: 'video',
+    videoSrc: '/audio/Spinalvideo.mp4?v=1',
+    iframeTitle: 'Spinal nerve video lesson',
+    levels: spinalCordPathwayLevels,
+    unlockOnEnd: true,
+    intro: 'Watch the Spinal Nerve video. The six-phase quiz unlocks when the video ends, with clinical tables and explanatory figures in Know more.',
+  },
   dcml: {
     id: 'dcml',
     division: 'ascending',
@@ -1064,6 +1499,7 @@ function evaluateBadges(progress) {
   if (progress.completedLevels.length >= 1) earned.add('first-signal');
   if (progress.correctFirstTryLevels.length >= 3) earned.add('precision-touch');
   if (progress.knowMoreLevels.length >= 3) earned.add('curious-clinician');
+  if (spinalCordPathwayLevels.every((level) => progress.completedLevels.includes(level.id))) earned.add('spinal-cord-explorer');
   if (pathwayLevels.every((level) => progress.completedLevels.includes(level.id))) earned.add('dcml-explorer');
   if (lateralPathwayLevels.every((level) => progress.completedLevels.includes(level.id))) earned.add('lateral-stt-explorer');
   if (ventralPathwayLevels.every((level) => progress.completedLevels.includes(level.id))) earned.add('ventral-stt-explorer');
@@ -1102,23 +1538,23 @@ function getCertificateRecords(progress) {
   ];
 }
 
-function ProgressPill({ progress, compact = false }) {
+function ProgressPill({ progress, compact = false, dark = false }) {
   const certificateRecords = getCertificateRecords(progress);
   const earnedCertificateCount = certificateRecords.filter((certificate) => certificate.earned).length;
 
   return (
     <div className={`grid gap-2 ${compact ? '' : 'sm:grid-cols-3'}`}>
-      <div className="rounded-lg border border-slate-200 bg-white px-4 py-3 shadow-sm">
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">Points</p>
-        <p className="mt-1 text-2xl font-semibold text-slate-950">{progress.points}</p>
+      <div className={`rounded-lg border px-4 py-3 shadow-sm ${dark ? 'border-sky-900 bg-[#0c1d36]' : 'border-slate-200 bg-white'}`}>
+        <p className={`text-xs font-semibold uppercase tracking-[0.18em] ${dark ? 'text-sky-300' : 'text-slate-500'}`}>Points</p>
+        <p className={`mt-1 text-2xl font-semibold ${dark ? 'text-white' : 'text-slate-950'}`}>{progress.points}</p>
       </div>
-      <div className="rounded-lg border border-slate-200 bg-white px-4 py-3 shadow-sm">
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">Badges</p>
-        <p className="mt-1 text-2xl font-semibold text-slate-950">{progress.badges.length}/{badges.length}</p>
+      <div className={`rounded-lg border px-4 py-3 shadow-sm ${dark ? 'border-sky-900 bg-[#0c1d36]' : 'border-slate-200 bg-white'}`}>
+        <p className={`text-xs font-semibold uppercase tracking-[0.18em] ${dark ? 'text-violet-300' : 'text-slate-500'}`}>Badges</p>
+        <p className={`mt-1 text-2xl font-semibold ${dark ? 'text-white' : 'text-slate-950'}`}>{progress.badges.length}/{badges.length}</p>
       </div>
-      <div className="rounded-lg border border-slate-200 bg-white px-4 py-3 shadow-sm">
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">Certificates</p>
-        <p className={`mt-1 text-sm font-semibold ${earnedCertificateCount ? 'text-emerald-700' : 'text-slate-500'}`}>
+      <div className={`rounded-lg border px-4 py-3 shadow-sm ${dark ? 'border-sky-900 bg-[#0c1d36]' : 'border-slate-200 bg-white'}`}>
+        <p className={`text-xs font-semibold uppercase tracking-[0.18em] ${dark ? 'text-pink-300' : 'text-slate-500'}`}>Certificates</p>
+        <p className={`mt-1 text-sm font-semibold ${earnedCertificateCount ? 'text-emerald-400' : dark ? 'text-slate-300' : 'text-slate-500'}`}>
           {earnedCertificateCount}/3 earned
         </p>
       </div>
@@ -1153,11 +1589,11 @@ function BadgeShelf({ progress }) {
 
 function BadgeDrawer({ progress, isOpen, onToggle }) {
   return (
-    <div className="fixed left-0 top-1/2 z-40 flex -translate-y-1/2 flex-row-reverse items-stretch">
+    <div className="fixed left-0 top-1/2 z-40 flex flex-row-reverse items-start">
       <button
         type="button"
         onClick={onToggle}
-        className="grid h-16 w-8 place-items-center rounded-r-lg border border-l-0 border-amber-500 bg-amber-500 px-1 py-2 text-[10px] font-semibold text-amber-950 shadow-xl transition hover:bg-amber-400"
+        className="grid h-16 w-8 -translate-y-1/2 place-items-center rounded-r-lg border border-l-0 border-amber-500 bg-amber-500 px-1 py-2 text-[10px] font-semibold text-amber-950 shadow-xl transition hover:bg-amber-400"
         style={{ writingMode: 'vertical-rl', textOrientation: 'mixed' }}
         aria-expanded={isOpen}
         aria-label="Badges"
@@ -1170,7 +1606,7 @@ function BadgeDrawer({ progress, isOpen, onToggle }) {
         initial={false}
         animate={{ width: isOpen ? 340 : 0, opacity: isOpen ? 1 : 0 }}
         transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-        className="overflow-hidden border-y border-r border-slate-200 bg-white shadow-2xl"
+        className="max-h-[80vh] -translate-y-1/2 overflow-x-hidden overflow-y-auto border-y border-r border-slate-200 bg-white shadow-2xl"
       >
         <div className="w-[340px] p-4 text-slate-950">
           <div className="mb-4">
@@ -1344,6 +1780,9 @@ function isAnswerCorrect(level, value) {
   const normalized = value.trim().toLowerCase();
 
   if (level.type === 'blank') {
+    if (level.acceptedAnswers) {
+      return level.acceptedAnswers.some((answer) => normalized === answer);
+    }
     const matchCount = level.accepted.filter((term) => normalized.includes(term)).length;
     return matchCount >= (level.minMatches ?? 1);
   }
@@ -1351,10 +1790,66 @@ function isAnswerCorrect(level, value) {
   return normalized === level.answer.toLowerCase();
 }
 
+function SupplementaryReading({ content }) {
+  return (
+    <section className="mt-6 space-y-5 border-t-2 border-indigo-200 pt-6">
+      <div className="rounded-lg bg-indigo-950 px-4 py-3 text-white">
+        <p className="font-serif text-xl font-bold tracking-wide">{content.title}</p>
+        <p className="mt-1 text-xs uppercase tracking-[0.2em] text-indigo-200">Supplementary reading</p>
+      </div>
+
+      {content.blocks.map((block, index) => {
+        const key = `${block.type}-${index}`;
+
+        if (block.type === 'scenario') {
+          return (
+            <div key={key} className="rounded-lg border-l-4 border-amber-500 bg-amber-50 p-4 font-serif text-base italic leading-7 text-amber-950">
+              <span className="mb-2 block text-xs font-bold uppercase tracking-[0.18em] text-amber-700">Clinical scenario</span>
+              {block.text}
+            </div>
+          );
+        }
+
+        if (block.type === 'qa') {
+          return (
+            <div key={key} className="overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm">
+              <p className="whitespace-pre-line bg-indigo-50 px-4 py-3 font-serif text-base font-bold leading-7 text-indigo-950">{block.question}</p>
+              <p className="whitespace-pre-line px-4 py-3 font-sans text-sm leading-7 text-teal-900"><span className="font-bold text-teal-700">Answer: </span>{block.answer}</p>
+            </div>
+          );
+        }
+
+        if (block.type === 'heading') {
+          return <h3 key={key} className="border-b border-rose-200 pb-2 font-serif text-xl font-bold uppercase tracking-wide text-rose-800">{block.text}</h3>;
+        }
+
+        if (block.type === 'subheading') {
+          return <h4 key={key} className="font-serif text-lg font-bold text-violet-800">{block.text}</h4>;
+        }
+
+        if (block.type === 'image') {
+          return <img key={key} src={block.src} alt={block.alt} className="max-h-96 w-full rounded-lg border border-slate-200 bg-white object-contain p-3" />;
+        }
+
+        if (block.type === 'pearl') {
+          return <p key={key} className="whitespace-pre-line rounded-lg border border-cyan-300 bg-cyan-50 p-4 font-serif text-base font-semibold leading-7 text-cyan-950">{block.text}</p>;
+        }
+
+        return <p key={key} className="font-sans text-sm leading-7 text-slate-700">{block.text}</p>;
+      })}
+    </section>
+  );
+}
+
 function KnowMorePanel({ level }) {
   return (
     <div className="mt-4 space-y-4 border-t border-slate-200 pt-4 text-sm leading-7 text-slate-700">
       <p className="text-sm font-semibold uppercase tracking-[0.18em] text-sky-700">Know More</p>
+      {level.knowMoreHighlight && (
+        <p className="rounded-lg border-l-4 border-fuchsia-500 bg-fuchsia-50 px-4 py-3 font-serif text-lg font-bold text-fuchsia-950">
+          {level.knowMoreHighlight}
+        </p>
+      )}
       {level.knowMore && <p className="whitespace-pre-line">{level.knowMore}</p>}
 
       {level.knowMoreImages?.map((image) => (
@@ -1399,6 +1894,19 @@ function KnowMorePanel({ level }) {
           </div>
         </section>
       ))}
+
+      {level.knowMoreEndImages?.map((image) => (
+        <figure key={image.src} className="overflow-hidden rounded-lg border border-slate-200 bg-white">
+          <img src={image.src} alt={image.alt} className="max-h-96 w-full object-contain p-3" />
+          {image.caption && (
+            <figcaption className="border-t border-slate-200 bg-slate-50 px-3 py-2 text-xs font-semibold text-slate-600">
+              {image.caption}
+            </figcaption>
+          )}
+        </figure>
+      ))}
+
+      {level.supplementary && <SupplementaryReading content={level.supplementary} />}
     </div>
   );
 }
@@ -1559,6 +2067,9 @@ function HomeAudioControls() {
 }
 
 function LandingScreen({ onSelectDivision, onOpenTract, progress }) {
+  const [labelMode, setLabelMode] = useState('tracts');
+  const spinalCordSvgUrl = `/assets/Cross section of spinal cord for animation1.svg?labels=${labelMode}`;
+
   return (
     <div className="min-h-screen bg-[#f7fafc] text-slate-950">
       <header className="border-b border-slate-200 bg-white/95">
@@ -1580,18 +2091,36 @@ function LandingScreen({ onSelectDivision, onOpenTract, progress }) {
 
       <main className="mx-auto grid max-w-7xl gap-6 px-4 py-6 sm:px-6 lg:grid-cols-[minmax(0,1.35fr)_minmax(320px,0.65fr)]">
         <section className="relative overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm">
-          <div className="border-b border-slate-200 bg-slate-50 px-4 py-3">
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">Tap a glowing tract to begin</p>
+          <div className="flex flex-col gap-3 border-b border-slate-200 bg-slate-50 px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">Hover to identify, then tap to begin</p>
+            <div className="inline-flex w-fit rounded-lg border border-slate-300 bg-white p-1" aria-label="Diagram label mode">
+              {['tracts', 'functions'].map((mode) => (
+                <button
+                  key={mode}
+                  type="button"
+                  onClick={() => setLabelMode(mode)}
+                  aria-pressed={labelMode === mode}
+                  className={`rounded-md px-3 py-1.5 text-xs font-semibold capitalize transition ${
+                    labelMode === mode
+                      ? 'bg-sky-700 text-white shadow-sm'
+                      : 'text-slate-600 hover:bg-slate-100 hover:text-slate-950'
+                  }`}
+                >
+                  {mode}
+                </button>
+              ))}
+            </div>
           </div>
           <div className="relative min-h-[520px] bg-gradient-to-b from-slate-50 via-white to-sky-50 p-4 sm:p-6">
             <object
-              data="/assets/Cross section of spinal cord for animation1.svg"
+              key={labelMode}
+              data={spinalCordSvgUrl}
               type="image/svg+xml"
               title="Interactive spinal cord cross-section tract map"
               className="mx-auto h-[500px] w-full drop-shadow-[0_18px_32px_rgba(15,23,42,0.16)]"
             >
               <img
-                src="/assets/Cross section of spinal cord for animation1.svg"
+                src={spinalCordSvgUrl}
                 alt="Cross section of spinal cord with interactive tract regions"
                 className="mx-auto h-[500px] w-full object-contain"
               />
@@ -1794,11 +2323,11 @@ function QuizDrawer({ levels, completedLevelIds, activeLevelId, isReady, isOpen,
   const nextIndex = Math.min(moduleCompletedLevelIds.length, levels.length - 1);
 
   return (
-    <div className="fixed right-0 top-1/2 z-40 flex -translate-y-1/2 items-stretch">
+    <div className="fixed right-0 top-1/2 z-40 flex items-start">
       <button
         type="button"
         onClick={onToggle}
-        className={`grid h-16 w-8 place-items-center rounded-l-lg border border-r-0 px-1 py-2 text-[10px] font-semibold shadow-xl transition ${
+        className={`grid h-16 w-8 -translate-y-1/2 place-items-center rounded-l-lg border border-r-0 px-1 py-2 text-[10px] font-semibold shadow-xl transition ${
           isReady
             ? 'border-sky-600 bg-sky-700 text-white hover:bg-sky-800'
             : 'border-slate-300 bg-slate-200 text-slate-500'
@@ -1815,14 +2344,14 @@ function QuizDrawer({ levels, completedLevelIds, activeLevelId, isReady, isOpen,
         initial={false}
         animate={{ width: isOpen ? 360 : 0, opacity: isOpen ? 1 : 0 }}
         transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-        className="overflow-hidden border-y border-l border-slate-200 bg-white shadow-2xl"
+        className="max-h-[80vh] -translate-y-1/2 overflow-x-hidden overflow-y-auto border-y border-l border-slate-200 bg-white shadow-2xl"
       >
         <div className="w-[360px] p-4 text-slate-950">
           <div className="mb-4">
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-sky-700">Gamified Pathway</p>
             <h2 className="mt-1 text-xl font-semibold">Pathway Quiz</h2>
             <p className="mt-1 text-sm leading-6 text-slate-600">
-              {isReady ? 'Complete each level to unlock the next.' : 'Finish the pathway animation to unlock the quiz.'}
+              {isReady ? 'Complete each level to unlock the next.' : 'Finish the lesson video or pathway animation to unlock the quiz.'}
             </p>
           </div>
 
@@ -1869,7 +2398,7 @@ function FlashcardModal({ level, onClose, onComplete, onKnowMore }) {
   const [answer, setAnswer] = useState('');
   const [feedback, setFeedback] = useState(null);
   const [hintVisible, setHintVisible] = useState(false);
-  const [optionsVisible, setOptionsVisible] = useState(level.type !== 'mcq');
+  const [optionsVisible, setOptionsVisible] = useState(true);
   const [showMore, setShowMore] = useState(false);
   const correct = useMemo(() => isAnswerCorrect(level, answer), [answer, level]);
 
@@ -1883,6 +2412,7 @@ function FlashcardModal({ level, onClose, onComplete, onKnowMore }) {
       onKnowMore(level.id);
     } else {
       onComplete(level.id, false);
+      setHintVisible(true);
     }
   };
 
@@ -1897,12 +2427,13 @@ function FlashcardModal({ level, onClose, onComplete, onKnowMore }) {
       onKnowMore(level.id);
     } else {
       onComplete(level.id, false);
+      setHintVisible(true);
     }
   };
 
   return (
     <motion.div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/70 px-4 py-6 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-[#020817]/90 px-3 py-4 backdrop-blur-md sm:px-5"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -1911,28 +2442,29 @@ function FlashcardModal({ level, onClose, onComplete, onKnowMore }) {
       aria-labelledby="flashcard-title"
     >
       <motion.div
-        className="max-h-[92vh] w-full max-w-3xl overflow-y-auto rounded-lg border border-slate-300 bg-white p-5 text-slate-950 shadow-2xl sm:p-6"
+        className="max-h-[94vh] w-full max-w-5xl overflow-y-auto rounded-2xl border border-sky-800/70 bg-[#071426] p-5 text-slate-100 shadow-[0_30px_90px_rgba(0,0,0,0.55)] sm:p-7"
         initial={{ scale: 0.96, y: 16 }}
         animate={{ scale: 1, y: 0 }}
         exit={{ scale: 0.98, y: 12 }}
       >
-        <div className="mb-5 flex items-start justify-between gap-4 border-b border-slate-200 pb-4">
+        <div className="mb-5 flex items-start justify-between gap-4 border-b border-sky-900/70 pb-4">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-sky-700">{level.phase}</p>
-            <h2 id="flashcard-title" className="mt-1 text-2xl font-semibold text-slate-950">
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-pink-300">Clinical scenario - {level.phase}</p>
+            <h2 id="flashcard-title" className="mt-1 text-2xl font-semibold text-white">
               {level.label}
             </h2>
           </div>
           <button
             type="button"
             onClick={onClose}
-            className="grid h-10 w-10 place-items-center rounded-lg border border-slate-300 text-xl leading-none text-slate-600 transition hover:border-slate-500 hover:text-slate-950"
+            className="grid h-10 w-10 place-items-center rounded-lg border border-sky-800 bg-slate-950/40 text-xl leading-none text-slate-300 transition hover:border-pink-400 hover:text-white"
             aria-label="Close flashcard"
           >
             x
           </button>
         </div>
 
+        <div className="rounded-xl border border-sky-900/80 bg-[#0a1930] p-5 sm:p-6">
         <div className="flex items-start gap-3">
           <button
             type="button"
@@ -1940,19 +2472,19 @@ function FlashcardModal({ level, onClose, onComplete, onKnowMore }) {
               setHintVisible(true);
               if (level.type === 'mcq' && hintVisible) setOptionsVisible(true);
             }}
-            className="mt-1 grid h-10 w-10 shrink-0 place-items-center rounded-lg border border-amber-300 bg-amber-50 text-xl transition hover:bg-amber-100"
+            className="hidden"
             aria-label="Show hint"
             title="Show hint"
           >
             💡
           </button>
-          <p className="text-lg leading-8 text-slate-900">{level.prompt}</p>
+          <p className="text-lg font-medium leading-8 text-white sm:text-xl">{level.prompt}</p>
         </div>
 
         <AnimatePresence>
           {hintVisible && (
             <motion.div
-              className="mt-4 rounded-lg border border-amber-300 bg-amber-50 p-4 text-sm leading-6 text-amber-950"
+              className="mt-4 rounded-lg border border-amber-400/60 bg-amber-400/10 p-4 text-sm leading-6 text-amber-100"
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 8 }}
@@ -1982,13 +2514,13 @@ function FlashcardModal({ level, onClose, onComplete, onKnowMore }) {
                 }}
                 disabled={feedback === 'correct'}
                 placeholder={level.placeholder}
-                className="min-h-12 flex-1 rounded-lg border border-slate-300 bg-white px-4 text-slate-950 outline-none transition focus:border-sky-600 focus:ring-2 focus:ring-sky-200"
+                className="min-h-12 flex-1 rounded-lg border border-sky-800 bg-[#061222] px-4 text-white outline-none transition placeholder:text-slate-500 focus:border-pink-400 focus:ring-2 focus:ring-pink-500/20"
               />
               <button
                 type="button"
                 onClick={submitAnswer}
                 disabled={!answer.trim() || feedback === 'correct'}
-                className="min-h-12 rounded-lg bg-sky-700 px-5 font-semibold text-white transition hover:bg-sky-800 disabled:cursor-not-allowed disabled:bg-slate-300"
+                className="min-h-12 rounded-lg bg-pink-600 px-5 font-semibold text-white transition hover:bg-pink-500 disabled:cursor-not-allowed disabled:bg-slate-700"
               >
                 Check
               </button>
@@ -2004,8 +2536,10 @@ function FlashcardModal({ level, onClose, onComplete, onKnowMore }) {
                   key={option}
                   className={`flex cursor-pointer items-center gap-3 rounded-lg border px-4 py-3 text-left transition ${
                     answer === option
-                      ? 'border-sky-700 bg-sky-50 text-sky-950'
-                      : 'border-slate-300 bg-white text-slate-800 hover:border-sky-600 hover:bg-sky-50'
+                      ? feedback === 'incorrect'
+                        ? 'border-red-400 bg-red-500/10 text-red-100'
+                        : 'border-lime-400 bg-lime-500/10 text-lime-100'
+                      : 'border-sky-900 bg-[#0c1d36] text-slate-200 hover:border-pink-400 hover:bg-pink-500/10'
                   } ${feedback === 'correct' ? 'cursor-default opacity-80' : ''}`}
                 >
                   <input
@@ -2015,7 +2549,7 @@ function FlashcardModal({ level, onClose, onComplete, onKnowMore }) {
                     checked={answer === option}
                     disabled={feedback === 'correct'}
                     onChange={() => chooseAnswer(option)}
-                    className="h-4 w-4 accent-sky-700"
+                    className="h-4 w-4 accent-pink-500"
                   />
                   {option}
                 </label>
@@ -2029,8 +2563,8 @@ function FlashcardModal({ level, onClose, onComplete, onKnowMore }) {
             <motion.div
               className={`mt-5 rounded-lg border p-4 ${
                 feedback === 'correct'
-                  ? 'border-emerald-300 bg-emerald-50'
-                  : 'border-red-300 bg-red-50'
+                  ? 'border-lime-400/70 bg-lime-500/10'
+                  : 'border-red-400/70 bg-red-500/10'
               }`}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -2042,8 +2576,8 @@ function FlashcardModal({ level, onClose, onComplete, onKnowMore }) {
                     ✓
                   </div>
                   <div>
-                    <p className="font-semibold text-emerald-800">Correct. Badge unlocked.</p>
-                    <p className="mt-1 text-sm text-emerald-900">
+                    <p className="font-semibold text-lime-200">Correct. Level completed.</p>
+                    <p className="mt-1 text-sm text-lime-100">
                       <span className="font-semibold">Answer:</span> {level.answer}
                       {level.explanation ? ` - ${level.explanation}` : ''}
                     </p>
@@ -2051,15 +2585,18 @@ function FlashcardModal({ level, onClose, onComplete, onKnowMore }) {
                 </div>
               ) : (
                 <div>
-                  <p className="font-semibold text-red-700">Incorrect. Try again.</p>
-                  <p className="mt-1 text-sm text-red-900">Use the hint, then submit another answer.</p>
+                  <p className="font-semibold text-red-200">Not quite. Try once more.</p>
+                  <p className="mt-1 text-sm text-red-100">A targeted tip is now shown above the answer choices.</p>
                 </div>
               )}
 
-              {feedback === 'correct' && showMore && <KnowMorePanel level={level} />}
+              {feedback === 'correct' && showMore && (
+                <div className="mt-4 rounded-xl bg-white p-4 text-slate-950"><KnowMorePanel level={level} /></div>
+              )}
             </motion.div>
           )}
         </AnimatePresence>
+        </div>
       </motion.div>
     </motion.div>
   );
@@ -2067,11 +2604,15 @@ function FlashcardModal({ level, onClose, onComplete, onKnowMore }) {
 
 function PathwayModule({ module, onBack, progress, onAnswer, onKnowMore, onShowCertificate }) {
   const pathwayFrameRef = useRef(null);
+  const pathwayMediaRef = useRef(null);
   const [activeLevel, setActiveLevel] = useState(null);
   const [quizReady, setQuizReady] = useState(false);
   const [quizDrawerOpen, setQuizDrawerOpen] = useState(false);
   const [badgeDrawerOpen, setBadgeDrawerOpen] = useState(false);
   const completedLevelIds = progress.completedLevels;
+  const moduleLevelIds = new Set(module.levels.map((level) => level.id));
+  const moduleCompletedLevelIds = completedLevelIds.filter((levelId) => moduleLevelIds.has(levelId));
+  const nextLevelIndex = Math.min(moduleCompletedLevelIds.length, module.levels.length - 1);
 
   const completeLevel = (levelId, correct) => onAnswer(module.id, module.levels, levelId, correct);
 
@@ -2090,15 +2631,18 @@ function PathwayModule({ module, onBack, progress, onAnswer, onKnowMore, onShowC
 
     const handleMessage = (event) => {
       if (event.origin !== window.location.origin) return;
-      if (event.data?.type === module.unlockMessageType) unlockQuiz();
+      if (module.unlockMessageType && event.data?.type === module.unlockMessageType) unlockQuiz();
     };
 
     window.addEventListener('message', handleMessage);
 
     const timer = quizReady ? undefined : window.setInterval(() => {
-      const audio = pathwayFrameRef.current?.contentDocument?.querySelector('audio');
+      const media = module.mediaType === 'video'
+        ? pathwayMediaRef.current
+        : pathwayFrameRef.current?.contentDocument?.querySelector('audio, video');
 
-      if (audio?.ended || audio?.currentTime >= module.unlockTime) {
+      const reachedUnlockTime = Number.isFinite(module.unlockTime) && media?.currentTime >= module.unlockTime;
+      if (media?.ended || reachedUnlockTime) {
         unlockQuiz();
         window.clearInterval(timer);
       }
@@ -2108,29 +2652,31 @@ function PathwayModule({ module, onBack, progress, onAnswer, onKnowMore, onShowC
       window.removeEventListener('message', handleMessage);
       if (timer) window.clearInterval(timer);
     };
-  }, [module.unlockMessageType, module.unlockTime, quizReady]);
+  }, [module.mediaType, module.unlockMessageType, module.unlockTime, quizReady]);
+
+  const backDestination = module.division === 'foundation' ? 'home' : `${module.division} tracts`;
 
   return (
-    <div className="min-h-screen bg-[#f7fafc] text-slate-950">
-      <header className="border-b border-slate-200 bg-white">
-        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-5 sm:px-6">
-          <button type="button" onClick={onBack} className="w-fit text-sm font-semibold text-sky-800 hover:text-sky-950">
-            Back to {module.division === 'descending' ? 'descending' : 'ascending'} tracts
+    <div className="min-h-screen bg-[#030b18] text-slate-100">
+      <header className="border-b border-sky-950 bg-[#061222]">
+        <div className="mx-auto flex max-w-[1500px] flex-col gap-4 px-4 py-5 sm:px-6">
+          <button type="button" onClick={onBack} className="w-fit text-sm font-semibold text-sky-300 hover:text-white">
+            Back to {backDestination}
           </button>
-          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-sky-700">Spinal Cord Explorer</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-amber-300">Spinal Cord Explorer</p>
           <div className="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
             <div>
-              <h1 className="text-3xl font-semibold tracking-normal text-slate-950 sm:text-4xl">
+              <h1 className="text-3xl font-semibold tracking-normal text-white sm:text-4xl">
                 {module.title}
               </h1>
-              <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-600">
+              <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-300">
                 {module.intro}
               </p>
             </div>
             <button
               type="button"
               onClick={onShowCertificate}
-              className="w-fit rounded-lg bg-sky-700 px-4 py-3 text-sm font-semibold text-white transition hover:bg-sky-800"
+              className="w-fit rounded-lg border border-pink-400/60 bg-pink-500/15 px-4 py-3 text-sm font-semibold text-pink-100 transition hover:bg-pink-500/25"
             >
               View Certificates
             </button>
@@ -2138,23 +2684,94 @@ function PathwayModule({ module, onBack, progress, onAnswer, onKnowMore, onShowC
         </div>
       </header>
 
-      <main className="mx-auto max-w-7xl px-4 py-5 sm:px-6">
-        <section className="relative overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm">
-          <div className="border-b border-slate-200 bg-slate-50 px-12 py-4 text-center">
-            <p className="text-base font-semibold text-slate-800">{module.displayTitle}</p>
+      <main className="mx-auto grid max-w-[1500px] gap-5 px-4 py-5 sm:px-6 lg:grid-cols-[270px_minmax(0,1fr)]">
+        <aside className="hidden rounded-2xl border border-sky-900/80 bg-[#08172b] p-4 shadow-2xl lg:block">
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-sky-300">Learning path</p>
+          <p className="mt-2 text-sm leading-6 text-slate-400">
+            {quizReady ? 'Attempt each level. A tip appears only after an incorrect answer.' : 'Complete the pathway lesson to unlock the clinical questions.'}
+          </p>
+          <div className="mt-4 grid gap-2">
+            {module.levels.map((level, index) => {
+              const isCompleted = moduleCompletedLevelIds.includes(level.id);
+              const isUnlocked = quizReady && (index <= nextLevelIndex || isCompleted);
+              const isActive = activeLevel?.id === level.id;
+
+              return (
+                <button
+                  key={level.id}
+                  type="button"
+                  disabled={!isUnlocked}
+                  onClick={() => setActiveLevel(level)}
+                  className={`rounded-xl border px-3 py-3 text-left transition ${
+                    isActive
+                      ? 'border-pink-400 bg-pink-500/15 text-white'
+                      : isCompleted
+                        ? 'border-lime-500/50 bg-lime-500/10 text-lime-100'
+                        : isUnlocked
+                          ? 'border-sky-900 bg-[#0c1d36] text-slate-200 hover:border-sky-500'
+                          : 'border-slate-800 bg-slate-950/30 text-slate-600'
+                  }`}
+                >
+                  <span className="block text-[10px] font-bold uppercase tracking-[0.16em] text-pink-300">{level.phase}</span>
+                  <span className="mt-1 block text-sm font-semibold">{level.label}</span>
+                </button>
+              );
+            })}
+          </div>
+          <button type="button" onClick={() => setBadgeDrawerOpen(true)} className="mt-4 w-full rounded-xl border border-violet-500/50 bg-violet-500/10 px-3 py-3 text-sm font-semibold text-violet-200 transition hover:bg-violet-500/20">
+            View learning awards
+          </button>
+        </aside>
+
+        <div className="min-w-0">
+        <section className="relative overflow-hidden rounded-2xl border border-sky-900/80 bg-[#071426] shadow-2xl">
+          <div className="flex flex-col gap-2 border-b border-sky-900 bg-[#0a1930] px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-pink-300">Interactive pathway</p>
+              <p className="mt-1 text-base font-semibold text-white">{module.displayTitle}</p>
+            </div>
+            <span className={`w-fit rounded-full border px-3 py-1 text-xs font-semibold ${quizReady ? 'border-lime-400/60 bg-lime-400/10 text-lime-200' : 'border-amber-400/60 bg-amber-400/10 text-amber-200'}`}>
+              {quizReady ? 'Quiz unlocked' : 'Lesson in progress'}
+            </span>
           </div>
           <div className="relative min-h-[70vh] bg-slate-950">
-            <iframe
-              ref={pathwayFrameRef}
-              src={module.iframeSrc}
-              title={module.iframeTitle}
-              className="h-[70vh] w-full border-0"
-            />
+            {module.mediaType === 'video' ? (
+              <video
+                ref={pathwayMediaRef}
+                src={module.videoSrc}
+                title={module.iframeTitle}
+                controls
+                autoPlay
+                playsInline
+                preload="auto"
+                onEnded={() => {
+                  setQuizReady(true);
+                  setQuizDrawerOpen(true);
+                }}
+                className="h-[70vh] w-full bg-black object-contain"
+              />
+            ) : (
+              <iframe
+                ref={pathwayFrameRef}
+                src={module.iframeSrc}
+                title={module.iframeTitle}
+                className="h-[70vh] w-full border-0"
+              />
+            )}
           </div>
         </section>
-        <section className="mt-4">
-          <ProgressPill progress={progress} />
+        <section className="mt-4 rounded-2xl border border-sky-900/80 bg-[#08172b] p-4">
+          <ProgressPill progress={progress} dark />
         </section>
+        <div className="mt-4 flex items-center justify-between rounded-2xl border border-sky-900/80 bg-[#08172b] px-4 py-3">
+          <span className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Module progress</span>
+          <div className="flex gap-2">
+            {module.levels.map((level, index) => (
+              <span key={level.id} className={`grid h-8 w-8 place-items-center rounded-full border text-xs font-bold ${moduleCompletedLevelIds.includes(level.id) ? 'border-lime-400 bg-lime-400/20 text-lime-200' : index === nextLevelIndex && quizReady ? 'border-pink-400 bg-pink-500/20 text-pink-200' : 'border-sky-900 bg-slate-950/30 text-slate-500'}`}>{index + 1}</span>
+            ))}
+          </div>
+        </div>
+        </div>
       </main>
 
       <BadgeDrawer
@@ -2163,18 +2780,20 @@ function PathwayModule({ module, onBack, progress, onAnswer, onKnowMore, onShowC
         onToggle={() => setBadgeDrawerOpen((value) => !value)}
       />
 
-      <QuizDrawer
-        levels={module.levels}
-        completedLevelIds={completedLevelIds}
-        activeLevelId={activeLevel?.id}
-        isReady={quizReady}
-        isOpen={quizDrawerOpen}
-        onToggle={() => setQuizDrawerOpen((value) => !value)}
-        onSelectLevel={(level) => {
-          setActiveLevel(level);
-          setQuizDrawerOpen(false);
-        }}
-      />
+      <div className="lg:hidden">
+        <QuizDrawer
+          levels={module.levels}
+          completedLevelIds={completedLevelIds}
+          activeLevelId={activeLevel?.id}
+          isReady={quizReady}
+          isOpen={quizDrawerOpen}
+          onToggle={() => setQuizDrawerOpen((value) => !value)}
+          onSelectLevel={(level) => {
+            setActiveLevel(level);
+            setQuizDrawerOpen(false);
+          }}
+        />
+      </div>
 
       <AnimatePresence>
         {activeLevel && (
@@ -2232,6 +2851,11 @@ function getInitialNavigation() {
   }
 
   const moduleId = new URLSearchParams(window.location.search).get('module');
+
+  if (moduleId === 'spinal-cord') {
+    return { screen: 'foundation', activeTractId: 'spinal-nerve' };
+  }
+
   const module = moduleId ? tractModules[moduleId] : null;
 
   if (!module) {
@@ -2351,7 +2975,10 @@ export default function App() {
       <PathwayModule
         module={tractModules[activeTractId]}
         progress={progress}
-        onBack={() => setActiveTractId(null)}
+        onBack={() => {
+          if (tractModules[activeTractId]?.division === 'foundation') setScreen('landing');
+          setActiveTractId(null);
+        }}
         onAnswer={recordAnswer}
         onKnowMore={recordKnowMore}
         onShowCertificate={() => setIsCertificateOpen(true)}
