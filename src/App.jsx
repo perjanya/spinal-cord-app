@@ -1184,12 +1184,12 @@ When cerebellar function is sufficiently intact, closing the eyes removes visual
 Romberg's test may therefore be positive in proprioceptive dysfunction, including sensory peripheral neuropathy, dorsal column dysfunction, vitamin B12 deficiency, and tabes dorsalis. It may also be positive in vestibular dysfunction, such as vestibular neuritis. In cerebellar ataxia, the patient is typically unsteady even with the eyes open, so closing the eyes does not produce the defining sensory-dependent deterioration.`,
     knowMoreImages: [
       {
-        src: '/images/dcml/balance-inputs.png',
+        src: '/Images/dcml/balance-inputs.jpeg',
         alt: 'Vision, proprioceptive, and vestibular inputs integrated by the cerebellum to maintain balance',
         caption: 'Balance requires sensory inputs, cerebellar processing, and an effective postural response.',
       },
       {
-        src: '/images/dcml/sensory-vs-cerebellar-ataxia.png',
+        src: '/Images/dcml/sensory-vs-cerebellar-ataxia.png',
         alt: 'Comparison of sensory ataxia and cerebellar ataxia during Romberg testing',
         caption: 'Sensory ataxia worsens when the eyes close; cerebellar ataxia is evident even with the eyes open.',
       },
@@ -1202,13 +1202,18 @@ Romberg's test may therefore be positive in proprioceptive dysfunction, includin
     label: 'Posterior Funiculus',
     shortLabel: 'Cordotomy',
     prompt:
-      "Sparing the posterior funiculus preserves __________ and __________.",
+      'Sparing the posterior funiculus preserves any two DCML modalities: __________ and __________.',
     type: 'blank',
     placeholder: 'Type two preserved sensations',
-    answer: 'Vibration / Proprioception',
-    accepted: ['vibration', 'proprioception'],
+    answer: 'Any two: fine touch, vibration sense, conscious proprioception, or two-point discrimination',
+    acceptedGroups: [
+      ['fine touch', 'discriminative touch'],
+      ['vibration', 'vibration sense'],
+      ['proprioception', 'conscious proprioception', 'position sense', 'joint position sense'],
+      ['two-point discrimination', 'two point discrimination', '2-point discrimination'],
+    ],
     minMatches: 2,
-    hint: 'These are dorsal column modalities, not spinothalamic pain and temperature.',
+    hint: 'Use any two dorsal column modalities: fine touch, vibration sense, conscious proprioception or position sense, and two-point discrimination. Do not use spinothalamic pain and temperature.',
     knowMore: knowMoreClinical,
     position: 'left-[25%] bottom-[62%] sm:left-[31%]',
   },
@@ -1772,6 +1777,12 @@ function isAnswerCorrect(level, value) {
   if (level.type === 'blank') {
     if (level.acceptedAnswers) {
       return level.acceptedAnswers.some((answer) => normalized === answer);
+    }
+    if (level.acceptedGroups) {
+      const matchCount = level.acceptedGroups.filter((group) =>
+        group.some((term) => normalized.includes(term))
+      ).length;
+      return matchCount >= (level.minMatches ?? 1);
     }
     const matchCount = level.accepted.filter((term) => normalized.includes(term)).length;
     return matchCount >= (level.minMatches ?? 1);
