@@ -221,7 +221,7 @@ Clinical correlation: in syringomyelia, an expanding central syrinx first affect
     phase: 'Level 4',
     label: 'Brown-Sequard Pattern',
     shortLabel: 'Hemisection',
-    prompt: 'A 45-year-old man has loss of pain and temperature sensation on the right side below T6. MRI shows a left hemisection at T6. Which tract is responsible?',
+    prompt: 'A 45-year-old man has loss of pain and temperature sensation on the right side below T6. MRI shows a left hemisection at T6. Which tract is responsible for the sensory deficit?',
     type: 'mcq',
     hint: 'Pain and temperature cross early, so a left cord lesion affects the right body below the lesion.',
     options: ['Left dorsal column', 'Right corticospinal tract', 'Left lateral spinothalamic tract', 'Right dorsal spinocerebellar tract'],
@@ -397,7 +397,7 @@ A lesion involving the anterior white commissure can therefore interrupt crossin
     phase: 'Level 4',
     label: 'Poor Spatial Discrimination',
     shortLabel: 'Localization',
-    prompt: 'During neurological examination, a patient feels cotton wool touch the skin but cannot determine the precise point of contact. Which property explains this?',
+    prompt: 'During neurological examination, a patient feels cotton wool touch on the skin but cannot determine the precise point of contact. Which property explains this?',
     type: 'mcq',
     hint: 'Crude touch detects contact but localizes it poorly.',
     options: ['High receptor density', 'Small receptive fields', 'Precise somatotopic organization', 'Poor spatial discrimination'],
@@ -2386,7 +2386,17 @@ function QuizDrawer({ levels, completedLevelIds, activeLevelId, isReady, isOpen,
   );
 }
 
-function FlashcardModal({ level, onClose, onComplete, onKnowMore }) {
+function FlashcardModal({
+  level,
+  moduleTitle,
+  currentLevelIndex,
+  totalLevels,
+  nextLevel,
+  onClose,
+  onComplete,
+  onKnowMore,
+  onGoToLevel,
+}) {
   const [answer, setAnswer] = useState('');
   const [feedback, setFeedback] = useState(null);
   const [hintVisible, setHintVisible] = useState(false);
@@ -2441,6 +2451,13 @@ function FlashcardModal({ level, onClose, onComplete, onKnowMore }) {
       >
         <div className="mb-5 flex items-start justify-between gap-4 border-b border-sky-900/70 pb-4">
           <div>
+            <nav className="mb-2 flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-sky-300" aria-label="Quiz breadcrumb">
+              <span>{moduleTitle}</span>
+              <span className="text-slate-500">/</span>
+              <span>Level {currentLevelIndex + 1} of {totalLevels}</span>
+              <span className="text-slate-500">/</span>
+              <span className="text-pink-300">{level.label}</span>
+            </nav>
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-pink-300">Clinical scenario - {level.phase}</p>
             <h2 id="flashcard-title" className="mt-1 text-2xl font-semibold text-white">
               {level.label}
@@ -2573,6 +2590,32 @@ function FlashcardModal({ level, onClose, onComplete, onKnowMore }) {
                       <span className="font-semibold">Answer:</span> {level.answer}
                       {level.explanation ? ` - ${level.explanation}` : ''}
                     </p>
+                    <div className="mt-4 flex flex-wrap gap-3">
+                      {nextLevel ? (
+                        <button
+                          type="button"
+                          onClick={() => onGoToLevel(nextLevel)}
+                          className="rounded-lg bg-pink-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-pink-500"
+                        >
+                          Next: {nextLevel.phase} - {nextLevel.label}
+                        </button>
+                      ) : (
+                        <button
+                          type="button"
+                          onClick={onClose}
+                          className="rounded-lg bg-lime-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-lime-500"
+                        >
+                          Complete module
+                        </button>
+                      )}
+                      <button
+                        type="button"
+                        onClick={onClose}
+                        className="rounded-lg border border-sky-700 px-4 py-2 text-sm font-semibold text-sky-100 transition hover:border-sky-400 hover:text-white"
+                      >
+                        Back to pathway
+                      </button>
+                    </div>
                   </div>
                 </div>
               ) : (
@@ -2605,6 +2648,8 @@ function PathwayModule({ module, onBack, progress, onAnswer, onKnowMore, onShowC
   const moduleLevelIds = new Set(module.levels.map((level) => level.id));
   const moduleCompletedLevelIds = completedLevelIds.filter((levelId) => moduleLevelIds.has(levelId));
   const nextLevelIndex = Math.min(moduleCompletedLevelIds.length, module.levels.length - 1);
+  const activeLevelIndex = activeLevel ? module.levels.findIndex((level) => level.id === activeLevel.id) : -1;
+  const modalNextLevel = activeLevelIndex >= 0 ? module.levels[activeLevelIndex + 1] : null;
 
   const completeLevel = (levelId, correct) => onAnswer(module.id, module.levels, levelId, correct);
 
@@ -2792,9 +2837,14 @@ function PathwayModule({ module, onBack, progress, onAnswer, onKnowMore, onShowC
           <FlashcardModal
             key={activeLevel.id}
             level={activeLevel}
+            moduleTitle={module.title}
+            currentLevelIndex={activeLevelIndex}
+            totalLevels={module.levels.length}
+            nextLevel={modalNextLevel}
             onClose={() => setActiveLevel(null)}
             onComplete={completeLevel}
             onKnowMore={onKnowMore}
+            onGoToLevel={setActiveLevel}
           />
         )}
       </AnimatePresence>
