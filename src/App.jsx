@@ -176,8 +176,44 @@ const lateralPathwayLevels = [
     type: 'blank',
     placeholder: 'Type the lamina',
     answer: 'Lamina I and II (Rexed)',
-    acceptedAnswers: ['rexed lamina i', 'rexed lamina ii', 'rexed lamina i and ii', 'lamina i', 'lamina ii', 'lamina i and ii', 'i', 'ii', 'i and ii', '1', '2', '1 and 2'],
-    accepted: ['lamina i', 'lamina 1', 'lamina ii', 'lamina 2', 'i and ii', '1 and 2', 'substantia gelatinosa'],
+    acceptedAnswers: [
+      'rexed lamina i',
+      'rexed lamina ii',
+      'rexed laminae i and ii',
+      'rexed lamina i and ii',
+      'rexed lamina 1',
+      'rexed lamina 2',
+      'rexed laminae 1 and 2',
+      'rexed lamina 1 and 2',
+      'lamina i',
+      'lamina ii',
+      'laminae i and ii',
+      'lamina i and ii',
+      'lamina 1',
+      'lamina 2',
+      'laminae 1 and 2',
+      'lamina 1 and 2',
+      'i',
+      'ii',
+      'i and ii',
+      '1',
+      '2',
+      '1 and 2',
+    ],
+    accepted: [
+      'lamina i',
+      'lamina 1',
+      'lamina ii',
+      'lamina 2',
+      'laminae i and ii',
+      'laminae 1 and 2',
+      'i and ii',
+      '1 and 2',
+      'substantia gelatinosa',
+      'substantia gelatinosa of rolando',
+      'marginal zone',
+      'marginal nucleus',
+    ],
     minMatches: 1,
     hint: 'Slow dull pain is especially associated with the substantia gelatinosa.',
     knowMore: `C fibers are unmyelinated, slow-conducting fibers that carry dull, aching, or burning pain. They predominantly terminate in Lamina II, the substantia gelatinosa. From there, the signal is processed and passed to deeper laminae such as Lamina V or directly to second-order projection neurons that cross to form the lateral spinothalamic tract.
@@ -200,7 +236,16 @@ A-delta fibers, which carry sharp fast pain, tend to synapse primarily in Lamina
     type: 'blank',
     placeholder: 'Type both positions',
     answer: 'Lateral for sacral fibers; medial for cervical fibers',
-    accepted: ['lateral', 'medial'],
+    accepted: [
+      'lateral',
+      'laterally',
+      'superficial',
+      'peripheral',
+      'medial',
+      'medially',
+      'central',
+      'deep',
+    ],
     minMatches: 2,
     hint: 'Lower body fibers enter first and are pushed outward as newer higher-level fibers join medially.',
     knowMore: `The arrangement of axons in the lateral spinothalamic tract follows a layering effect. As sensory fibers enter at progressively higher spinal levels, newer fibers add to the medial side of the tract and push older lower-level fibers laterally.
@@ -301,7 +346,18 @@ Triggers include shaving, washing the face, brushing teeth, drinking hot or cold
     type: 'blank',
     placeholder: 'Type both terms',
     answer: 'Referred pain; lateral spinothalamic tract',
-    accepted: ['referred', 'lateral spinothalamic'],
+    accepted: [
+      'referred',
+      'referred pain',
+      'viscerosomatic referred',
+      'viscero somatic referred',
+      'lateral spinothalamic',
+      'lateral spinothalamic tract',
+      'spinothalamic',
+      'spinothalamic tract',
+      'anterolateral system',
+      'als',
+    ],
     minMatches: 2,
     hint: 'The brain misattributes visceral pain to a familiar somatic territory carried by the same ascending pain system.',
     knowMore: `The answer is referred pain and lateral spinothalamic tract.
@@ -356,7 +412,19 @@ Crude touch allows a person to detect that a stimulus touched the skin without a
     type: 'blank',
     placeholder: 'Type the receptor class',
     answer: 'Tactile mechanoreceptors',
-    accepted: ['mechanoreceptors', 'tactile mechanoreceptors'],
+    accepted: [
+      'mechanoreceptors',
+      'mechanoreceptor',
+      'tactile mechanoreceptors',
+      'tactile mechanoreceptor',
+      'cutaneous mechanoreceptors',
+      'cutaneous mechanoreceptor',
+      'skin mechanoreceptors',
+      'touch receptors',
+      'pressure receptors',
+      'low threshold mechanoreceptors',
+      'ltmr',
+    ],
     minMatches: 1,
     hint: 'These receptors convert mechanical deformation of skin into neural signals.',
     knowMore: `Mechanoreceptors relay mechanical stimuli into intracellular signal transduction through mechanically gated ion channels. The stimuli may include touch, pressure, stretch, sound waves, or motion.
@@ -498,7 +566,21 @@ Clinical rule of thumb: cerebellar pathways ultimately coordinate movement on th
     type: 'blank',
     placeholder: 'Type the nucleus',
     answer: "Clarke's column",
-    accepted: ["clarke's column", 'clarkes column', 'dorsal nucleus of clarke', 'nucleus dorsalis'],
+    accepted: [
+      "clarke's column",
+      'clarkes column',
+      'clarke column',
+      "clarke's nucleus",
+      'clarkes nucleus',
+      'clarke nucleus',
+      'dorsal nucleus of clarke',
+      "clarke's dorsal nucleus",
+      'nucleus dorsalis',
+      'dorsal nucleus',
+      'thoracic nucleus',
+      'posterior thoracic nucleus',
+      'nucleus dorsalis of clarke',
+    ],
     minMatches: 1,
     hint: 'This named column is present only between T1 and about L2/L3.',
     knowMore: `Clarke's column exists between spinal segments T1 and L2/L3. Lower-limb sensory information entering below L3 travels upward in the dorsal columns through the fasciculus gracilis until it reaches L2, where it synapses in Clarke's column to form the posterior spinocerebellar tract.
@@ -550,7 +632,19 @@ Deep to these spinocerebellar tracts sits the larger lateral corticospinal tract
     type: 'blank',
     placeholder: 'Type both structures',
     answer: 'Dorsal columns and spinocerebellar tracts',
-    accepted: ['dorsal', 'posterior', 'spinocerebellar'],
+    accepted: [
+      'dorsal',
+      'dorsal column',
+      'dorsal columns',
+      'posterior',
+      'posterior column',
+      'posterior columns',
+      'spinocerebellar',
+      'spinocerebellar tract',
+      'spinocerebellar tracts',
+      'posterior spinocerebellar',
+      'anterior spinocerebellar',
+    ],
     minMatches: 2,
     hint: 'One system carries conscious proprioception; the other carries unconscious proprioception.',
     knowMore: `Friedreich's ataxia is a rare, progressive, autosomal recessive neurodegenerative disorder and the most common inherited ataxia. It typically presents between ages 5 and 15 and primarily targets the nervous system and heart.
@@ -626,7 +720,14 @@ The primary motor cortex contains the giant pyramidal cells of Betz in layer V. 
     type: 'blank',
     placeholder: 'Type the internal capsule part',
     answer: 'Posterior limb',
-    accepted: ['posterior limb'],
+    accepted: [
+      'posterior limb',
+      'posterior limb of internal capsule',
+      'posterior limb of the internal capsule',
+      'plic',
+      'posterior part of internal capsule',
+      'posterior part of the internal capsule',
+    ],
     minMatches: 1,
     hint: 'Posterior limb equals power: this is the densely packed motor pathway.',
     knowMoreHighlight: 'REMEMBER',
@@ -789,7 +890,19 @@ The capsule distinction is high-yield: corticobulbar fibers pass through the gen
     type: 'blank',
     placeholder: 'Type both cortical input patterns',
     answer: 'Contralateral; bilateral',
-    accepted: ['contralateral', 'bilateral'],
+    accepted: [
+      'contralateral',
+      'opposite side',
+      'opposite cortical',
+      'opposite cortex',
+      'crossed',
+      'bilateral',
+      'both sides',
+      'both hemispheres',
+      'bilateral cortical',
+      'ipsilateral and contralateral',
+      'uncrossed and crossed',
+    ],
     minMatches: 2,
     hint: 'Forehead sparing happens because the upper face gets commands from both hemispheres.',
     knowMore: `The facial motor nucleus in the pons is functionally split. The upper division controls the forehead and receives bilateral cortical input, so a unilateral UMN lesion usually spares forehead wrinkling. The lower division controls the lower face and receives predominantly contralateral cortical input, so a right UMN lesion weakens the left lower face.
@@ -1112,7 +1225,17 @@ const pathwayLevels = [
     type: 'blank',
     placeholder: 'Type the missing structure',
     answer: 'Dorsal Root Ganglion / DRG',
-    accepted: ['dorsal root ganglion', 'drg'],
+    accepted: [
+      'dorsal root ganglion',
+      'dorsal root ganglia',
+      'drg',
+      'spinal ganglion',
+      'spinal ganglia',
+      'dorsal spinal ganglion',
+      'posterior root ganglion',
+      'posterior root ganglia',
+      'posterior spinal ganglion',
+    ],
     minMatches: 1,
     hint: 'The cell bodies sit just outside the spinal cord in a sensory ganglion.',
     knowMore: knowMoreBasics,
@@ -1399,8 +1522,7 @@ const tractModules = {
     videoSrc: '/audio/Spinalvideo.mp4?v=1',
     iframeTitle: 'Spinal nerve video lesson',
     levels: spinalCordPathwayLevels,
-    unlockOnEnd: true,
-    intro: 'Watch the Spinal Nerve video. The six-phase quiz unlocks when the video ends, with clinical tables and explanatory figures in Know more.',
+    intro: 'Use the Spinal Nerve video as your guide. The clinical levels are available from the start, with tables and explanatory figures in Know more.',
   },
   dcml: {
     id: 'dcml',
@@ -1412,7 +1534,7 @@ const tractModules = {
     levels: pathwayLevels,
     unlockMessageType: 'dcml-quiz-ready',
     unlockTime: 88,
-    intro: 'Use the interactive pathway as your map. The quiz unlocks after the 88-second animation, then opens from the right-side drawer.',
+    intro: 'Use the interactive pathway as your map. Clinical levels are available from the start, and each completed level opens the next.',
   },
   'lateral-stt': {
     id: 'lateral-stt',
@@ -1424,7 +1546,7 @@ const tractModules = {
     levels: lateralPathwayLevels,
     unlockMessageType: 'dcml-quiz-ready',
     unlockTime: 88,
-    intro: 'Use the interactive pathway as your map. The quiz unlocks after the pathway animation, then opens from the right-side drawer.',
+    intro: 'Use the interactive pathway as your map. Clinical levels are available from the start, and each completed level opens the next.',
   },
   'ventral-stt': {
     id: 'ventral-stt',
@@ -1436,7 +1558,7 @@ const tractModules = {
     levels: ventralPathwayLevels,
     unlockMessageType: 'dcml-quiz-ready',
     unlockTime: 97,
-    intro: 'Use the interactive pathway as your map. The quiz unlocks after the pathway animation, then opens from the right-side drawer.',
+    intro: 'Use the interactive pathway as your map. Clinical levels are available from the start, and each completed level opens the next.',
   },
   spinocerebellar: {
     id: 'spinocerebellar',
@@ -1448,7 +1570,7 @@ const tractModules = {
     levels: spinocerebellarPathwayLevels,
     unlockMessageType: 'dcml-quiz-ready',
     unlockTime: 97,
-    intro: 'Use the interactive pathway as your map. The quiz unlocks after the pathway animation, then opens from the right-side drawer.',
+    intro: 'Use the interactive pathway as your map. Clinical levels are available from the start, and each completed level opens the next.',
   },
   corticospinal: {
     id: 'corticospinal',
@@ -1460,7 +1582,7 @@ const tractModules = {
     levels: corticospinalPathwayLevels,
     unlockMessageType: 'dcml-quiz-ready',
     unlockTime: 97,
-    intro: 'Use the interactive pathway as your map. The quiz unlocks after the pathway animation, then opens from the right-side drawer.',
+    intro: 'Use the interactive pathway as your map. Clinical levels are available from the start, and each completed level opens the next.',
   },
   corticobulbar: {
     id: 'corticobulbar',
@@ -1472,7 +1594,7 @@ const tractModules = {
     levels: corticobulbarPathwayLevels,
     unlockMessageType: 'dcml-quiz-ready',
     unlockTime: 97,
-    intro: 'Use the interactive corticobulbar pathway as your map. The quiz unlocks after the pathway animation, then opens from the right-side drawer.',
+    intro: 'Use the interactive corticobulbar pathway as your map. Clinical levels are available from the start, and each completed level opens the next.',
   },
 };
 
@@ -1770,25 +1892,44 @@ function CertificateModal({ progress, onClose }) {
   );
 }
 
+function normalizeAnswerValue(value) {
+  return String(value ?? '')
+    .toLowerCase()
+    .replace(/&/g, ' and ')
+    .replace(/[-_/]/g, ' ')
+    .replace(/[^\w\s]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function answerContains(normalizedValue, term) {
+  const normalizedTerm = normalizeAnswerValue(term);
+  if (!normalizedTerm) return false;
+  return normalizedValue === normalizedTerm || normalizedValue.includes(normalizedTerm);
+}
+
 function isAnswerCorrect(level, value) {
   if (!value) return false;
-  const normalized = value.trim().toLowerCase();
+  const normalized = normalizeAnswerValue(value);
 
   if (level.type === 'blank') {
     if (level.acceptedAnswers) {
-      return level.acceptedAnswers.some((answer) => normalized === answer);
+      const exactMatch = level.acceptedAnswers.some((answer) => normalized === normalizeAnswerValue(answer));
+      const acceptedMatch = (level.accepted ?? []).some((term) => answerContains(normalized, term));
+      return exactMatch || acceptedMatch;
     }
     if (level.acceptedGroups) {
       const matchCount = level.acceptedGroups.filter((group) =>
-        group.some((term) => normalized.includes(term))
+        group.some((term) => answerContains(normalized, term))
       ).length;
       return matchCount >= (level.minMatches ?? 1);
     }
-    const matchCount = level.accepted.filter((term) => normalized.includes(term)).length;
+    const acceptedTerms = [...(level.accepted ?? []), level.answer].filter(Boolean);
+    const matchCount = acceptedTerms.filter((term) => answerContains(normalized, term)).length;
     return matchCount >= (level.minMatches ?? 1);
   }
 
-  return normalized === level.answer.toLowerCase();
+  return normalized === normalizeAnswerValue(level.answer);
 }
 
 function SupplementaryReading({ content }) {
@@ -2319,11 +2460,7 @@ function QuizDrawer({ levels, completedLevelIds, activeLevelId, isReady, isOpen,
       <button
         type="button"
         onClick={onToggle}
-        className={`grid h-16 w-8 -translate-y-1/2 place-items-center rounded-l-lg border border-r-0 px-1 py-2 text-[10px] font-semibold shadow-xl transition ${
-          isReady
-            ? 'border-sky-600 bg-sky-700 text-white hover:bg-sky-800'
-            : 'border-slate-300 bg-slate-200 text-slate-500'
-        }`}
+        className="grid h-16 w-8 -translate-y-1/2 place-items-center rounded-l-lg border border-r-0 border-sky-600 bg-sky-700 px-1 py-2 text-[10px] font-semibold text-white shadow-xl transition hover:bg-sky-800"
         style={{ writingMode: 'vertical-rl', textOrientation: 'mixed' }}
         aria-expanded={isOpen}
         aria-label="Pathway Quiz"
@@ -2343,14 +2480,14 @@ function QuizDrawer({ levels, completedLevelIds, activeLevelId, isReady, isOpen,
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-sky-700">Gamified Pathway</p>
             <h2 className="mt-1 text-xl font-semibold">Pathway Quiz</h2>
             <p className="mt-1 text-sm leading-6 text-slate-600">
-              {isReady ? 'Complete each level to unlock the next.' : 'Finish the lesson video or pathway animation to unlock the quiz.'}
+              Complete each level to unlock the next. You can start Level 1 immediately.
             </p>
           </div>
 
           <div className="grid overflow-hidden rounded-lg border border-slate-200">
             {levels.map((level, index) => {
               const isCompleted = moduleCompletedLevelIds.includes(level.id);
-              const isUnlocked = isReady && (index <= nextIndex || isCompleted);
+              const isUnlocked = index <= nextIndex || isCompleted;
               const isActive = activeLevelId === level.id;
 
               return (
@@ -2362,7 +2499,7 @@ function QuizDrawer({ levels, completedLevelIds, activeLevelId, isReady, isOpen,
                   className={`grid grid-cols-[1fr_auto] items-center gap-3 border-b border-slate-200 px-3 py-3 text-left text-sm transition last:border-b-0 ${
                     isActive && isUnlocked
                       ? 'bg-sky-50 text-sky-950'
-                      : isReady && isCompleted
+                      : isCompleted
                         ? 'bg-emerald-50 text-emerald-900'
                         : isUnlocked
                           ? 'bg-white text-slate-800 hover:bg-sky-50'
@@ -2374,7 +2511,7 @@ function QuizDrawer({ levels, completedLevelIds, activeLevelId, isReady, isOpen,
                     {level.label}
                   </span>
                   <span className="text-lg" aria-hidden="true">
-                    {isReady && isCompleted ? '✓' : isUnlocked ? '›' : '🔒'}
+                    {isCompleted ? '✓' : isUnlocked ? '›' : '🔒'}
                   </span>
                 </button>
               );
@@ -2641,7 +2778,7 @@ function PathwayModule({ module, onBack, progress, onAnswer, onKnowMore, onShowC
   const pathwayFrameRef = useRef(null);
   const pathwayMediaRef = useRef(null);
   const [activeLevel, setActiveLevel] = useState(null);
-  const [quizReady, setQuizReady] = useState(false);
+  const [quizReady, setQuizReady] = useState(true);
   const [quizDrawerOpen, setQuizDrawerOpen] = useState(false);
   const [badgeDrawerOpen, setBadgeDrawerOpen] = useState(false);
   const completedLevelIds = progress.completedLevels;
@@ -2655,7 +2792,7 @@ function PathwayModule({ module, onBack, progress, onAnswer, onKnowMore, onShowC
 
   useEffect(() => {
     setActiveLevel(null);
-    setQuizReady(false);
+    setQuizReady(true);
     setQuizDrawerOpen(false);
     setBadgeDrawerOpen(false);
   }, [module.id]);
@@ -2663,7 +2800,6 @@ function PathwayModule({ module, onBack, progress, onAnswer, onKnowMore, onShowC
   useEffect(() => {
     const unlockQuiz = () => {
       setQuizReady(true);
-      setQuizDrawerOpen(true);
     };
 
     const handleMessage = (event) => {
@@ -2725,12 +2861,12 @@ function PathwayModule({ module, onBack, progress, onAnswer, onKnowMore, onShowC
         <aside className="hidden rounded-2xl border border-sky-900/80 bg-[#08172b] p-4 shadow-2xl lg:block">
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-sky-300">Learning path</p>
           <p className="mt-2 text-sm leading-6 text-slate-400">
-            {quizReady ? 'Attempt each level. A tip appears only after an incorrect answer.' : 'Complete the pathway lesson to unlock the clinical questions.'}
+            Start with Level 1 at any time. Each completed level opens the next, and a tip appears only after an incorrect answer.
           </p>
           <div className="mt-4 grid gap-2">
             {module.levels.map((level, index) => {
               const isCompleted = moduleCompletedLevelIds.includes(level.id);
-              const isUnlocked = quizReady && (index <= nextLevelIndex || isCompleted);
+              const isUnlocked = index <= nextLevelIndex || isCompleted;
               const isActive = activeLevel?.id === level.id;
 
               return (
@@ -2767,8 +2903,8 @@ function PathwayModule({ module, onBack, progress, onAnswer, onKnowMore, onShowC
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-pink-300">Interactive pathway</p>
               <p className="mt-1 text-base font-semibold text-white">{module.displayTitle}</p>
             </div>
-            <span className={`w-fit rounded-full border px-3 py-1 text-xs font-semibold ${quizReady ? 'border-lime-400/60 bg-lime-400/10 text-lime-200' : 'border-amber-400/60 bg-amber-400/10 text-amber-200'}`}>
-              {quizReady ? 'Quiz unlocked' : 'Lesson in progress'}
+            <span className="w-fit rounded-full border border-lime-400/60 bg-lime-400/10 px-3 py-1 text-xs font-semibold text-lime-200">
+              Clinical levels ready
             </span>
           </div>
           <div className="relative min-h-[70vh] bg-slate-950">
@@ -2804,7 +2940,7 @@ function PathwayModule({ module, onBack, progress, onAnswer, onKnowMore, onShowC
           <span className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Module progress</span>
           <div className="flex gap-2">
             {module.levels.map((level, index) => (
-              <span key={level.id} className={`grid h-8 w-8 place-items-center rounded-full border text-xs font-bold ${moduleCompletedLevelIds.includes(level.id) ? 'border-lime-400 bg-lime-400/20 text-lime-200' : index === nextLevelIndex && quizReady ? 'border-pink-400 bg-pink-500/20 text-pink-200' : 'border-sky-900 bg-slate-950/30 text-slate-500'}`}>{index + 1}</span>
+              <span key={level.id} className={`grid h-8 w-8 place-items-center rounded-full border text-xs font-bold ${moduleCompletedLevelIds.includes(level.id) ? 'border-lime-400 bg-lime-400/20 text-lime-200' : index === nextLevelIndex ? 'border-pink-400 bg-pink-500/20 text-pink-200' : 'border-sky-900 bg-slate-950/30 text-slate-500'}`}>{index + 1}</span>
             ))}
           </div>
         </div>

@@ -8,13 +8,15 @@
   <script src="http://maxwellito.github.io/vivus/dist/vivus.min.js"></script>
   <style>
 svg {
-  border: 3px solid #eee;
+  border: 1px solid #0ea5e9;
+  border-radius: 18px;
   display: block;
   margin: 1em auto;
-  background-color: none;
+  background-color: #020817;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
 }
 p {
-  color: blue;
+  color: #bae6fd;
   text-align: center;
   margin: 2em 0;
 }
@@ -27,10 +29,12 @@ p {
 	 viewBox="0 0 595.3 841.9" style="enable-background:new 0 0 595.3 841.9;" xml:space="preserve">
 <style type="text/css">
   svg {
-  border: 3px solid #eee;
+  border: 1px solid #0ea5e9;
+  border-radius: 18px;
   display: block;
   margin: 0 auto; /* Centered horizontally */
-  background-color: none;
+  background-color: #020817;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
   
   /* These lines ensure the full height is displayed initially */
   height: 95vh;   /* Uses 95% of the browser window height */
@@ -95,7 +99,51 @@ p {
 	.st55{fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-miterlimit:10;}
 	.st56{fill:#2E3192;}
 	.st57{font-size:42.0705px;}
+	.tract-bg{fill:url(#tractBg);}
+	.tract-grid{fill:url(#tractGrid);opacity:0.28;}
+	.tract-ambient-halo{fill:url(#tractHalo);opacity:0.62;}
+	.tract-particles{pointer-events:none;}
+	.tract-particles circle{fill:#67E8F9;opacity:0.16;filter:url(#tractSoftGlow);}
+	.tract-label{pointer-events:none;}
+	.tract-label rect{fill:#061526;fill-opacity:0.93;stroke:#38BDF8;stroke-width:0.85;rx:7;filter:url(#tractLabelShadow);}
+	.tract-label.major rect{stroke:#F472B6;}
+	.tract-label.clinical rect{stroke:#FACC15;}
+	.tract-label text{font-family:Arial, Helvetica, sans-serif;font-size:10px;font-weight:700;fill:#F8FAFC;}
+	.tract-label .sub{font-size:8px;font-weight:600;fill:#BAE6FD;}
+	.tract-label .warn{fill:#FEF3C7;}
+	.tract-pointer{stroke:#FACC15;stroke-width:0.9;stroke-linecap:round;stroke-dasharray:2.5 2.5;fill:none;opacity:0.88;}
 </style>
+<defs>
+	<linearGradient id="tractBg" x1="0" y1="-60" x2="0" y2="920" gradientUnits="userSpaceOnUse">
+		<stop offset="0%" stop-color="#020817"/>
+		<stop offset="48%" stop-color="#061427"/>
+		<stop offset="100%" stop-color="#081C2F"/>
+	</linearGradient>
+	<radialGradient id="tractHalo" cx="50%" cy="16%" r="72%">
+		<stop offset="0%" stop-color="#164E63" stop-opacity="0.9"/>
+		<stop offset="52%" stop-color="#0F172A" stop-opacity="0.28"/>
+		<stop offset="100%" stop-color="#020817" stop-opacity="0"/>
+	</radialGradient>
+	<pattern id="tractGrid" width="36" height="36" patternUnits="userSpaceOnUse">
+		<path d="M36 0H0V36" fill="none" stroke="#38BDF8" stroke-width="0.35" opacity="0.45"/>
+	</pattern>
+	<filter id="tractSoftGlow" x="-80%" y="-80%" width="260%" height="260%">
+		<feGaussianBlur stdDeviation="3" result="blur"/>
+		<feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+	</filter>
+	<filter id="tractLabelShadow" x="-20%" y="-35%" width="140%" height="180%">
+		<feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.42"/>
+	</filter>
+</defs>
+<rect id="tract-stage-bg" class="tract-bg" x="-60" y="-60" width="720" height="980"/>
+<rect class="tract-grid" x="-60" y="-60" width="720" height="980"/>
+<ellipse class="tract-ambient-halo" cx="298" cy="88" rx="320" ry="280"/>
+<g id="tract-particles" class="tract-particles">
+	<circle cx="96" cy="742" r="1.9"><animate attributeName="cy" values="742;680;742" dur="14s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.05;0.24;0.05" dur="14s" repeatCount="indefinite"/></circle>
+	<circle cx="214" cy="560" r="1.5"><animate attributeName="cy" values="560;488;560" dur="12s" begin="1s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.04;0.18;0.04" dur="12s" begin="1s" repeatCount="indefinite"/></circle>
+	<circle cx="485" cy="645" r="1.8"><animate attributeName="cy" values="645;570;645" dur="16s" begin="0.6s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.04;0.2;0.04" dur="16s" begin="0.6s" repeatCount="indefinite"/></circle>
+	<circle cx="420" cy="310" r="1.7"><animate attributeName="cy" values="310;245;310" dur="13s" begin="1.7s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.05;0.22;0.05" dur="13s" begin="1.7s" repeatCount="indefinite"/></circle>
+</g>
 <pattern  y="841.9" width="72" height="72" patternUnits="userSpaceOnUse" id="SVGID_10_" viewBox="5.3 -81.1 72 72" style="overflow:visible;">
 	<g>
 		<rect x="5.3" y="-81.1" class="st0" width="72" height="72"/>
@@ -9651,6 +9699,44 @@ p {
 	<text transform="matrix(1 0 0 1 361.2061 502.0879)" class="st5 st51">Pons</text>
 	<text transform="matrix(1 0 0 1 333.958 672.9648)" class="st5 st51">Medulla</text>
 	<text transform="matrix(1 0 0 1 103.5825 35.2134)" class="st56 st5 st57">Corticobulbar tracts</text>
+</g>
+<g id="corticobulbar-educational-labels">
+	<g class="tract-label major" transform="translate(38 52)">
+		<rect width="148" height="30" rx="7"/>
+		<text x="8" y="13">Motor cortex</text>
+		<text class="sub" x="8" y="25">face area</text>
+	</g>
+	<path class="tract-pointer" d="M186 66 L250 112"/>
+	<g class="tract-label" transform="translate(390 162)">
+		<rect width="128" height="30" rx="7"/>
+		<text x="8" y="13">Genu of capsule</text>
+		<text class="sub" x="8" y="25">corticobulbar fibers</text>
+	</g>
+	<path class="tract-pointer" d="M390 178 L335 214"/>
+	<g class="tract-label major" transform="translate(406 356)">
+		<rect width="118" height="30" rx="7"/>
+		<text x="8" y="13">Corticobulbar tract</text>
+		<text class="sub" x="8" y="25">brainstem descent</text>
+	</g>
+	<path class="tract-pointer" d="M406 372 L336 414"/>
+	<g class="tract-label" transform="translate(62 454)">
+		<rect width="138" height="30" rx="7"/>
+		<text x="8" y="13">Facial motor nucleus</text>
+		<text class="sub" x="8" y="25">pons</text>
+	</g>
+	<path class="tract-pointer" d="M200 470 L260 520"/>
+	<g class="tract-label" transform="translate(50 602)">
+		<rect width="148" height="30" rx="7"/>
+		<text x="8" y="13">Hypoglossal nucleus</text>
+		<text class="sub" x="8" y="25">medulla</text>
+	</g>
+	<path class="tract-pointer" d="M198 618 L285 665"/>
+	<g class="tract-label clinical" transform="translate(350 720)">
+		<rect width="178" height="30" rx="7"/>
+		<text x="8" y="13">Bilateral cortical input</text>
+		<text class="sub warn" x="8" y="25">except lower face/tongue bias</text>
+	</g>
+	<path class="tract-pointer" d="M350 735 L300 690"/>
 </g>
 <g id="Camera">
 	<rect id="Cortex1" x="78" y="0" class="st0" width="409" height="836"/>

@@ -8,13 +8,15 @@
   <script src="http://maxwellito.github.io/vivus/dist/vivus.min.js"></script>
   <style>
 svg {
-  border: 3px solid #eee;
+  border: 1px solid #0ea5e9;
+  border-radius: 18px;
   display: block;
   margin: 1em auto;
-  background-color: none;
+  background-color: #020817;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
 }
 p {
-  color: blue;
+  color: #bae6fd;
   text-align: center;
   margin: 2em 0;
 }
@@ -33,10 +35,12 @@ p {
 	 viewBox="0 0 793.4 1313.1" style="enable-background:new 0 0 793.4 1313.1;" xml:space="preserve">
 <style type="text/css">
   svg {
-  border: 3px solid #eee;
+  border: 1px solid #0ea5e9;
+  border-radius: 18px;
   display: block;
   margin: 0 auto; /* Centered horizontally */
-  background-color: none;
+  background-color: #020817;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
   
   /* These lines ensure the full height is displayed initially */
   height: 95vh;   /* Uses 95% of the browser window height */
@@ -65,7 +69,53 @@ p {
 	.st19{font-family:'ArialMT';}
 	.st20{font-size:4px;}
 	.st21{fill:none;}
+	.tract-bg{fill:url(#tractBg);}
+	.tract-grid{fill:url(#tractGrid);opacity:0.28;}
+	.tract-ambient-halo{fill:url(#tractHalo);opacity:0.62;}
+	.tract-particles{pointer-events:none;}
+	.tract-particles circle{fill:#67E8F9;opacity:0.16;filter:url(#tractSoftGlow);}
+	.tract-label{pointer-events:none;}
+	.tract-label rect{fill:#061526;fill-opacity:0.93;stroke:#38BDF8;stroke-width:0.85;rx:7;filter:url(#tractLabelShadow);}
+	.tract-label.major rect{stroke:#F472B6;}
+	.tract-label.clinical rect{stroke:#FACC15;}
+	.tract-label text{font-family:Arial, Helvetica, sans-serif;font-size:12px;font-weight:700;fill:#F8FAFC;}
+	.tract-label .sub{font-size:9.5px;font-weight:600;fill:#BAE6FD;}
+	.tract-label .warn{fill:#FEF3C7;}
+	.tract-pointer{stroke:#FACC15;stroke-width:1.15;stroke-linecap:round;stroke-dasharray:3 3;fill:none;opacity:0.88;}
 </style>
+<defs>
+	<linearGradient id="tractBg" x1="0" y1="-80" x2="0" y2="1410" gradientUnits="userSpaceOnUse">
+		<stop offset="0%" stop-color="#020817"/>
+		<stop offset="48%" stop-color="#061427"/>
+		<stop offset="100%" stop-color="#081C2F"/>
+	</linearGradient>
+	<radialGradient id="tractHalo" cx="50%" cy="16%" r="72%">
+		<stop offset="0%" stop-color="#164E63" stop-opacity="0.9"/>
+		<stop offset="52%" stop-color="#0F172A" stop-opacity="0.28"/>
+		<stop offset="100%" stop-color="#020817" stop-opacity="0"/>
+	</radialGradient>
+	<pattern id="tractGrid" width="48" height="48" patternUnits="userSpaceOnUse">
+		<path d="M48 0H0V48" fill="none" stroke="#38BDF8" stroke-width="0.45" opacity="0.45"/>
+	</pattern>
+	<filter id="tractSoftGlow" x="-80%" y="-80%" width="260%" height="260%">
+		<feGaussianBlur stdDeviation="4" result="blur"/>
+		<feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+	</filter>
+	<filter id="tractLabelShadow" x="-20%" y="-35%" width="140%" height="180%">
+		<feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#000000" flood-opacity="0.42"/>
+	</filter>
+</defs>
+<rect id="tract-stage-bg" class="tract-bg" x="-80" y="-80" width="960" height="1480"/>
+<rect class="tract-grid" x="-80" y="-80" width="960" height="1480"/>
+<ellipse class="tract-ambient-halo" cx="397" cy="130" rx="440" ry="420"/>
+<g id="tract-particles" class="tract-particles">
+	<circle cx="112" cy="1190" r="2.4"><animate attributeName="cy" values="1190;1110;1190" dur="14s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.05;0.24;0.05" dur="14s" repeatCount="indefinite"/></circle>
+	<circle cx="238" cy="925" r="1.8"><animate attributeName="cy" values="925;815;925" dur="12s" begin="1s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.04;0.18;0.04" dur="12s" begin="1s" repeatCount="indefinite"/></circle>
+	<circle cx="616" cy="1000" r="2.1"><animate attributeName="cy" values="1000;900;1000" dur="16s" begin="0.6s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.04;0.2;0.04" dur="16s" begin="0.6s" repeatCount="indefinite"/></circle>
+	<circle cx="585" cy="650" r="2.3"><animate attributeName="cy" values="650;535;650" dur="13s" begin="1.7s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.05;0.22;0.05" dur="13s" begin="1.7s" repeatCount="indefinite"/></circle>
+	<circle cx="376" cy="405" r="1.7"><animate attributeName="cy" values="405;315;405" dur="17s" begin="0.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.04;0.18;0.04" dur="17s" begin="0.4s" repeatCount="indefinite"/></circle>
+	<circle cx="632" cy="220" r="2.2"><animate attributeName="cy" values="220;130;220" dur="18s" begin="1.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.04;0.21;0.04" dur="18s" begin="1.2s" repeatCount="indefinite"/></circle>
+</g>
 <g id="Layer_1_1_">
 	<title>Asset 29</title>
 	<g id="Layer_2">
@@ -1350,6 +1400,56 @@ p {
 				c-0.1,0-0.2-0.1-0.3-0.1c-0.6,0.1-1.2,0.5-1.2,1.2c0,0.2-0.1,0.3-0.1,0.5v2.7h-0.9L485.8,500.1L485.8,500.1z"/>
 		</g>
 	</g>
+</g>
+<g id="spinocerebellar-educational-labels">
+	<g class="tract-label major" transform="translate(38 1136)">
+		<rect width="178" height="34" rx="7"/>
+		<text x="9" y="14">Muscle spindle / GTO</text>
+		<text class="sub" x="9" y="27">unconscious proprioception</text>
+	</g>
+	<path class="tract-pointer" d="M216 1153 L292 1194"/>
+	<g class="tract-label" transform="translate(500 1168)">
+		<rect width="138" height="32" rx="7"/>
+		<text x="9" y="14">DRG</text>
+		<text class="sub" x="9" y="27">first-order soma</text>
+	</g>
+	<path class="tract-pointer" d="M500 1184 L445 1205"/>
+	<g class="tract-label" transform="translate(504 1058)">
+		<rect width="158" height="32" rx="7"/>
+		<text x="9" y="14">Clarke's nucleus</text>
+		<text class="sub" x="9" y="27">posterior tract relay</text>
+	</g>
+	<path class="tract-pointer" d="M504 1075 L440 1114"/>
+	<g class="tract-label major" transform="translate(502 842)">
+		<rect width="206" height="34" rx="7"/>
+		<text x="9" y="14">Posterior spinocerebellar tract</text>
+		<text class="sub" x="9" y="27">ipsilateral to cerebellum</text>
+	</g>
+	<path class="tract-pointer" d="M502 859 L442 912"/>
+	<g class="tract-label major" transform="translate(34 705)">
+		<rect width="202" height="34" rx="7"/>
+		<text x="9" y="14">Anterior spinocerebellar tract</text>
+		<text class="sub" x="9" y="27">double-crossing pathway</text>
+	</g>
+	<path class="tract-pointer" d="M236 723 L312 768"/>
+	<g class="tract-label" transform="translate(492 606)">
+		<rect width="142" height="32" rx="7"/>
+		<text x="9" y="14">Inferior peduncle</text>
+		<text class="sub" x="9" y="27">posterior tract entry</text>
+	</g>
+	<path class="tract-pointer" d="M492 623 L430 678"/>
+	<g class="tract-label" transform="translate(42 470)">
+		<rect width="150" height="32" rx="7"/>
+		<text x="9" y="14">Superior peduncle</text>
+		<text class="sub" x="9" y="27">anterior tract entry</text>
+	</g>
+	<path class="tract-pointer" d="M192 487 L286 544"/>
+	<g class="tract-label clinical" transform="translate(475 236)">
+		<rect width="224" height="34" rx="7"/>
+		<text x="9" y="14">Cerebellar comparator</text>
+		<text class="sub warn" x="9" y="27">coordinates posture and gait</text>
+	</g>
+	<path class="tract-pointer" d="M475 253 L398 315"/>
 </g>
 <g id="Camera">
 	<rect id="Receptorcemera" x="168.5" y="1039.9" class="st21" width="212.1" height="273.2"/>

@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>e-Inovasi Poster - Spinal Cord Explorer</title>
+  <style>
+    @page {
+      size: A1 portrait;
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #020817;
+      color: #f8fafc;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+    }
+
+    .poster {
+      width: 594mm;
+      min-height: 841mm;
+      margin: 0 auto;
+      padding: 24mm;
+      background:
+        radial-gradient(circle at 18% 12%, rgba(236, 72, 153, 0.18), transparent 28%),
+        radial-gradient(circle at 84% 14%, rgba(14, 165, 233, 0.18), transparent 30%),
+        linear-gradient(135deg, #020817 0%, #061222 42%, #08172b 100%);
+    }
+
+    .topbar {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16mm;
+      align-items: end;
+      padding-bottom: 10mm;
+      border-bottom: 1.5mm solid rgba(14, 165, 233, 0.38);
+    }
+
+    .eyebrow {
+      margin: 0 0 5mm;
+      color: #facc15;
+      font-size: 10mm;
+      font-weight: 800;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 25mm;
+      line-height: 1.04;
+      letter-spacing: -0.03em;
+    }
+
+    .subtitle {
+      margin: 6mm 0 0;
+      color: #bae6fd;
+      font-size: 8.5mm;
+      line-height: 1.35;
+      max-width: 360mm;
+    }
+
+    .badge {
+      border: 0.8mm solid rgba(236, 72, 153, 0.7);
+      background: rgba(236, 72, 153, 0.13);
+      border-radius: 6mm;
+      padding: 7mm 9mm;
+      color: #fce7f3;
+      font-size: 7mm;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      text-align: center;
+      min-width: 105mm;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.02fr 1fr 1fr;
+      gap: 9mm;
+      margin-top: 11mm;
+    }
+
+    .card {
+      border: 0.7mm solid rgba(14, 165, 233, 0.42);
+      background: rgba(8, 23, 43, 0.88);
+      border-radius: 8mm;
+      padding: 8mm;
+      box-shadow: 0 10mm 28mm rgba(0, 0, 0, 0.28);
+    }
+
+    .wide {
+      grid-column: span 2;
+    }
+
+    .full {
+      grid-column: 1 / -1;
+    }
+
+    h2 {
+      margin: 0 0 5mm;
+      color: #f9a8d4;
+      font-size: 8.5mm;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    h3 {
+      margin: 5mm 0 3mm;
+      color: #e0f2fe;
+      font-size: 7.2mm;
+    }
+
+    p, li {
+      color: #dbeafe;
+      font-size: 6.2mm;
+      line-height: 1.48;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 7mm;
+    }
+
+    .problem {
+      font-size: 7mm;
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    .feature-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4mm 7mm;
+      padding: 0;
+      list-style: none;
+    }
+
+    .feature-list li {
+      border-left: 1.2mm solid #22d3ee;
+      padding-left: 4mm;
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6mm;
+    }
+
+    .metric {
+      min-height: 38mm;
+      border-radius: 6mm;
+      border: 0.6mm solid rgba(132, 204, 22, 0.55);
+      background: rgba(20, 83, 45, 0.22);
+      padding: 5mm;
+    }
+
+    .metric .number {
+      display: block;
+      color: #bef264;
+      font-size: 15mm;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .metric .label {
+      display: block;
+      margin-top: 3mm;
+      color: #ecfccb;
+      font-size: 5mm;
+      line-height: 1.32;
+    }
+
+    .bar-row {
+      display: grid;
+      grid-template-columns: 72mm 1fr 24mm;
+      gap: 4mm;
+      align-items: center;
+      margin: 4mm 0;
+    }
+
+    .bar-label,
+    .bar-value {
+      color: #e0f2fe;
+      font-size: 5.5mm;
+      line-height: 1.25;
+    }
+
+    .bar-track {
+      height: 7mm;
+      overflow: hidden;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 0.4mm solid rgba(125, 211, 252, 0.28);
+    }
+
+    .bar {
+      height: 100%;
+      background: linear-gradient(90deg, #22d3ee, #ec4899);
+      border-radius: inherit;
+    }
+
+    .quote {
+      border-left: 1.4mm solid #facc15;
+      padding-left: 5mm;
+      color: #fef3c7;
+      font-size: 6.2mm;
+      line-height: 1.42;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 4mm;
+    }
+
+    .step {
+      border-radius: 6mm;
+      background: rgba(15, 23, 42, 0.82);
+      border: 0.5mm solid rgba(236, 72, 153, 0.45);
+      padding: 5mm;
+      min-height: 42mm;
+    }
+
+    .step strong {
+      display: block;
+      color: #f9a8d4;
+      font-size: 5.8mm;
+      margin-bottom: 2mm;
+    }
+
+    .step span {
+      color: #dbeafe;
+      font-size: 5.2mm;
+      line-height: 1.34;
+    }
+
+    .footer {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12mm;
+      margin-top: 10mm;
+      padding-top: 7mm;
+      border-top: 1mm solid rgba(14, 165, 233, 0.32);
+      color: #cbd5e1;
+      font-size: 5.2mm;
+      line-height: 1.4;
+    }
+
+    .qr {
+      width: 36mm;
+      height: 36mm;
+      display: grid;
+      place-items: center;
+      border-radius: 4mm;
+      border: 0.7mm solid rgba(248, 250, 252, 0.75);
+      background: #ffffff;
+      padding: 2mm;
+      color: #0f172a;
+      font-size: 4.4mm;
+      text-align: center;
+    }
+
+    .qr img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    @media print {
+      body {
+        background: white;
+      }
+
+      .poster {
+        margin: 0;
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="poster">
+    <section class="topbar">
+      <div>
+        <p class="eyebrow">Interactive Learning Experience</p>
+        <h1>Spinal Cord Explorer</h1>
+        <p class="subtitle">A clinically integrated, gamified web application for learning spinal cord tracts through interactive visualization, active recall, and lesion localization.</p>
+      </div>
+      <div class="badge">e-Inovasi<br>Professional Category</div>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h2>Background</h2>
+        <p class="problem">Spinal cord tracts are abstract, spatially complex, and clinically high-yield.</p>
+        <p>Students must integrate pathway anatomy, sensory or motor modality, decussation level, somatotopy, and clinical syndromes. Traditional static diagrams often do not sufficiently support this integration.</p>
+      </article>
+
+      <article class="card">
+        <h2>Objective</h2>
+        <p>To develop and pilot-test an interactive spinal cord tract learning application that supports:</p>
+        <ul>
+          <li>visual pathway understanding</li>
+          <li>active recall and feedback</li>
+          <li>clinical lesion localization</li>
+          <li>mobile-friendly self-directed learning</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>Innovation</h2>
+        <ul>
+          <li>Interactive spinal cord atlas</li>
+          <li>Animated tract modules</li>
+          <li>Attempt-first clinical questions</li>
+          <li>Hints after incorrect attempts</li>
+          <li>Know-more explanations</li>
+          <li>Badges, points, certificates</li>
+        </ul>
+      </article>
+
+      <article class="card wide">
+        <h2>Design Methodology</h2>
+        <div class="flow">
+          <div class="step"><strong>Analyse</strong><span>Identified learning difficulty in neuroanatomy tract localization.</span></div>
+          <div class="step"><strong>Design</strong><span>Mapped objectives to layered pathway levels and clinical scenarios.</span></div>
+          <div class="step"><strong>Develop</strong><span>Built web-based dashboard, animations, quizzes, and feedback panels.</span></div>
+          <div class="step"><strong>Implement</strong><span>Shared with students through browser-based access on personal devices.</span></div>
+          <div class="step"><strong>Evaluate</strong><span>Collected pilot feedback from 19 student users.</span></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <h2>Learning Flow</h2>
+        <ul class="feature-list">
+          <li>Choose ascending or descending pathway</li>
+          <li>Watch animated tract movement</li>
+          <li>Attempt progressive clinical levels</li>
+          <li>Receive targeted hints and explanation</li>
+          <li>Advance using next-level navigation</li>
+          <li>Track progress and awards</li>
+        </ul>
+      </article>
+
+      <article class="card full">
+        <h2>Pilot Feedback Results</h2>
+        <div class="metric-grid">
+          <div class="metric"><span class="number">19</span><span class="label">student responses analysed</span></div>
+          <div class="metric"><span class="number">4.58</span><span class="label">mean design and interface rating out of 5</span></div>
+          <div class="metric"><span class="number">4.68</span><span class="label">mean interactive diagram effectiveness out of 5</span></div>
+          <div class="metric"><span class="number">89.5%</span><span class="label">found quizzes appropriately challenging</span></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <h2>Student Ratings</h2>
+        <div class="bar-row"><span class="bar-label">Design/UI rated 4 or 5</span><div class="bar-track"><div class="bar" style="width:100%"></div></div><span class="bar-value">100%</span></div>
+        <div class="bar-row"><span class="bar-label">Diagrams rated 4 or 5</span><div class="bar-track"><div class="bar" style="width:100%"></div></div><span class="bar-value">100%</span></div>
+        <div class="bar-row"><span class="bar-label">Anatomy explanations Good/Excellent</span><div class="bar-track"><div class="bar" style="width:100%"></div></div><span class="bar-value">100%</span></div>
+        <div class="bar-row"><span class="bar-label">Physiology explanations Good/Excellent</span><div class="bar-track"><div class="bar" style="width:94.7%"></div></div><span class="bar-value">94.7%</span></div>
+        <div class="bar-row"><span class="bar-label">Clinical correlates Good/Excellent</span><div class="bar-track"><div class="bar" style="width:89.5%"></div></div><span class="bar-value">89.5%</span></div>
+      </article>
+
+      <article class="card">
+        <h2>Mobile Utility</h2>
+        <p>Most students accessed the application through smartphones, supporting its use as a portable self-directed learning tool.</p>
+        <div class="bar-row"><span class="bar-label">Android smartphone</span><div class="bar-track"><div class="bar" style="width:73.7%"></div></div><span class="bar-value">73.7%</span></div>
+        <div class="bar-row"><span class="bar-label">iOS smartphone</span><div class="bar-track"><div class="bar" style="width:15.8%"></div></div><span class="bar-value">15.8%</span></div>
+        <div class="bar-row"><span class="bar-label">Tablet</span><div class="bar-track"><div class="bar" style="width:5.3%"></div></div><span class="bar-value">5.3%</span></div>
+      </article>
+
+      <article class="card">
+        <h2>User Feedback</h2>
+        <p class="quote">"It's very good"</p>
+        <p class="quote">"More labellings in the tracts to write it as a flowchart"</p>
+        <h3>Improvement Priorities</h3>
+        <ul>
+          <li>More tract labels</li>
+          <li>Flowchart-style pathway summaries</li>
+          <li>More topics and modules</li>
+          <li>Smoother transition between points</li>
+        </ul>
+      </article>
+
+      <article class="card full">
+        <h2>Conclusion and Future Scope</h2>
+        <p>The Spinal Cord Explorer was well received by student users and demonstrated strong perceived usefulness for understanding spinal cord tracts. The module combines visualization, active recall, clinical reasoning, and gamification in a scalable browser-based format. Future development will include expanded tract labeling, flowchart summaries, additional neuroanatomy topics, and formal pre-test/post-test evaluation.</p>
+      </article>
+    </section>
+
+    <section class="footer">
+      <div>
+        <strong>Developed by:</strong> Dr. Prarthana KG, Department of Human Biology, IMU University, Bukit Jalil, Kuala Lumpur, Malaysia; Dr. Viveka S, Department of Anatomy, Shridevi Medical College, Tumkur, India.
+        <br>
+        <strong>Suggested presentation category:</strong> Interactive Learning Experience.
+      </div>
+      <div class="qr" aria-label="QR code linking to the Spinal Cord Explorer application">
+        <img src="poster_qr_code.png" alt="QR code to access the Spinal Cord Explorer application">
+      </div>
+    </section>
+  </main>
+</body>
+</html>
